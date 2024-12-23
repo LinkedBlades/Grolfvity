@@ -18,7 +18,7 @@ public class BallPhysics : MonoBehaviour
     Vector2 mousePosIni;
     Vector2 mousePosEnd;
     Vector2 ballPos;
-    [SerializeField] float shotStrenght = 1;
+    [SerializeField] float shotStrength = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +70,7 @@ public class BallPhysics : MonoBehaviour
     private void OnMouseUp()
     {
         //ballPos = Camera.main.ScreenToWorldPoint(ballPos);
-        rbody.AddForce((ballPos - mousePosEnd) * shotStrenght, ForceMode2D.Impulse);
+        rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
     }
 
 }
