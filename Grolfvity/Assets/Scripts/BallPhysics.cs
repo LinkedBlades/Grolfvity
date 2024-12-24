@@ -18,12 +18,23 @@ public class BallPhysics : MonoBehaviour
     Vector2 mousePosIni;
     Vector2 mousePosEnd;
     Vector2 ballPos;
+    Vector2 startVertex;
+    [SerializeField] Material mat;
     [SerializeField] float shotStrength = 1;
+
+    //Aim Line variables
+    Vector2 aimLineIni;
+    Vector2 aimLineEnd;
+    GameObject aimLine;
+    //LineRenderer currentLineRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+
+
     }
 
     // Update is called once per frame
@@ -54,6 +65,9 @@ public class BallPhysics : MonoBehaviour
         //mousePosIni = Input.mousePosition;
         ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
 
+        aimLineIni = ballPos;
+        startVertex = ballPos;
+
         Debug.Log("Click on hotspot");
 
     }
@@ -63,7 +77,10 @@ public class BallPhysics : MonoBehaviour
         //Getting mouse position into world coordinates for aiming shot
         mousePosEnd = Input.mousePosition;
         mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-        Debug.DrawRay(mousePosIni, mousePosEnd, Color.blue);
+
+        //Updating aim line end
+        aimLineEnd = ballPos - mousePosEnd;
+        drawAimLIne();
 
     }
 
@@ -72,5 +89,46 @@ public class BallPhysics : MonoBehaviour
         //ballPos = Camera.main.ScreenToWorldPoint(ballPos);
         rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
     }
+
+    private void OnPostRender()
+    {
+        if (!mat)
+        {
+            Debug.LogError("Please Assign a material on the inspector");
+            return;
+        }
+        GL.PushMatrix();
+        mat.SetPass(0);
+        GL.LoadOrtho();
+
+        GL.Begin(GL.LINES);
+        GL.Color(Color.red);
+        GL.Vertex(startVertex);
+        GL.Vertex(new Vector3(mousePosEnd.x, mousePosEnd.y, 0));
+        GL.End();
+
+        GL.PopMatrix();
+    }
+
+    private void drawAimLIne()
+    {
+        if (!mat)
+        {
+            Debug.LogError("Please Assign a material on the inspector");
+            return;
+        }
+        GL.PushMatrix();
+        mat.SetPass(0);
+        GL.LoadOrtho();
+
+        GL.Begin(GL.LINES);
+        GL.Color(Color.red);
+        GL.Vertex(startVertex);
+        GL.Vertex(new Vector3(mousePosEnd.x, mousePosEnd.y, 0));
+        GL.End();
+
+        GL.PopMatrix();
+    }
+
 
 }
