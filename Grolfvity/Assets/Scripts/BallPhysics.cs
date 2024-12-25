@@ -12,6 +12,7 @@ public class BallPhysics : MonoBehaviour
     //Getting rigid body
     Rigidbody2D rbody;
     [SerializeField] float magnitude;
+    [SerializeField] aimLine aimLine;
     //[SerializeField] float friction;
 
     //Shot variables
@@ -25,7 +26,7 @@ public class BallPhysics : MonoBehaviour
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
-    GameObject aimLine;
+    //GameObject aimLine;
     //LineRenderer currentLineRenderer;
 
 
@@ -33,7 +34,7 @@ public class BallPhysics : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-
+        aimLine = GetComponentInChildren<aimLine>();
 
     }
 
@@ -41,11 +42,9 @@ public class BallPhysics : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.DrawRay(this.transform.position, rbody.velocity, Color.red);
-
         if (mousePosEnd != null && ballPos != null)
         {
-            Debug.DrawLine(ballPos, -mousePosEnd);
+            Debug.DrawLine(ballPos, -mousePosEnd, Color.blue);
 
         }
     }
@@ -67,9 +66,6 @@ public class BallPhysics : MonoBehaviour
 
         aimLineIni = ballPos;
         startVertex = ballPos;
-
-        Debug.Log("Click on hotspot");
-
     }
 
     private void OnMouseDrag()
@@ -80,7 +76,8 @@ public class BallPhysics : MonoBehaviour
 
         //Updating aim line end
         aimLineEnd = ballPos - mousePosEnd;
-        drawAimLIne();
+
+        aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
 
     }
 
@@ -88,47 +85,7 @@ public class BallPhysics : MonoBehaviour
     {
         //ballPos = Camera.main.ScreenToWorldPoint(ballPos);
         rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+        aimLine.ClearAimLine();
     }
-
-    private void OnPostRender()
-    {
-        if (!mat)
-        {
-            Debug.LogError("Please Assign a material on the inspector");
-            return;
-        }
-        GL.PushMatrix();
-        mat.SetPass(0);
-        GL.LoadOrtho();
-
-        GL.Begin(GL.LINES);
-        GL.Color(Color.red);
-        GL.Vertex(startVertex);
-        GL.Vertex(new Vector3(mousePosEnd.x, mousePosEnd.y, 0));
-        GL.End();
-
-        GL.PopMatrix();
-    }
-
-    private void drawAimLIne()
-    {
-        if (!mat)
-        {
-            Debug.LogError("Please Assign a material on the inspector");
-            return;
-        }
-        GL.PushMatrix();
-        mat.SetPass(0);
-        GL.LoadOrtho();
-
-        GL.Begin(GL.LINES);
-        GL.Color(Color.red);
-        GL.Vertex(startVertex);
-        GL.Vertex(new Vector3(mousePosEnd.x, mousePosEnd.y, 0));
-        GL.End();
-
-        GL.PopMatrix();
-    }
-
-
+    
 }

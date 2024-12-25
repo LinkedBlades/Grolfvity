@@ -2,70 +2,78 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEditor.Timeline.Actions;
 using UnityEditorInternal;
 using UnityEngine;
 
 public class aimLine : MonoBehaviour
 {
+    [SerializeField] Transform projectilePrefab;
+    [SerializeField] Transform spawnPoint;
+    [SerializeField] LineRenderer lineRenderer;
 
-    //Variables for drawing aim line
-    private Vector2 startVertex;
-    private Vector2 mousePosEnd;
-    [SerializeField] Material mat;
+    Vector2 startMousePos;
+    Vector2 currentMousePos;
+    Vector3[] positions;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        positions = new Vector3[2];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
-    }
-
-    private void OnPostRender()
-    {
-        if (!mat)
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.LogError("Please Assign a material on the inspector");
-            return;
+            positions[0] = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
-    }
+        if(Input.GetMouseButton(0))
+        {
+            positions[1] = -Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
 
-    private void OnMouseDown()
-    {
-        startVertex = Input.mousePosition;
-        startVertex = Camera.main.ScreenToWorldPoint(startVertex);
-    }
+        //Debug.Log("mouseDown ")
 
-    private void OnMouseDrag()
-    {
-        mousePosEnd = Input.mousePosition;
-        mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-        drawAimLine(startVertex);
+        DrawAimLine();
 
     }
 
-    public void drawAimLine(Vector2 startVertex)
+    public void OnMouseUp()
     {
-        GL.PushMatrix();
-        mat.SetPass(0);
-        GL.LoadOrtho();
+        Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
 
-        GL.Begin(GL.LINES);
-        GL.Color(Color.red);
-        GL.Vertex(startVertex);
-        GL.Vertex(new Vector3(mousePosEnd.x, mousePosEnd.y, 0));
-        GL.End();
+    public void UpdateLineRenderer(Vector2 start, Vector2 end)
+    {
+        positions[0] = start;
+        positions[1] = end;
 
-        GL.PopMatrix();
+        for (int i = 0; i < positions.Length; i++)
+        {
+            positions[i].z = 0f;
+        }
+
+        lineRenderer.positionCount = positions.Length;
+
+    }
+    private void DrawAimLine()
+    {
+        if (lineRenderer.positionCount > 0)
+        {
+            lineRenderer.SetPositions(positions);
+
+        }
+    }
+
+    public void ClearAimLine()
+    {
+        lineRenderer.positionCount = 0;
     }
 
 }
