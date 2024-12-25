@@ -12,29 +12,39 @@ public class BallPhysics : MonoBehaviour
     //Getting rigid body
     Rigidbody2D rbody;
     [SerializeField] float magnitude;
+    [SerializeField] aimLine aimLine;
     //[SerializeField] float friction;
 
     //Shot variables
     Vector2 mousePosIni;
     Vector2 mousePosEnd;
     Vector2 ballPos;
+    Vector2 startVertex;
+    [SerializeField] Material mat;
     [SerializeField] float shotStrength = 1;
+
+    //Aim Line variables
+    Vector2 aimLineIni;
+    Vector2 aimLineEnd;
+    //GameObject aimLine;
+    //LineRenderer currentLineRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        aimLine = GetComponentInChildren<aimLine>();
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        Debug.DrawRay(this.transform.position, rbody.velocity, Color.red);
-
         if (mousePosEnd != null && ballPos != null)
         {
-            Debug.DrawLine(ballPos, -mousePosEnd);
+            Debug.DrawLine(ballPos, -mousePosEnd, Color.blue);
 
         }
     }
@@ -54,8 +64,8 @@ public class BallPhysics : MonoBehaviour
         //mousePosIni = Input.mousePosition;
         ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
 
-        Debug.Log("Click on hotspot");
-
+        aimLineIni = ballPos;
+        startVertex = ballPos;
     }
 
     private void OnMouseDrag()
@@ -63,7 +73,11 @@ public class BallPhysics : MonoBehaviour
         //Getting mouse position into world coordinates for aiming shot
         mousePosEnd = Input.mousePosition;
         mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-        Debug.DrawRay(mousePosIni, mousePosEnd, Color.blue);
+
+        //Updating aim line end
+        aimLineEnd = ballPos - mousePosEnd;
+
+        aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
 
     }
 
@@ -71,6 +85,7 @@ public class BallPhysics : MonoBehaviour
     {
         //ballPos = Camera.main.ScreenToWorldPoint(ballPos);
         rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+        aimLine.ClearAimLine();
     }
-
+    
 }

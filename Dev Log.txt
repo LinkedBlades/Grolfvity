@@ -1,0 +1,22 @@
+Dev Log
+
+
+Sunday 22/12/2024
+-GitHub repo set up 
+-First iteration of mouse down-drag-up shoot
+-Added a scaling parameter for shot strength 
+-Hotspot implemented but not visible yet
+-Things to implement: visible hotspot, aim line, cancel shot if mouse drag is short.
+
+
+Tuesday 24/12/2024
+-Experimenting with drawing aim lime
+-Tried GL and Line Renderer clases in Unity
+-Tried attaching scripts for rendering aim line to camera and
+ball both unsuccessfully
+
+Wednesday 25/12/2024
+-Managed to implement a working aim line with Line Renderer class
+-Expanded Ball prefab with aim line renderer and script for control
+
+
