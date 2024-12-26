@@ -21,6 +21,7 @@ public class aimLine : MonoBehaviour
     {
         //Initializing positions array
         positions = new Vector3[2];
+        lineRenderer = GetComponentInParent<LineRenderer>();
     }
 
     private void Update()
