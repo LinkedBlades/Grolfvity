@@ -11,37 +11,21 @@ using UnityEngine;
 
 public class aimLine : MonoBehaviour
 {
-    [SerializeField] Transform projectilePrefab;
-    [SerializeField] Transform spawnPoint;
+    //Line renderer reference, asigned in inspector
     [SerializeField] LineRenderer lineRenderer;
 
-    Vector2 startMousePos;
-    Vector2 currentMousePos;
+    //Array to store points for line renderer
     Vector3[] positions;
 
     private void Start()
     {
+        //Initializing positions array
         positions = new Vector3[2];
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            positions[0] = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //startMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-            positions[1] = -Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        //Debug.Log("mouseDown ")
-
         DrawAimLine();
-
     }
 
     public void OnMouseUp()
@@ -67,7 +51,6 @@ public class aimLine : MonoBehaviour
         if (lineRenderer.positionCount > 0)
         {
             lineRenderer.SetPositions(positions);
-
         }
     }
 
