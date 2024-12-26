@@ -22,10 +22,6 @@ public class ballInHoleCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Ball")
-        {
-            Debug.Log("Ball collision");
-        }
 
     }
 
@@ -33,8 +29,7 @@ public class ballInHoleCheck : MonoBehaviour
     {
         if (collision.tag == "Ball" && collision.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1f)
         {
-            Debug.Log(collision.GetComponent<Rigidbody2D>().velocity.magnitude);
-                Debug.Log("Ball stopped in collider");
+            Debug.Log("Ball stopped in collider");
         }
     }
 

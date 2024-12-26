@@ -11,9 +11,7 @@ public class BallPhysics : MonoBehaviour
 {
     //Getting rigid body
     Rigidbody2D rbody;
-    [SerializeField] float magnitude;
-    [SerializeField] aimLine aimLine;
-    //[SerializeField] float friction;
+    aimLine aimLine;
 
     //Shot variables
     Vector2 mousePosIni;
@@ -25,9 +23,6 @@ public class BallPhysics : MonoBehaviour
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
-    //GameObject aimLine;
-    //LineRenderer currentLineRenderer;
-
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +43,9 @@ public class BallPhysics : MonoBehaviour
         }
     }
 
+
+    //Events
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "Gravity Field")
@@ -58,46 +56,55 @@ public class BallPhysics : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {   
-        //Unused variable for now
-        //mousePosIni = Input.mousePosition;
-        ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
+    {
+        //Ball stopped check
+        if (rbody.velocity.magnitude <= 0.1f)
+        {
+            ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
 
-        aimLineIni = ballPos;
+            aimLineIni = ballPos;
+        }
 
     }
 
     private void OnMouseDrag()
     {
-        //Getting mouse position into world coordinates for aiming shot
-        mousePosEnd = Input.mousePosition;
-        mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-    
-        //Updating aim line end
-        aimLineEnd = (ballPos - mousePosEnd);
-
-        //Checking for mouse distance before drawing aimline
-        if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
+        //Ball stopped check
+        if (rbody.velocity.magnitude <= 0.1f)
         {
-            aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
-        }
+            //Getting mouse position into world coordinates for aiming shot
+            mousePosEnd = Input.mousePosition;
+            mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
 
-        if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
-        {
-            aimLine.ClearAimLine();
-        }
+            //Updating aim line end
+            aimLineEnd = (ballPos - mousePosEnd);
 
+            //Checking for mouse distance before drawing aimline
+            if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
+            {
+                aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
+            }
+
+            if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
+            {
+                aimLine.ClearAimLine();
+            }
+        }
     }
 
     private void OnMouseUp()
     {
-        //Check distance before shooting
-        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f)
+        //Ball stopped check
+        if (rbody.velocity.magnitude <= 0.1f)
         {
-            rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+            //Check distance before shooting
+            if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f)
+            {
+                rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+            }
+
+            aimLine.ClearAimLine();
         }
-        
-        aimLine.ClearAimLine();
     }
 
 }
