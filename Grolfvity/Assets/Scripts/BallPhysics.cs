@@ -19,7 +19,6 @@ public class BallPhysics : MonoBehaviour
     Vector2 mousePosIni;
     Vector2 mousePosEnd;
     Vector2 ballPos;
-    Vector2 startVertex;
     [SerializeField] Material mat;
     [SerializeField] float shotStrength = 1;
 
@@ -65,7 +64,7 @@ public class BallPhysics : MonoBehaviour
         ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
 
         aimLineIni = ballPos;
-        startVertex = ballPos;
+
     }
 
     private void OnMouseDrag()
@@ -73,19 +72,32 @@ public class BallPhysics : MonoBehaviour
         //Getting mouse position into world coordinates for aiming shot
         mousePosEnd = Input.mousePosition;
         mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-
+    
         //Updating aim line end
-        aimLineEnd = ballPos - mousePosEnd;
+        aimLineEnd = (ballPos - mousePosEnd);
 
-        aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
+        //Checking for mouse distance before drawing aimline
+        if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
+        {
+            aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
+        }
+
+        if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
+        {
+            aimLine.ClearAimLine();
+        }
 
     }
 
     private void OnMouseUp()
     {
-        //ballPos = Camera.main.ScreenToWorldPoint(ballPos);
-        rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+        //Check distance before shooting
+        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f)
+        {
+            rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+        }
+        
         aimLine.ClearAimLine();
     }
-    
+
 }
