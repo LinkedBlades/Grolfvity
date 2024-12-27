@@ -19,12 +19,10 @@ Wednesday 25/12/2024
 -Managed to implement a working aim line with Line Renderer class
 -Expanded Ball prefab with aim line renderer and script for control
 
-<<<<<<< Updated upstream
-=======
 Thursday 26/15/2024
 -Found aim line not drawing as intended, check vector algebra for possible fix
 -Implemented Hole prefab with script to check for ball collision and ball stopping within it.
 -Added condition to be unable to shoot ball while moving.
 
->>>>>>> Stashed changes
+
 

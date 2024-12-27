@@ -12,9 +12,7 @@ public class BallPhysics : MonoBehaviour
 {
     //Getting rigid body
     Rigidbody2D rbody;
-    [SerializeField] float magnitude;
-    [SerializeField] aimLine aimLine;
-    //[SerializeField] float friction;
+    aimLine aimLine;
 
     //Shot variables
     Vector2 mousePosEnd;
@@ -40,6 +38,8 @@ public class BallPhysics : MonoBehaviour
 
     }
 
+
+    //Events
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "Gravity Field")
@@ -62,7 +62,6 @@ public class BallPhysics : MonoBehaviour
 
     private void OnMouseDrag()
     {
-
         //Variables for storing direction and lengtt of aim line
         Vector2 aimDirection;
         float aimMagnitude;
@@ -92,12 +91,6 @@ public class BallPhysics : MonoBehaviour
                 aimLine.ClearAimLine();
             }
         }
-
-        if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
-        {
-            aimLine.ClearAimLine();
-        }
-
     }
 
     private void OnMouseUp()
@@ -105,9 +98,9 @@ public class BallPhysics : MonoBehaviour
         //Check distance before shooting
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && rbody.velocity.magnitude <= 0.1f)
         {
+
             rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
         }
-        
         aimLine.ClearAimLine();
     }
 
