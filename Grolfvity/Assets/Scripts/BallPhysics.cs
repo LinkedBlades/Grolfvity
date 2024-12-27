@@ -24,13 +24,8 @@ public class BallPhysics : MonoBehaviour
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
-<<<<<<< Updated upstream
-    //GameObject aimLine;
-    //LineRenderer currentLineRenderer;
 
-=======
     [SerializeField] float maxLineLenght = 10;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -56,30 +51,18 @@ public class BallPhysics : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {   
-        //Unused variable for now
-        //mousePosIni = Input.mousePosition;
-        ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
+    {
+        //Ball stopped check
+        if (rbody.velocity.magnitude <= 0.1f)
+        {
+            ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
 
-        aimLineIni = ballPos;
-
+            aimLineIni = ballPos;
+        }
     }
 
     private void OnMouseDrag()
     {
-<<<<<<< Updated upstream
-        //Getting mouse position into world coordinates for aiming shot
-        mousePosEnd = Input.mousePosition;
-        mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
-    
-        //Updating aim line end
-        aimLineEnd = (ballPos - mousePosEnd);
-
-        //Checking for mouse distance before drawing aimline
-        if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
-        {
-            aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
-=======
 
         //Variables for storing direction and lengtt of aim line
         Vector2 aimDirection;
@@ -109,7 +92,6 @@ public class BallPhysics : MonoBehaviour
             {
                 aimLine.ClearAimLine();
             }
->>>>>>> Stashed changes
         }
 
         if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
@@ -122,7 +104,7 @@ public class BallPhysics : MonoBehaviour
     private void OnMouseUp()
     {
         //Check distance before shooting
-        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f)
+        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && rbody.velocity.magnitude <= 0.1f)
         {
             rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
         }
