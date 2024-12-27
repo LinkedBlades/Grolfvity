@@ -24,7 +24,6 @@ public class BallPhysics : MonoBehaviour
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
-
     [SerializeField] float maxLineLenght = 10;
 
     // Start is called before the first frame update
