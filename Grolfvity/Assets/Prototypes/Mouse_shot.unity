@@ -436,9 +436,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5692080596631803043, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: maxLineLenght
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 58494019943877578, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 58494019943877578, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_AngularDrag
@@ -851,10 +855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cbbf4a799e04b42b0a6824c740a34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 0
-  aimLine: {fileID: 0}
-  mat: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   shotStrength: 1.5
+  maxLineLenght: 0
 --- !u!120 &1476815321 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 2520707818518082763, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
