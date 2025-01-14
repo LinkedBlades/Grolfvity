@@ -24,18 +24,25 @@ public class BallPhysics : MonoBehaviour
     Vector2 aimLineEnd;
     [SerializeField] float maxLineLenght = 10;
 
+
+    //Temporary debug variables
+    [SerializeField] float ySpeed;
+    [SerializeField] float xSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         aimLine = GetComponentInChildren<aimLine>();
 
+        rbody.velocity = new Vector2(xSpeed,ySpeed);
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        //Debug.Log("Ball velocity = " + rbody.velocity.magnitude);
     }
 
 
@@ -51,6 +58,8 @@ public class BallPhysics : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("Mouse clicked");
+
         //Ball stopped check
         if (rbody.velocity.magnitude <= 0.1f)
         {
@@ -101,6 +110,8 @@ public class BallPhysics : MonoBehaviour
 
             rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
         }
+        
+        //Clear vertices to stop drawing line
         aimLine.ClearAimLine();
     }
 
