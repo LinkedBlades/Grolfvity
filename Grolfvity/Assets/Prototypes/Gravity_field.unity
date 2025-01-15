@@ -172,7 +172,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -184,7 +184,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &586281205
 SpriteRenderer:
@@ -264,6 +264,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 8225560c92fc7cc42bae0c6aa153481c, type: 2}
+    - target: {fileID: 5543632008077118229, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: ySpeed
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820963267667705987, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6820963267667705987, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_Interpolate
       value: 1
