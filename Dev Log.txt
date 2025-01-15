@@ -30,5 +30,16 @@ Sunday 12/01/2025
 -Create game managers. Sound and scene managers are still not needed. Game manager should keep track of
 shots taken and time. 
 
+Monday 13/01/2025
+-Basic implementation of planets gravity field and small planet game object with magnitude control variable
+and gravitational pull based on distance from planet when ball within the gravity field.
+-Had to damp distance factor in gravity pull due to working with small distances in the project
+-Found bouncing ball bug where ball would not stop bouncing in the surface of the planet
 
+Wednesday 15/01/2025
+-Solved bouncing ball bug buy adding physics material to planet rigid body and tweaking the bounciness parameter
+-Added gravity field to "Ignore raycast" layer so player can once again click on ball hotspot and shoot the ball once its stopped
+-Still missing to implement: Check for ball stopping inside a planet and not outer space
+			     Change ball linear drag when inside gravity field to X value and back to 0 in outer space
+			     
 

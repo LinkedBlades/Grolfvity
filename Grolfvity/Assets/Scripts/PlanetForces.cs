@@ -8,7 +8,7 @@ public class PlanetForces : MonoBehaviour
 {
     //Variables for controlling gravity field
     [SerializeField] float pullMagnitude = 1;
-    [SerializeField] float radius;
+    [SerializeField] float distanceDamping = 2;
 
     //Ball reference for when coming field
     GameObject ball;
@@ -38,10 +38,7 @@ public class PlanetForces : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(collision.gameObject.tag == "Ball")
-        //{
-        //    Debug.Log("Ball entered field");
-        //}
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -52,11 +49,9 @@ public class PlanetForces : MonoBehaviour
 
             float distanceModifier = Vector3.Distance(this.transform.position, collision.transform.position);
             Vector2 pullDirection = Vector3.Normalize(this.transform.position - collision.transform.position);
-            Vector2 gravPull = (pullMagnitude * pullDirection) / (Mathf.Pow(distanceModifier, 2 ) * 2);
+            Vector2 gravPull = (pullMagnitude * pullDirection) / (Mathf.Pow(distanceModifier, 2 ) * distanceDamping);
 
             Debug.DrawRay(collision.transform.position, gravPull, Color.yellow);
-            //Debug.Log("grav pull" + gravPull);
-
 
             collision.attachedRigidbody.AddForce(gravPull, ForceMode2D.Force);
         }
@@ -64,10 +59,7 @@ public class PlanetForces : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Ball")
-        //{
-        //    Debug.Log("Ball left field");
-        //}
+
     }
 
 }
