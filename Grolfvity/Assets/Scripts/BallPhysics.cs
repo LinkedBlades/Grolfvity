@@ -32,7 +32,7 @@ public class BallPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rbody = GetComponent<Rigidbody2D>();
+        rbody = GetComponentInChildren<Rigidbody2D>();
         aimLine = GetComponentInChildren<aimLine>();
 
         rbody.velocity = new Vector2(xSpeed,ySpeed);
@@ -42,7 +42,14 @@ public class BallPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log("Ball velocity = " + rbody.velocity.magnitude);
+        Debug.Log("Ball velocity = " + rbody.velocity.magnitude);
+
+        if (rbody.velocity.magnitude <= 0.2)
+        {
+            rbody.velocity = new Vector2(0, 0);
+            Debug.Log("Ball stopped");
+        }
+
     }
 
 
