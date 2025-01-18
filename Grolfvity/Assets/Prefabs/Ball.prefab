@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 7410548598021636548}
   - component: {fileID: 2611677951725447456}
   - component: {fileID: 6820963267667705987}
-  - component: {fileID: 2550903469208634837}
   - component: {fileID: 4260584589658401443}
   - component: {fileID: 5543632008077118229}
   m_Layer: 0
@@ -297,41 +296,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &2550903469208634837
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7202392765572485277}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!120 &4260584589658401443
 LineRenderer:
   serializedVersion: 2
@@ -448,6 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cbbf4a799e04b42b0a6824c740a34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballSpeedCap: 0
+  drag: 0.2
+  ballStoppedTimer: 1
   shotStrength: 1
   maxLineLenght: 10
   ySpeed: 0

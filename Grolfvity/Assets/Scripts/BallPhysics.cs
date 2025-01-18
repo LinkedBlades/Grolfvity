@@ -10,19 +10,29 @@ using UnityEngine;
 
 public class BallPhysics : MonoBehaviour
 {
+
+    //Contorller references
+    GameController gController;
+
     //Getting rigid body
     Rigidbody2D rbody;
     aimLine aimLine;
 
+    [SerializeField] float ballSpeedCap;
+
+    //Drag
+    [SerializeField] float drag = 0.2f;
+
     //Shot variables
     Vector2 mousePosEnd;
     Vector2 ballPos;
-    [SerializeField] float shotStrength = 1;
+    [SerializeField ]float ballStoppedTimer = 1.0f;
+    [SerializeField] float shotStrength = 1.0f;
 
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
-    [SerializeField] float maxLineLenght = 10;
+    [SerializeField] float maxLineLenght = 10.0f;
 
 
     //Temporary debug variables
@@ -32,8 +42,10 @@ public class BallPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rbody = GetComponentInChildren<Rigidbody2D>();
-        aimLine = GetComponentInChildren<aimLine>();
+        rbody = this.GetComponent<Rigidbody2D>();
+        aimLine = this.GetComponentInChildren<aimLine>();
+
+        gController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         rbody.velocity = new Vector2(xSpeed,ySpeed);
 
@@ -42,35 +54,55 @@ public class BallPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log("Ball velocity = " + rbody.velocity.magnitude);
+        //if (rbody.velocity.magnitude <= 0.2)
+        //{
+        //    rbody.velocity = new Vector2(0, 0);
+        //    Debug.Log("Ball stopped");
+        //}   
 
-        if (rbody.velocity.magnitude <= 0.2)
+        //Debug.Log("Ball velocity= " + rbody.velocity.magnitude);
+
+        if(rbody.velocity.magnitude <= 0.1f && ballStoppedTimer > 0 )
         {
-            rbody.velocity = new Vector2(0, 0);
-            Debug.Log("Ball stopped");
+            ballStoppedTimer -= Time.deltaTime;
+        }
+
+        if(ballStoppedTimer < 0)
+        {
+            Debug.Log("You can shoot now");
+        }
+
+        if (rbody.velocity.magnitude >= ballSpeedCap)
+        {
+            rbody.velocity = rbody.velocity.normalized * ballSpeedCap;
         }
 
     }
 
 
     //Events
-    private void OnTriggerStay2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Gravity Field")
-        {
-            //Temporary while prototyping, eventually will just be set in the editor
-            rbody.gravityScale = 0;
-        }
+        //Setting ball drag to X value ewhen entering planet field
+        rbody.drag = drag;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //Setting ball drag to zero when leaving a planet
+        rbody.drag = 0f;
+    }
+
+
+    //Hitting ball 
 
     private void OnMouseDown()
     {
-        Debug.Log("Mouse clicked");
-
         //Ball stopped check
-        if (rbody.velocity.magnitude <= 0.1f)
+        if (ballStoppedTimer <= 0)
         {
-            ballPos = new Vector2(this.transform.position.x, this.transform.position.y);
+            ballPos = new Vector2(transform.position.x, transform.position.y);
 
             aimLineIni = ballPos;
         }
@@ -78,12 +110,13 @@ public class BallPhysics : MonoBehaviour
 
     private void OnMouseDrag()
     {
+
         //Variables for storing direction and lengtt of aim line
         Vector2 aimDirection;
         float aimMagnitude;
 
         //Ball stopped check
-        if (rbody.velocity.magnitude <= 0.1f)
+        if (ballStoppedTimer <= 0)
         {
             //Getting mouse position into world coordinates for aiming shot
             mousePosEnd = Input.mousePosition;
@@ -112,14 +145,18 @@ public class BallPhysics : MonoBehaviour
     private void OnMouseUp()
     {
         //Check distance before shooting
-        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && rbody.velocity.magnitude <= 0.1f)
+        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
-
             rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+            ballStoppedTimer = 1.0f;
+
+            //Increment hit count in game controller
+            gController.IncrementHits();
+            //Clear vertices to stop drawing line
+            aimLine.ClearAimLine();
+
         }
-        
-        //Clear vertices to stop drawing line
-        aimLine.ClearAimLine();
+
     }
 
 }
