@@ -11,9 +11,6 @@ using UnityEngine;
 public class BallPhysics : MonoBehaviour
 {
 
-    //Contorller references
-    GameController gController;
-
     //Getting rigid body
     Rigidbody2D rbody;
     aimLine aimLine;
@@ -151,7 +148,8 @@ public class BallPhysics : MonoBehaviour
             ballStoppedTimer = 1.0f;
 
             //Increment hit count in game controller
-            gController.IncrementHits();
+            GameController.Instance.IncrementHits();
+
             //Clear vertices to stop drawing line
             aimLine.ClearAimLine();
 

@@ -5,11 +5,25 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    public int levelHits {  get; private set; }
-    public int totalHits { get; private set; }
+    public static GameController Instance;
 
-    private float timer;
+    public int levelStrokes {  get; private set; }
+    public int totalStrokes { get; private set; }
+    public float timer { get; private set; }
 
+    //Instantiate singleton
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+
+    }
 
 
     // Start is called before the first frame update
@@ -27,14 +41,9 @@ public class GameController : MonoBehaviour
 
     public void IncrementHits()
     {
-        levelHits++;
-        totalHits++;
-    }
-
-    //Simply returns time for UI controller
-    public float GetTime()
-    {
-        return timer;
+        Debug.Log("Hits incremented");
+        levelStrokes++;
+        totalStrokes++;
     }
 
 }

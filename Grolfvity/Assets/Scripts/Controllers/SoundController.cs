@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
+
+    public static SoundController Instance;
+
+
     //Audio Sources
     [Header("Audio Sources")]
     [SerializeField] AudioSource BGMSource;
@@ -20,6 +24,19 @@ public class SoundController : MonoBehaviour
     public AudioClip ballBounce;
     public AudioClip ballOnHole;
     public AudioClip levelCompleted;
+
+    //Instantiate singleton
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
 
     void Start()
     {
