@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour
     {
         if(Instance == null)
         {
-            Instantiate(this);
+            Instance = this;
         }
         else
         {

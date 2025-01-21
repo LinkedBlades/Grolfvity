@@ -42,8 +42,6 @@ public class BallPhysics : MonoBehaviour
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
 
-        gController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-
         rbody.velocity = new Vector2(xSpeed,ySpeed);
 
     }

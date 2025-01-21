@@ -13,7 +13,7 @@ public class UIcontroller : MonoBehaviour
     {
         if (Instance == null)
         {
-            Instantiate(this);
+            Instance = this;
         }
         else
         {
