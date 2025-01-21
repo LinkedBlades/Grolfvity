@@ -45,3 +45,7 @@ Wednesday 15/01/2025
 Thursday 16/01/2025
 -Implemented sound manager 
 -Gravity code not working as intended, pull magnitude not varying might have to refrag the code
+
+Monday 20/01/2025
+-Implemented controllers as singletons
+-Created another branch to keep working on Gravity field code that needed to be re done. Need surged from not being able to figure out bug which set the pull magnitude variable value to 1000 and could not be changed through inspector.
