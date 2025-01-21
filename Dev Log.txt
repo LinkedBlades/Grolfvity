@@ -42,4 +42,6 @@ Wednesday 15/01/2025
 -Still missing to implement: Check for ball stopping inside a planet and not outer space
 			     Change ball linear drag when inside gravity field to X value and back to 0 in outer space
 			     
-
+Thursday 16/01/2025
+-Implemented sound manager 
+-Gravity code not working as intended, pull magnitude not varying might have to refrag the code
