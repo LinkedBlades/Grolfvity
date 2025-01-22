@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 public class PlanetForces : MonoBehaviour
 {
     //Variables for controlling gravity field
+    [Header("Replaces G*m1*m2")]
     [SerializeField] float pullMagnitude;
-    [SerializeField] float distanceDamping;
 
     //Ball reference for when coming field
     GameObject ball;

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6240452816077210931}
   - component: {fileID: 6760967859794269905}
-  - component: {fileID: 437034078031483393}
   m_Layer: 0
   m_Name: SmallPlanet
   m_TagString: Untagged
@@ -87,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &437034078031483393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702964458698703320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e4d863eaf1e3414285e0cb71ccf60e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullMagnitude: 1500
-  distanceDamping: 1
 --- !u!1 &5650587867058754735
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850928950174667939}
   - component: {fileID: 3850539930579597700}
-  - component: {fileID: 54466834493581627}
+  - component: {fileID: 5628608928379267339}
   m_Layer: 2
   m_Name: Field
   m_TagString: Untagged
@@ -169,20 +154,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &54466834493581627
+--- !u!114 &5628608928379267339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5650587867058754735}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e4d863eaf1e3414285e0cb71ccf60e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullMagnitude: 1000
-  distanceDamping: 2
+  pullMagnitude: 1250
+  distanceDamping: 0
 --- !u!1 &7826499491313710286
 GameObject:
   m_ObjectHideFlags: 0
