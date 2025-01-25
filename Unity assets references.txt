@@ -1,0 +1,14 @@
+Unity assets references
+Background package 1  : https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
+
+Background package 2 :https://assetstore.unity.com/packages/2d/textures-materials/sky/free-skyboxes-space-178953#publisher
+
+Background nebula : https://assetstore.unity.com/packages/2d/textures-materials/sky/nebula-skyboxes-219924
+
+Dynamic space background : https://assetstore.unity.com/packages/2d/textures-materials/dynamic-space-background-lite-104606
+
+Planets 2D : https://assetstore.unity.com/packages/2d/textures-materials/planets-with-space-background-in-flat-style-95983
+
+Texture 1 free : https://assetstore.unity.com/packages/2d/textures-materials/textures-free-122421
+
+World materials : https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
