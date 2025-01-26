@@ -59,3 +59,7 @@ Friday 24/01/2025
 -Got a couple of background images and some sprites to start experimenting them on planets
 -Re-made Planet prefab for better general use
 -Will experiment with a black background a Unity particle system to create space effect for better style coherence.
+
+Saturday 25/01/2025
+-Managed to get a working scrolling background image
+-Also added sprite for indicating pulsing gravity field. Might want to experiment with particle system next.
