@@ -1,3 +1,5 @@
+------------------- VISUAL ASSETS ------------------------------
+
 Unity assets references
 Background package 1  : https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
 
@@ -12,3 +14,14 @@ Planets 2D : https://assetstore.unity.com/packages/2d/textures-materials/planets
 Texture 1 free : https://assetstore.unity.com/packages/2d/textures-materials/textures-free-122421
 
 World materials : https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
+
+
+------------------- AUDIO ASSETS ------------------------------
+
+Free - Causal and relaxing. :https://assetstore.unity.com/packages/audio/music/free-casual-relaxing-game-music-pack-262740 Potential tracks: Darkness, Mystery, Space Walk
+
+Vertex- Absolutely free music : https://assetstore.unity.com/packages/audio/music/absolutely-free-music-4883#content
+
+Olan -The night sky: https://assetstore.unity.com/packages/audio/music/orchestral/the-night-sky-35720#description
+
+Breitbarth - Deep in space : https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071
