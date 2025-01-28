@@ -40,22 +40,12 @@ public class PlanetForces : MonoBehaviour
 
     }
 
+    //Pull ball when on field range
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //Debug.Log("On trigger stay2d call" + collision.gameObject.name + " " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Ball")
         {
-            Debug.Log("Pull magnitude " + pullMagnitude);
-
             GravityPull(collision.attachedRigidbody, collision.transform);
-
-            //float distanceModifier = Vector3.Distance(this.transform.position, collision.transform.position);
-            //Vector2 pullDirection = Vector3.Normalize(this.transform.position - collision.transform.position);
-            //Vector2 gravPull = (pullMagnitude * pullDirection) / (Mathf.Pow(distanceModifier, 2 ) * distanceDamping);
-
-            //Debug.DrawRay(collision.transform.position, gravPull, Color.yellow);
-
-            //collision.attachedRigidbody.AddForce(gravPull, ForceMode2D.Force);
         }
     }
 

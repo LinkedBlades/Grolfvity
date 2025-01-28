@@ -49,13 +49,6 @@ public class BallPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if (rbody.velocity.magnitude <= 0.2)
-        //{
-        //    rbody.velocity = new Vector2(0, 0);
-        //    Debug.Log("Ball stopped");
-        //}   
-
-        //Debug.Log("Ball velocity= " + rbody.velocity.magnitude);
 
         if(rbody.velocity.magnitude <= 0.1f && ballStoppedTimer > 0 )
         {

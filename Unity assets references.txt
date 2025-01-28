@@ -35,3 +35,11 @@ GWritter Studio  Space SF : https://assetstore.unity.com/packages/audio/sound-fx
 Oliver Girardot Free sound effects pack: https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776
 
 Dustyroom - Free Casual Game SFX Pack : https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116
+
+HoveAudio - SCI-FI UI SOUND EFFECTS HOVE AUDIO : https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-ui-sound-effects-hove-audio-263876#description
+
+cabled_mess - Retro Sci-Fi Pack : https://assetstore.unity.com/packages/audio/sound-fx/retro-sci-fi-pack-61781#content
+
+Pedro Hertz SFX - Universal UI SFX : https://assetstore.unity.com/packages/audio/sound-fx/universal-ui-sfx-269513
+
+Matthew Anett - Classic Footsteps SFX : https://assetstore.unity.com/packages/audio/sound-fx/classic-footstep-sfx-173668 

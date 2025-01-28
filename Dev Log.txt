@@ -63,3 +63,12 @@ Friday 24/01/2025
 Saturday 25/01/2025
 -Managed to get a working scrolling background image
 -Also added sprite for indicating pulsing gravity field. Might want to experiment with particle system next.
+
+Sunday 26/01/2025
+-Added selection of BGM to test during next weeks
+-Added selection of SFX to test during next weeks
+
+Monday 27/01/2025
+-Completed a usable and easily scalable implementation of the Sound Controller for playing sounds in game
+-Changed the aim line to a slimmer white triangle.
+-Made a priority lists of assets needed and their priority.

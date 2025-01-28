@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1789722724264664216}
   m_Layer: 0
   m_Name: Controllers
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   ballBounce: {fileID: 0}
   ballOnHole: {fileID: 0}
   levelCompleted: {fileID: 0}
+  outOfBounds: {fileID: 0}
 --- !u!1 &3067776247262896273
 GameObject:
   m_ObjectHideFlags: 0
