@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Planet
+  - GravField
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ball layer
+    uniqueID: 3301095897
+    locked: 0
+  - name: Planet layer
+    uniqueID: 1402952511
     locked: 0

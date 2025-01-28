@@ -29,7 +29,7 @@ public class ballInHoleCheck : MonoBehaviour
     {
         if (collision.tag == "Ball" && collision.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1f)
         {
-            Debug.Log("Ball stopped in collider");
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole);
         }
     }
 

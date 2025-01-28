@@ -20,9 +20,14 @@ public class SoundController : MonoBehaviour
 
     //SFX samples
     [Header("SFX samples")]
+    [Header("Ball related")]
     public AudioClip ballHit;
     public AudioClip ballBounce;
-    public AudioClip ballOnHole;
+    public AudioClip ballInHole;
+    public AudioClip outOfBounds;
+    public AudioClip ballReady;
+
+    [Header("SFX Extra")]
     public AudioClip levelCompleted;
 
     //Instantiate singleton
