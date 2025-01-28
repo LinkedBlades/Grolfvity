@@ -71,4 +71,10 @@ Sunday 26/01/2025
 Monday 27/01/2025
 -Completed a usable and easily scalable implementation of the Sound Controller for playing sounds in game
 -Changed the aim line to a slimmer white triangle.
--Made a priority lists of assets needed and their priority.
+-Made a priority lists of assets and features needed and their priority.
+-Plan for following days: Implement basic features required for user testing
+	-Ball destroyed and respawned when going out of camera view.
+	-Hole sprite
+	-Map gravity field pull to half its strength on the outside since using the square of the distance makes it
+         unnoticeable when ball is on the outer zone of the edge and increasing pull magnitude will make it hard to shoot
+	planet surface.
