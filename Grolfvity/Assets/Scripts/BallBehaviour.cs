@@ -87,7 +87,7 @@ public class BallBehaviour : MonoBehaviour
         {
             bounceCount++;
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.5f);
-            Debug.Log(bounceCount);
+            //Debug.Log(bounceCount);
         }
     }
 

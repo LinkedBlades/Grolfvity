@@ -78,3 +78,7 @@ Monday 27/01/2025
 	-Map gravity field pull to half its strength on the outside since using the square of the distance makes it
          unnoticeable when ball is on the outer zone of the edge and increasing pull magnitude will make it hard to shoot
 	planet surface.
+
+06/01/2025
+- Zero development in previous days because of catching up with other modules taken.
+- Had a power blackout from 5 PM to 5 AM on different parts of the city due to a storm.
