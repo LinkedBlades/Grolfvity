@@ -82,3 +82,6 @@ Monday 27/01/2025
 06/01/2025
 - Zero development in previous days because of catching up with other modules taken.
 - Had a power blackout from 5 PM to 5 AM on different parts of the city due to a storm.
+
+08/02/2025
+-First re mapping of gravity force pull magnitude for better control of magnitude based on distance to the planet 
