@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
 
     public void IncrementHits()
     {
-        Debug.Log("Hits incremented");
+        //Debug.Log("Hits incremented");
         levelStrokes++;
         totalStrokes++;
     }

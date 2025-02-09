@@ -614,6 +614,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7892716235291961589, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: distCap
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295284000571698316, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
