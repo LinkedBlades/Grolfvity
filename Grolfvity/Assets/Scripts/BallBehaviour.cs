@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour
 {
+    Camera cam;
 
     //Getting rigid body
     Rigidbody2D rbody;
@@ -33,50 +34,73 @@ public class BallBehaviour : MonoBehaviour
     [SerializeField] float maxLineLenght = 10.0f;
 
     //Checking for number of bounces
-    [Header("Boucne count cap for testing")]
-    [SerializeField]private int bounceCount = 0;
+    [Header("Bounce count cap for testing")]
+    [SerializeField] int bounceCount = 0;
+
+    [Header("Pixel tolerance for out of bounds")]
+    [SerializeField] int oobTol = 1;
+
+    //Ball last position
+    Vector2 prevPosition;
 
 
-    //Temporary debug variables
-    [SerializeField] float ySpeed;
-    [SerializeField] float xSpeed;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
-
-        rbody.velocity = new Vector2(xSpeed, ySpeed);
+        cam = Camera.main;
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Debug.Log("Mouse button clicked");
-        //}
-
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
             ballStoppedTimer -= Time.deltaTime;
+            //Stop rendering hotspot sprite
         }
 
         if (ballStoppedTimer < 0)
         {
             Debug.Log("You can shoot now");
+            //Render hotspot sprite
         }
 
+        //Stop ball from going over speed cap
         if (rbody.velocity.magnitude >= ballSpeedCap)
         {
             rbody.velocity = rbody.velocity.normalized * ballSpeedCap;
         }
 
+        CheckBallOutOfBounds();
+
     }
 
+    //Helper methods
+
+    //Checks ball stays within camera boundaries
+    private void CheckBallOutOfBounds()
+    {
+        Vector2 screenPos = cam.WorldToScreenPoint(transform.position);
+
+        if (screenPos.x < -oobTol || screenPos.x > cam.pixelWidth + oobTol || 
+            screenPos.y < -oobTol || screenPos.y > cam.pixelHeight + oobTol)
+        {
+            SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 0.5f);
+            //Move ball back to valid position
+            BallToPreviousPosition();
+        }
+
+    }
+
+    //Stops the ball and moves it back to position before last shot
+    private void BallToPreviousPosition()
+    {
+        transform.position = new Vector2(prevPosition.x, prevPosition.y);
+        rbody.velocity = new Vector2(0f, 0f);
+
+        ballStoppedTimer = 0;
+    }
 
     //Events
 
@@ -156,6 +180,7 @@ public class BallBehaviour : MonoBehaviour
         //Check distance before shooting
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
+            prevPosition = transform.position;
             rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
             ballStoppedTimer = 1.0f;
 
