@@ -211,12 +211,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSource: {fileID: 6516577015778244173}
   SFXSource: {fileID: 9196741375841177871}
-  BGM: {fileID: 0}
-  ballHit: {fileID: 0}
-  ballBounce: {fileID: 0}
-  ballOnHole: {fileID: 0}
+  BGM: {fileID: 8300000, guid: ad403fe5cb1141c4db962f01954ad170, type: 3}
+  ballHit: {fileID: 8300000, guid: 5a36403fea46aae48bfcb3b12847804e, type: 3}
+  ballBounce: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
+  ballInHole: {fileID: 0}
+  outOfBounds: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
+  ballReady: {fileID: 0}
   levelCompleted: {fileID: 0}
-  outOfBounds: {fileID: 0}
 --- !u!1 &3067776247262896273
 GameObject:
   m_ObjectHideFlags: 0

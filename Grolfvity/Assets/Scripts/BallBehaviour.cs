@@ -26,7 +26,8 @@ public class BallBehaviour : MonoBehaviour
     Vector2 ballPos;
     [SerializeField] float minSpeedCheck = 0.1f;
     [SerializeField] float ballStoppedTimer = 1.0f;
-    [SerializeField] float shotStrength = 1.0f;
+    [SerializeField] float shotStrenghtMultiplier = 1.0f;
+    float shotStrenght;
 
     //Aim Line variables
     Vector2 aimLineIni;
@@ -35,7 +36,8 @@ public class BallBehaviour : MonoBehaviour
 
     //Checking for number of bounces
     [Header("Bounce count cap for testing")]
-    [SerializeField] int bounceCount = 0;
+    [SerializeField] int bounceCap = 3;
+    private int bounceCount;
 
     [Header("Pixel tolerance for out of bounds")]
     [SerializeField] int oobTol = 1;
@@ -50,6 +52,8 @@ public class BallBehaviour : MonoBehaviour
         aimLine = this.GetComponentInChildren<aimLine>();
         cam = Camera.main;
 
+        bounceCount = 0;
+
     }
 
     void FixedUpdate()
@@ -63,7 +67,7 @@ public class BallBehaviour : MonoBehaviour
         if (ballStoppedTimer < 0)
         {
             Debug.Log("You can shoot now");
-            //Render hotspot sprite
+            //Render hotspot sprite TO DO
         }
 
         //Stop ball from going over speed cap
@@ -76,7 +80,7 @@ public class BallBehaviour : MonoBehaviour
 
     }
 
-    //Helper methods
+    //--------------------------------------------------Helper methods--------------------------------------------------//
 
     //Checks ball stays within camera boundaries
     private void CheckBallOutOfBounds()
@@ -97,21 +101,25 @@ public class BallBehaviour : MonoBehaviour
     private void BallToPreviousPosition()
     {
         transform.position = new Vector2(prevPosition.x, prevPosition.y);
-        rbody.velocity = new Vector2(0f, 0f);
+        rbody.velocity = Vector2.zero;
 
         ballStoppedTimer = 0;
     }
 
-    //Events
+    //--------------------------------------------------Events--------------------------------------------------//
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-
+        //Stop ball after 3 bounces
         if(col.gameObject.name == "Hitbox")
         {
             bounceCount++;
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.5f);
-            //Debug.Log(bounceCount);
+            if(bounceCount == bounceCap)
+            {
+                rbody.velocity = Vector2.zero;
+                bounceCount = 0;
+            }
         }
     }
 
@@ -143,7 +151,6 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnMouseDrag()
     {
-
         //Variables for storing direction and lengtt of aim line
         Vector2 aimDirection;
         float aimMagnitude;
@@ -158,7 +165,7 @@ public class BallBehaviour : MonoBehaviour
             //Calculating direction and lenght of aimline based on ball and mouse position
             aimDirection = (ballPos - mousePosEnd).normalized;
             aimMagnitude = MathF.Min((ballPos - mousePosEnd).magnitude, maxLineLenght);
-
+            shotStrenght = aimMagnitude;
             //Updating aim line end
             aimLineEnd = ballPos + aimDirection * aimMagnitude;
 
@@ -181,7 +188,7 @@ public class BallBehaviour : MonoBehaviour
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
             prevPosition = transform.position;
-            rbody.AddForce((ballPos - mousePosEnd) * shotStrength, ForceMode2D.Impulse);
+            rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
             ballStoppedTimer = 1.0f;
 
             //Increment hit count in game controller
@@ -189,9 +196,6 @@ public class BallBehaviour : MonoBehaviour
             SoundController.Instance.PlaySFX(SoundController.Instance.ballHit);
             //Clear vertices to stop drawing line
             aimLine.ClearAimLine();
-
         }
-
     }
-
 }

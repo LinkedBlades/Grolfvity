@@ -110,8 +110,6 @@ public class PlanetForces : MonoBehaviour
 
         float forceMagnitude = pullMagnitude / distFactor;
 
-        Debug.Log("Pull magnitude = " + pullMagnitude + " / " + distFactor);
-
         Vector2 pullDirection = difference.normalized;
         //Vector2 pullDirection = Vector3.Normalize(this.transform.position - ballTransform.position);
         Vector2 gravVector = forceMagnitude * pullDirection;

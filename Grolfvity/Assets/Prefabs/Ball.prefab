@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.21176471}
   m_FlipX: 0
@@ -291,9 +291,9 @@ SpriteMask:
   m_BackSortingLayerID: 0
   m_FrontSortingLayer: 0
   m_BackSortingLayer: 0
-  m_FrontSortingOrder: 0
-  m_BackSortingOrder: 0
-  m_IsCustomRangeActive: 0
+  m_FrontSortingOrder: 10
+  m_BackSortingOrder: 9
+  m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
 --- !u!1 &2835031685413658869
 GameObject:
@@ -605,15 +605,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473effbd9c8f774e921ac0910e50d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeedCap: 0
+  ballSpeedCap: 25
   drag: 0.2
   minSpeedCheck: 0.1
   ballStoppedTimer: 1
-  shotStrength: 1
+  shotStrength: 2
   maxLineLenght: 10
   bounceCount: 0
-  ySpeed: 0
-  xSpeed: 0
+  oobTol: 1
 --- !u!114 &4130195455899853610
 MonoBehaviour:
   m_ObjectHideFlags: 0
