@@ -87,3 +87,7 @@ Monday 27/01/2025
 -First re mapping of gravity force pull magnitude for better control of magnitude based on distance to the planet 
 -Out of bounds detection and ball reset position first implementation. Possible improvements:
 	-Particles to indicate ball back into position.
+
+09/02/2025
+-Implemented scene manager to load persistent game elements and first level for playtest1
+-Made adjustments to ball shot parameters for better control of shot strength
