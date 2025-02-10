@@ -14,22 +14,31 @@ public class BallBehaviour : MonoBehaviour
     Rigidbody2D rbody;
     aimLine aimLine;
 
+    [Header("Ball max speed limit")]
     [SerializeField] float ballSpeedCap;
 
     //Drag
+    [Header("Ball drag inside planet grav field")]
     [SerializeField] float drag = 0.2f;
 
     //Shot variables
     Vector2 mousePosEnd;
     Vector2 ballPos;
+
+    [Header("Min speed threshold to stop ball")]
     [SerializeField] float minSpeedCheck = 0.1f;
+
+    [Header("Experimenting with stopping ball after X time")]
     [SerializeField] float ballStoppedTimer = 1.0f;
+
+    [Header("Main control of shot strength")]
     [SerializeField] float shotStrenghtMultiplier = 1.0f;
     float shotStrenght;
 
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
+    [Header("Max lenght of aim line")]
     [SerializeField] float maxLineLenght = 10.0f;
 
     //Checking for number of bounces
