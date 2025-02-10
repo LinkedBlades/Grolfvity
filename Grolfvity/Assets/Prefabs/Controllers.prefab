@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5941837262804019912}
   - {fileID: 3600690963824467719}
+  - {fileID: 5941837262804019912}
   - {fileID: 7544864609890835221}
   - {fileID: 7251783490019002587}
   m_Father: {fileID: 0}
@@ -211,12 +211,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSource: {fileID: 6516577015778244173}
   SFXSource: {fileID: 9196741375841177871}
-  BGM: {fileID: 0}
-  ballHit: {fileID: 0}
-  ballBounce: {fileID: 0}
-  ballOnHole: {fileID: 0}
+  BGM: {fileID: 8300000, guid: ad403fe5cb1141c4db962f01954ad170, type: 3}
+  ballHit: {fileID: 8300000, guid: 5a36403fea46aae48bfcb3b12847804e, type: 3}
+  ballBounce: {fileID: 8300000, guid: 4544cd1f9b0d00a498e3602ecfffcacc, type: 3}
+  ballInHole: {fileID: 0}
+  outOfBounds: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
+  ballReady: {fileID: 0}
   levelCompleted: {fileID: 0}
-  outOfBounds: {fileID: 0}
 --- !u!1 &3067776247262896273
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bf4dc0c0d4dbb4ca73909be760d5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currLevel: 0
 --- !u!1 &3335897428716894782
 GameObject:
   m_ObjectHideFlags: 0
