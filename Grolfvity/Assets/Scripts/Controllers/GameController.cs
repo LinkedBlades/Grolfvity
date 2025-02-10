@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     private void StartGame()
     {
-        SoundController.Instance.PlayBGM();
+        //SoundController.Instance.PlayBGM();
     }
 
     public void IncrementHits()

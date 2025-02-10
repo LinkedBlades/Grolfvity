@@ -58,6 +58,10 @@ public class SceneController : MonoBehaviour
                 SceneManager.UnloadSceneAsync(scene);
             }
         }
+
+        //Starts playing background music. This will probably be moved to another function later
+        SoundController.Instance.PlayBGM();
+
     }
 
 
