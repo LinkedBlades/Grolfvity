@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager;
-using UnityEditor.Timeline.Actions;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class aimLine : MonoBehaviour

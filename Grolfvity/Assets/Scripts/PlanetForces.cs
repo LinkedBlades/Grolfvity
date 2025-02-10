@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Unity.Mathematics;
-using UnityEditor.Build.Content;
 
 public class PlanetForces : MonoBehaviour
 {

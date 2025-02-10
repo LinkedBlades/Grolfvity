@@ -36,7 +36,6 @@ public class GameController : MonoBehaviour
     void FixedUpdate()
     {
         timer = Time.realtimeSinceStartup;
-
     }
 
     private void StartGame()
