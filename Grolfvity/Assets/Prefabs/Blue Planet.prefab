@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4723632798736500632}
   m_Layer: 0
-  m_Name: Planet
+  m_Name: Blue Planet
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

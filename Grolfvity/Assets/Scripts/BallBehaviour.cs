@@ -51,6 +51,7 @@ public class BallBehaviour : MonoBehaviour
 
     //Ball last position
     Vector2 prevPosition;
+    Vector2 ballSpawn;
 
 
     void Awake()
@@ -61,6 +62,11 @@ public class BallBehaviour : MonoBehaviour
 
         bounceCount = 0;
 
+    }
+    
+    void Start()
+    {
+        ballSpawn = GameObject.Find("SpawnPoint").transform.position;
     }
 
     void FixedUpdate()
@@ -113,6 +119,14 @@ public class BallBehaviour : MonoBehaviour
         ballStoppedTimer = 0;
     }
 
+    private void BallRespawn()
+    {
+        transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
+        rbody.velocity = Vector2.zero;
+
+        ballStoppedTimer = 0;
+    }
+
     //--------------------------------------------------Events--------------------------------------------------//
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -132,6 +146,13 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Temporary for Playtest1
+        if(collision.name == "Hole")
+        {
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.4f);
+            BallRespawn();
+        }
+
         //Setting ball drag to X value ewhen entering planet field
         rbody.drag = drag;
     }
