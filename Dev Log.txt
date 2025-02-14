@@ -87,3 +87,8 @@ Monday 27/01/2025
 -First re mapping of gravity force pull magnitude for better control of magnitude based on distance to the planet 
 -Out of bounds detection and ball reset position first implementation. Possible improvements:
 	-Particles to indicate ball back into position.
+
+14/02/2025
+-Built level for playtest1
+-Added yellow planet variant and placeholder sprite for hole
+-Also added temporary ball respawn on hole enter for smoother playtest.
