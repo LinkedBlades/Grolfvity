@@ -607,7 +607,7 @@ MonoBehaviour:
   ballSpeedCap: 25
   drag: 0.2
   minSpeedCheck: 0.1
-  ballStoppedTimer: 1
+  ballStoppedTimer: 0.5
   shotStrenghtMultiplier: 1
   maxLineLenght: 10
   bounceCap: 3

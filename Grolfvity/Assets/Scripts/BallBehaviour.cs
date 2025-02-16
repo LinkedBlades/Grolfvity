@@ -67,6 +67,7 @@ public class BallBehaviour : MonoBehaviour
     void Start()
     {
         ballSpawn = GameObject.Find("SpawnPoint").transform.position;
+        this.transform.position = ballSpawn;
     }
 
     void FixedUpdate()
@@ -171,6 +172,7 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse down");
             ballPos = new Vector2(transform.position.x, transform.position.y);
 
             aimLineIni = ballPos;
@@ -186,6 +188,8 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse drag");
+
             //Getting mouse position into world coordinates for aiming shot
             mousePosEnd = Input.mousePosition;
             mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
@@ -200,7 +204,7 @@ public class BallBehaviour : MonoBehaviour
             //Checking for mouse distance before drawing aimline
             if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
             {
-                aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
+                aimLine.UpdateLineRenderer(aimLineIni, aimLineEnd);
             }
 
             if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
@@ -215,6 +219,8 @@ public class BallBehaviour : MonoBehaviour
         //Check distance before shooting
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse up");
+
             prevPosition = transform.position;
             rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
             ballStoppedTimer = 1.0f;
