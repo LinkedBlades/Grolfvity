@@ -182,13 +182,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Grolfvity Playtest 1
 
-    Drag andrelease to shoot ball
+    Drag and release near the ball to shoot.
 
     Objective:
     Get the ball into the Green portal
 
     Please experiment with the physics system.
-    All feedback appreciated. '
+    All feedback appreciated!  '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
