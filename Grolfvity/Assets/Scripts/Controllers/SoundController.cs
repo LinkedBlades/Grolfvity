@@ -64,6 +64,11 @@ public class SoundController : MonoBehaviour
         BGMSource.Stop();
     }
 
+    public void PlayMenuSFX(AudioClip sample)
+    {
+        SFXSource.PlayOneShot(sample, 0.5f);
+    }
+
     public void PlaySFX(AudioClip sample, float vol = 1.0f)
     {
         SFXSource.PlayOneShot(sample, vol);
