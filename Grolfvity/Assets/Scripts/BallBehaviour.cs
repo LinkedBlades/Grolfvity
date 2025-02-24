@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.Sqlite;
+using Unity.VisualScripting.Dependencies.Sqlite;*/
 using UnityEngine;
 
 public class BallBehaviour : MonoBehaviour
@@ -14,22 +14,31 @@ public class BallBehaviour : MonoBehaviour
     Rigidbody2D rbody;
     aimLine aimLine;
 
+    [Header("Ball max speed limit")]
     [SerializeField] float ballSpeedCap;
 
     //Drag
+    [Header("Ball drag inside planet grav field")]
     [SerializeField] float drag = 0.2f;
 
     //Shot variables
     Vector2 mousePosEnd;
     Vector2 ballPos;
+
+    [Header("Min speed threshold to stop ball")]
     [SerializeField] float minSpeedCheck = 0.1f;
+
+    [Header("Experimenting with stopping ball after X time")]
     [SerializeField] float ballStoppedTimer = 1.0f;
+
+    [Header("Main control of shot strength")]
     [SerializeField] float shotStrenghtMultiplier = 1.0f;
     float shotStrenght;
 
     //Aim Line variables
     Vector2 aimLineIni;
     Vector2 aimLineEnd;
+    [Header("Max lenght of aim line")]
     [SerializeField] float maxLineLenght = 10.0f;
 
     //Checking for number of bounces
@@ -42,6 +51,7 @@ public class BallBehaviour : MonoBehaviour
 
     //Ball last position
     Vector2 prevPosition;
+    Vector2 ballSpawn;
 
 
     void Awake()
@@ -52,6 +62,12 @@ public class BallBehaviour : MonoBehaviour
 
         bounceCount = 0;
 
+    }
+    
+    void Start()
+    {
+        ballSpawn = GameObject.Find("SpawnPoint").transform.position;
+        this.transform.position = ballSpawn;
     }
 
     void FixedUpdate()
@@ -88,7 +104,7 @@ public class BallBehaviour : MonoBehaviour
         if (screenPos.x < -oobTol || screenPos.x > cam.pixelWidth + oobTol || 
             screenPos.y < -oobTol || screenPos.y > cam.pixelHeight + oobTol)
         {
-            SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 0.5f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 1.0f);
             //Move ball back to valid position
             BallToPreviousPosition();
         }
@@ -104,6 +120,14 @@ public class BallBehaviour : MonoBehaviour
         ballStoppedTimer = 0;
     }
 
+    private void BallRespawn()
+    {
+        transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
+        rbody.velocity = Vector2.zero;
+
+        ballStoppedTimer = 0;
+    }
+
     //--------------------------------------------------Events--------------------------------------------------//
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -112,7 +136,7 @@ public class BallBehaviour : MonoBehaviour
         if(col.gameObject.name == "Hitbox")
         {
             bounceCount++;
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.5f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 1.0f);
             if(bounceCount == bounceCap)
             {
                 rbody.velocity = Vector2.zero;
@@ -123,6 +147,13 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Temporary for Playtest1
+        if(collision.name == "Hole")
+        {
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.4f);
+            BallRespawn();
+        }
+
         //Setting ball drag to X value ewhen entering planet field
         rbody.drag = drag;
     }
@@ -141,6 +172,7 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse down");
             ballPos = new Vector2(transform.position.x, transform.position.y);
 
             aimLineIni = ballPos;
@@ -156,6 +188,8 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse drag");
+
             //Getting mouse position into world coordinates for aiming shot
             mousePosEnd = Input.mousePosition;
             mousePosEnd = Camera.main.ScreenToWorldPoint(mousePosEnd);
@@ -170,7 +204,7 @@ public class BallBehaviour : MonoBehaviour
             //Checking for mouse distance before drawing aimline
             if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
             {
-                aimLine.UpdateLineRenderer(ballPos, aimLineEnd);
+                aimLine.UpdateLineRenderer(aimLineIni, aimLineEnd);
             }
 
             if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)
@@ -185,6 +219,8 @@ public class BallBehaviour : MonoBehaviour
         //Check distance before shooting
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
+            Debug.Log("Inside mouse up");
+
             prevPosition = transform.position;
             rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
             ballStoppedTimer = 1.0f;

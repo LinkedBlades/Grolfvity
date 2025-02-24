@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,9 +9,7 @@ public class PlanetForces : MonoBehaviour
     //Variables for controlling gravity field
     [Header("Replaces G*m1*m2")]
     [SerializeField] float pullMagnitude;
-    [Header("Factor cap magnitude reduction based on distance. " +
-        "Example: 2 means pull is half as strong in the edge of the field as compared to the center." +
-        "Default = 0 means normal magnitude reduction based square of distance")]
+    [Header("Factor 1/distCap for reduction in pull strenght in field edge")]
     [SerializeField] float distCap;
 
     //Variables used for remapping force magnitude

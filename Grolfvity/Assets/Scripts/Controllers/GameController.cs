@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
+        Time.timeScale = 0;
+        //StartGame();
     }
 
     // Update is called once per frame
@@ -38,9 +39,10 @@ public class GameController : MonoBehaviour
         timer = Time.realtimeSinceStartup;
     }
 
-    private void StartGame()
+    public void StartGame()
     {
-        //SoundController.Instance.PlayBGM();
+        Time.timeScale = 1;
+        SoundController.Instance.PlayBGM();
     }
 
     public void IncrementHits()

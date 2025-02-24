@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
@@ -33,7 +33,7 @@ public class UIcontroller : MonoBehaviour
         
     }
 
-    private void LoadLevelName()
+    public void LoadLevelName()
     {
         string levelName = SceneController.Instance.currentLevelName;
         /*
@@ -41,7 +41,7 @@ public class UIcontroller : MonoBehaviour
          */
     }
 
-    private void LoadLevelTimer()
+    public void LoadLevelTimer()
     {
         float timer = GameController.Instance.timer;
         /*
@@ -49,13 +49,19 @@ public class UIcontroller : MonoBehaviour
          */ 
     }
 
-    private void LoadShotsTaken()
+    public void LoadShotsTaken()
     {
         int levelStrokes = GameController.Instance.levelStrokes;
         int totalStrokes = GameController.Instance.totalStrokes;
         /*
         * Should load the number of strokes component in UI
         */
+    }
+
+    public void DestroyElement(GameObject gameObject)
+    {
+        Debug.Log("Destroying element");
+        Destroy(gameObject);
     }
 
 
