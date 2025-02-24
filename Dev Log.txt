@@ -98,3 +98,12 @@ Monday 27/01/2025
 -Finished Questionnaire for gathering feedback on playtest1 : https://forms.gle/wvz1Ri67WoTN3vR9A
 -Created rudimentary starter menu UI and started looking into Unity canvas for further UI development
 -Published first build in Unity Play : https://play.unity.com/en/games/b75e2ae8-b66e-4f2f-883d-f4863b445548/grolfvity-playtest-1
+
+17/02/2025
+-Sent first playtest1 iteration with feedback gathering form to close friends 
+
+23/02/2025
+-Compiled playtest1 feedback obtained during the week.
+-Updated final report with the insight from first playtest
+-Decided to try two new gravity implementation, play with planet atmosphere friction, faster ball, bigger gravity fields
+-Planets need to feel more different
