@@ -88,6 +88,10 @@ Monday 27/01/2025
 -Out of bounds detection and ball reset position first implementation. Possible improvements:
 	-Particles to indicate ball back into position.
 
+09/02/2025
+-Implemented scene manager to load persistent game elements and first level for playtest1
+-Made adjustments to ball shot parameters for better control of shot strength
+
 14/02/2025
 -Built level for playtest1
 -Added yellow planet variant and placeholder sprite for hole
@@ -107,3 +111,4 @@ Monday 27/01/2025
 -Updated final report with the insight from first playtest
 -Decided to try two new gravity implementation, play with planet atmosphere friction, faster ball, bigger gravity fields
 -Planets need to feel more different
+
