@@ -292,6 +292,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4982273915058819172, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: drag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982273915058819172, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: bounceCap
       value: 8
       objectReference: {fileID: 0}
@@ -314,6 +318,18 @@ PrefabInstance:
     - target: {fileID: 4982273915058819172, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: shotStrenghtMultiplier
       value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820963267667705987, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820963267667705987, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820963267667705987, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7202392765572485277, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_Name

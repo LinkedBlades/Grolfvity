@@ -112,3 +112,7 @@ Monday 27/01/2025
 -Decided to try two new gravity implementation, play with planet atmosphere friction, faster ball, bigger gravity fields
 -Planets need to feel more different
 
+01/03/2025
+-Moved initial ball position update to mouse drag from mouse down to fix bug.
+-Added logic to render hotspot around ball when player is able to shoot.Should be easily adaptable when changing to animation
+

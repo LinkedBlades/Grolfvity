@@ -1,4 +1,8 @@
 using System;
+using System.Net.Http.Headers;
+using Unity.VisualScripting;
+
+
 /*using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
@@ -53,11 +57,26 @@ public class BallBehaviour : MonoBehaviour
     Vector2 prevPosition;
     Vector2 ballSpawn;
 
+    //References needed to enable/disable hotspot sprite
+    SpriteMask mask;
+    GameObject hotspotRange;
+    SpriteRenderer spriteRenderer;
+
+    //Ball states
+    public enum BallState
+    {
+        Stationary,
+        Moving
+    }
+    private BallState currentState;
 
     void Awake()
     {
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
+        mask = this.GetComponentInChildren<SpriteMask>();
+        hotspotRange = GameObject.Find("Range");
+        spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
         cam = Camera.main;
 
         bounceCount = 0;
@@ -72,16 +91,16 @@ public class BallBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Check if ball has topped for enough time
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
             ballStoppedTimer -= Time.deltaTime;
-            //Stop rendering hotspot sprite
         }
 
-        if (ballStoppedTimer < 0)
+        //Render hotspot sprite only when able to shoot ball
+        if (ballStoppedTimer <= 0)
         {
-            Debug.Log("You can shoot now");
-            //Render hotspot sprite TO DO
+            SwitchState(BallState.Stationary);
         }
 
         //Stop ball from going over speed cap
@@ -91,6 +110,30 @@ public class BallBehaviour : MonoBehaviour
         }
 
         CheckBallOutOfBounds();
+
+    }
+
+    //--------------------------------------------------State machine---------------------------------------------------//
+
+    private void SwitchState (BallState newState)
+    {
+        currentState = newState;
+
+        //Decided to use switch instead of ifs although it saves only one check
+        switch(newState)
+        {
+            case BallState.Stationary:
+                RenderHotspot(true);
+                rbody.velocity = Vector2.zero;
+                rbody.angularVelocity = 0;
+                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.05f);
+                break;
+
+            case BallState.Moving:
+                RenderHotspot(false);
+                ballStoppedTimer = 0.5f;
+                break;
+        }
 
     }
 
@@ -111,35 +154,42 @@ public class BallBehaviour : MonoBehaviour
 
     }
 
+    public BallState GetCurrentState()
+    {
+        return currentState;
+    }
+
     //Stops the ball and moves it back to position before last shot
     private void BallToPreviousPosition()
     {
         transform.position = new Vector2(prevPosition.x, prevPosition.y);
-        rbody.velocity = Vector2.zero;
-
-        ballStoppedTimer = 0;
+        SwitchState(BallState.Stationary);
     }
 
     private void BallRespawn()
     {
         transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
-        rbody.velocity = Vector2.zero;
+        SwitchState(BallState.Stationary);
+    }
 
-        ballStoppedTimer = 0;
+    private void RenderHotspot(bool state)
+    {
+        spriteRenderer.enabled = state;
+        mask.enabled = state;
     }
 
     //--------------------------------------------------Events--------------------------------------------------//
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        //Stop ball after 3 bounces
+        //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
         {
             bounceCount++;
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 1.0f);
-            if(bounceCount == bounceCap)
+            if (bounceCount == bounceCap)
             {
-                rbody.velocity = Vector2.zero;
+                //rbody.velocity = Vector2.zero;
                 bounceCount = 0;
             }
         }
@@ -172,10 +222,7 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
-            Debug.Log("Inside mouse down");
-            ballPos = new Vector2(transform.position.x, transform.position.y);
 
-            aimLineIni = ballPos;
         }
     }
 
@@ -185,10 +232,11 @@ public class BallBehaviour : MonoBehaviour
         Vector2 aimDirection;
         float aimMagnitude;
 
-        //Ball stopped check
-        if (ballStoppedTimer <= 0)
+        //Check correct ball state
+        if (currentState == BallState.Stationary)
         {
-            Debug.Log("Inside mouse drag");
+            ballPos = new Vector2(transform.position.x, transform.position.y);
+            aimLineIni = ballPos;
 
             //Getting mouse position into world coordinates for aiming shot
             mousePosEnd = Input.mousePosition;
@@ -216,20 +264,19 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnMouseUp()
     {
-        //Check distance before shooting
-        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
+        //Check distance before shooting and correct ball state
+        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && currentState == BallState.Stationary)
         {
-            Debug.Log("Inside mouse up");
-
             prevPosition = transform.position;
-            rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
-            ballStoppedTimer = 1.0f;
 
-            //Increment hit count in game controller
+            rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
+            
             GameController.Instance.IncrementHits();
             SoundController.Instance.PlaySFX(SoundController.Instance.ballHit);
-            //Clear vertices to stop drawing line
+            
             aimLine.ClearAimLine();
+
+            SwitchState(BallState.Moving);
         }
     }
 }
