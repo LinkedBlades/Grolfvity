@@ -53,11 +53,19 @@ public class BallBehaviour : MonoBehaviour
     Vector2 prevPosition;
     Vector2 ballSpawn;
 
+    //References needed to enable/disable hotspot sprite
+    SpriteMask mask;
+    GameObject hotspotRange;
+    SpriteRenderer spriteRenderer;
+
 
     void Awake()
     {
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
+        mask = this.GetComponentInChildren<SpriteMask>();
+        hotspotRange = GameObject.Find("Range");
+        spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
         cam = Camera.main;
 
         bounceCount = 0;
@@ -72,16 +80,20 @@ public class BallBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Check if ball has topped for enough time
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
             ballStoppedTimer -= Time.deltaTime;
-            //Stop rendering hotspot sprite
         }
 
-        if (ballStoppedTimer < 0)
+        //Render hotspot sprite only when able to shoot ball
+        if (ballStoppedTimer <= 0)
         {
-            Debug.Log("You can shoot now");
-            //Render hotspot sprite TO DO
+            RenderHotspot(true);
+        }
+        else if (mask.enabled)
+        {
+            RenderHotspot(false);
         }
 
         //Stop ball from going over speed cap
@@ -128,18 +140,24 @@ public class BallBehaviour : MonoBehaviour
         ballStoppedTimer = 0;
     }
 
+    private void RenderHotspot(bool state)
+    {
+        spriteRenderer.enabled = state;
+        mask.enabled = state;
+    }
+
     //--------------------------------------------------Events--------------------------------------------------//
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        //Stop ball after 3 bounces
+        //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
         {
             bounceCount++;
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 1.0f);
-            if(bounceCount == bounceCap)
+            if (bounceCount == bounceCap)
             {
-                rbody.velocity = Vector2.zero;
+                //rbody.velocity = Vector2.zero;
                 bounceCount = 0;
             }
         }
@@ -172,7 +190,6 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
-            Debug.Log("Inside mouse down");
 
         }
     }
@@ -186,8 +203,6 @@ public class BallBehaviour : MonoBehaviour
         //Ball stopped check
         if (ballStoppedTimer <= 0)
         {
-            Debug.Log("Inside mouse drag");
-
             ballPos = new Vector2(transform.position.x, transform.position.y);
             aimLineIni = ballPos;
 
@@ -220,7 +235,6 @@ public class BallBehaviour : MonoBehaviour
         //Check distance before shooting
         if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
         {
-            Debug.Log("Inside mouse up");
 
             prevPosition = transform.position;
             rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
