@@ -1,4 +1,8 @@
 using System;
+using System.Net.Http.Headers;
+using Unity.VisualScripting;
+
+
 /*using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
@@ -58,6 +62,13 @@ public class BallBehaviour : MonoBehaviour
     GameObject hotspotRange;
     SpriteRenderer spriteRenderer;
 
+    //Ball states
+    public enum BallState
+    {
+        Stationary,
+        Moving
+    }
+    private BallState currentState;
 
     void Awake()
     {
@@ -89,11 +100,7 @@ public class BallBehaviour : MonoBehaviour
         //Render hotspot sprite only when able to shoot ball
         if (ballStoppedTimer <= 0)
         {
-            RenderHotspot(true);
-        }
-        else if (mask.enabled)
-        {
-            RenderHotspot(false);
+            SwitchState(BallState.Stationary);
         }
 
         //Stop ball from going over speed cap
@@ -103,6 +110,30 @@ public class BallBehaviour : MonoBehaviour
         }
 
         CheckBallOutOfBounds();
+
+    }
+
+    //--------------------------------------------------State machine---------------------------------------------------//
+
+    private void SwitchState (BallState newState)
+    {
+        currentState = newState;
+
+        //Decided to use switch instead of ifs although it saves only one check
+        switch(newState)
+        {
+            case BallState.Stationary:
+                RenderHotspot(true);
+                rbody.velocity = Vector2.zero;
+                rbody.angularVelocity = 0;
+                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.05f);
+                break;
+
+            case BallState.Moving:
+                RenderHotspot(false);
+                ballStoppedTimer = 0.5f;
+                break;
+        }
 
     }
 
@@ -123,21 +154,22 @@ public class BallBehaviour : MonoBehaviour
 
     }
 
+    public BallState GetCurrentState()
+    {
+        return currentState;
+    }
+
     //Stops the ball and moves it back to position before last shot
     private void BallToPreviousPosition()
     {
         transform.position = new Vector2(prevPosition.x, prevPosition.y);
-        rbody.velocity = Vector2.zero;
-
-        ballStoppedTimer = 0;
+        SwitchState(BallState.Stationary);
     }
 
     private void BallRespawn()
     {
         transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
-        rbody.velocity = Vector2.zero;
-
-        ballStoppedTimer = 0;
+        SwitchState(BallState.Stationary);
     }
 
     private void RenderHotspot(bool state)
@@ -200,8 +232,8 @@ public class BallBehaviour : MonoBehaviour
         Vector2 aimDirection;
         float aimMagnitude;
 
-        //Ball stopped check
-        if (ballStoppedTimer <= 0)
+        //Check correct ball state
+        if (currentState == BallState.Stationary)
         {
             ballPos = new Vector2(transform.position.x, transform.position.y);
             aimLineIni = ballPos;
@@ -232,19 +264,19 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnMouseUp()
     {
-        //Check distance before shooting
-        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && ballStoppedTimer <= 0)
+        //Check distance before shooting and correct ball state
+        if (Vector2.Distance(ballPos, mousePosEnd) > 1.0f && currentState == BallState.Stationary)
         {
-
             prevPosition = transform.position;
-            rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
-            ballStoppedTimer = 1.0f;
 
-            //Increment hit count in game controller
+            rbody.AddForce((ballPos - mousePosEnd).normalized * shotStrenght * shotStrenghtMultiplier, ForceMode2D.Impulse);
+            
             GameController.Instance.IncrementHits();
             SoundController.Instance.PlaySFX(SoundController.Instance.ballHit);
-            //Clear vertices to stop drawing line
+            
             aimLine.ClearAimLine();
+
+            SwitchState(BallState.Moving);
         }
     }
 }
