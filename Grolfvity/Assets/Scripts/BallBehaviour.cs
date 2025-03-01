@@ -173,9 +173,7 @@ public class BallBehaviour : MonoBehaviour
         if (ballStoppedTimer <= 0)
         {
             Debug.Log("Inside mouse down");
-            ballPos = new Vector2(transform.position.x, transform.position.y);
 
-            aimLineIni = ballPos;
         }
     }
 
@@ -189,6 +187,9 @@ public class BallBehaviour : MonoBehaviour
         if (ballStoppedTimer <= 0)
         {
             Debug.Log("Inside mouse drag");
+
+            ballPos = new Vector2(transform.position.x, transform.position.y);
+            aimLineIni = ballPos;
 
             //Getting mouse position into world coordinates for aiming shot
             mousePosEnd = Input.mousePosition;
