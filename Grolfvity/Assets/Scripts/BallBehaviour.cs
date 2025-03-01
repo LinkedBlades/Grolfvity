@@ -75,10 +75,6 @@ public class BallBehaviour : MonoBehaviour
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
         mask = this.GetComponentInChildren<SpriteMask>();
-        hotspotRange = GameObject.Find("Range");
-        spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
-        cam = Camera.main;
-
         bounceCount = 0;
 
     }
@@ -87,6 +83,12 @@ public class BallBehaviour : MonoBehaviour
     {
         ballSpawn = GameObject.Find("SpawnPoint").transform.position;
         this.transform.position = ballSpawn;
+
+        hotspotRange = GameObject.Find("Range");
+        spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
+
+        cam = Camera.main;
+
     }
 
     void FixedUpdate()
@@ -136,6 +138,10 @@ public class BallBehaviour : MonoBehaviour
         }
 
     }
+    public BallState GetCurrentState()
+    {
+        return currentState;
+    }
 
     //--------------------------------------------------Helper methods--------------------------------------------------//
 
@@ -152,11 +158,6 @@ public class BallBehaviour : MonoBehaviour
             BallToPreviousPosition();
         }
 
-    }
-
-    public BallState GetCurrentState()
-    {
-        return currentState;
     }
 
     //Stops the ball and moves it back to position before last shot

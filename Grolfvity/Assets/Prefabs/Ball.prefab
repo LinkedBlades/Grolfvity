@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5938940874951627811}
   - component: {fileID: 3120441597712330502}
   m_Layer: 0
-  m_Name: FieldRange
+  m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2875824861286278749}
   - component: {fileID: 6983794167681044586}
   m_Layer: 0
-  m_Name: Sprite Mask
+  m_Name: SpriteMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,11 +604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473effbd9c8f774e921ac0910e50d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeedCap: 25
-  drag: 0.2
+  ballSpeedCap: 40
+  drag: 0.1
   minSpeedCheck: 0.1
-  ballStoppedTimer: 0.5
-  shotStrenghtMultiplier: 1
-  maxLineLenght: 10
-  bounceCap: 3
+  ballStoppedTimer: 0.25
+  shotStrenghtMultiplier: 3.7
+  maxLineLenght: 15
+  bounceCap: 8
   oobTol: 1
