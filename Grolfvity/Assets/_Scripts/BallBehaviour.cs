@@ -93,6 +93,8 @@ public class BallBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if(GameController.Instance.GetCurrentState() != GameController.Instance.GameState.Playing)
+
         //Check if ball has topped for enough time
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
