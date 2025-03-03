@@ -93,6 +93,7 @@ public class BallBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+
         //Check if ball has topped for enough time
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {

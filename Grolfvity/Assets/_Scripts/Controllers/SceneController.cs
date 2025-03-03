@@ -36,7 +36,7 @@ public class SceneController : MonoBehaviour
         //Set resolution and neccesary references
         Screen.SetResolution(1920, 1080, true);
 
-        StartGame();
+        //StartGame();
     }
 
     //Loads initial scenes for game to start
@@ -46,7 +46,6 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("Playtest1", LoadSceneMode.Additive);
         }
-
 
         //Loop through all scenes and unload every level but level 1 and persistent elements
         for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -59,9 +58,6 @@ public class SceneController : MonoBehaviour
             }
         }
 
-        //Starts playing background music. This will probably be moved to another function later
-        //SoundController.Instance.PlayBGM();
-
     }
 
 
@@ -73,7 +69,7 @@ public class SceneController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
         }
-        //gControl.NewLevelState();
+
     }
 
     public bool UnloadCurrentLevel()
