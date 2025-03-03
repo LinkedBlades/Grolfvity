@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public int totalStrokes { get; private set; }
     public float timer { get; private set; }
 
+    public GameState currentState { get; private set; }
+
     public enum GameState
     {
         Starting,
@@ -20,7 +22,6 @@ public class GameController : MonoBehaviour
         Menu
     }
 
-    private GameState currentState;
 
     //Instantiate singleton
     private void Awake()
@@ -40,6 +41,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentState = GameState.Pause;
         ChangeGameState(GameState.Starting);
     }
 
@@ -80,19 +82,20 @@ public class GameController : MonoBehaviour
                 break;
 
             case GameState.Loading:
-
+                Debug.Log("Handling Loading");
                 break;
 
             case GameState.Menu:
-
+                Debug.Log("Handling Menu");
                 break;
         }
 
-        Debug.Log("New state:");
     }
 
     private void HandleStarting()
     {
+        Debug.Log("Current state: Starting");
+
         SceneController.Instance.StartGame();
         Time.timeScale = 0;
         ChangeGameState(GameState.Pause);
@@ -100,12 +103,16 @@ public class GameController : MonoBehaviour
 
     private void HandlePlaying()
     {
+        Debug.Log("Current state: Playing");
+
         Time.timeScale = 1;
         SoundController.Instance.PlayBGM();
     }
 
     private void HandlePause()
     {
+        Debug.Log("Current state: Pause");
+
         Time.timeScale = 0;
     }
 

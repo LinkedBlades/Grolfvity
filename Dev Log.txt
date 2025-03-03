@@ -117,3 +117,13 @@ Monday 27/01/2025
 -Added logic to render hotspot around ball when player is able to shoot. Should be easily adaptable when changing to animation
 -Implemented ball state machine for better code readability and easier maintenance.
 
+02/03/2025
+-Re factored game controller to keep track of game state and flow
+-Ball not starting paused for some reason after change needs Fix ASAP
+-Current implementation probably over complicated for game scope with 4 states. Might need only 2-3
+
+03/03/2025
+-Fixed game Controller bug that caused game not starting paused.
+-Initial new implementation of game controller done. Time to start addressing Playtest1 feedback
+-Already reduced friction a little bit and increased shot strength.
+-Next change is increasing gravity field radius of all planets by 1.5x
