@@ -129,4 +129,6 @@ Monday 27/01/2025
 -Next change is increasing gravity field radius of all planets by 1.5x
 -Changed camera size 1.5x
 -Created new prefabs to compare from previous playtest iteration
+-Changed scale of gravity fields by 1.25x.
+-Previous attempt with 1.5x felt like too much.
 
