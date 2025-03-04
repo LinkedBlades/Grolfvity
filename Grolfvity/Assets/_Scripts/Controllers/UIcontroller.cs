@@ -53,9 +53,6 @@ public class UIcontroller : MonoBehaviour
     {
         int levelStrokes = GameController.Instance.levelStrokes;
         int totalStrokes = GameController.Instance.totalStrokes;
-        /*
-        * Should load the number of strokes component in UI
-        */
     }
 
     public void DestroyElement(GameObject gameObject)

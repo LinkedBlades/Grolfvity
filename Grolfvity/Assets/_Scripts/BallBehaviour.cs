@@ -88,6 +88,7 @@ public class BallBehaviour : MonoBehaviour
         spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
 
         cam = Camera.main;
+        RenderHotspot(false);
 
     }
 

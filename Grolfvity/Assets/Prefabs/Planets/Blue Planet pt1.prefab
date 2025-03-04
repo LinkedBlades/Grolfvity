@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4723632798736500632}
   m_Layer: 0
-  m_Name: Blue Planet
+  m_Name: Blue Planet pt1
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullMagnitude: 1250
-  distCap: 0
+  distCap: 1.5
 --- !u!58 &6571679805245847074
 CircleCollider2D:
   m_ObjectHideFlags: 0
