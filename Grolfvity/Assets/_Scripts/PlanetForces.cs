@@ -79,9 +79,9 @@ public class PlanetForces : MonoBehaviour
                 Vector2 gravVector = GravityPull(collision.transform);
 
                 //Variable to increase pull strenght based on time ball spent moving to avoid long orbits
-                // 1% force increased every frame
-                float forceFactor = 1 + (Time.frameCount - detectionFrame) / 1000;
-                Debug.Log("Force factor: " + forceFactor);
+                // 1% force increased every 20 frames
+                float forceFactor = 1 + (Time.frameCount - detectionFrame) / 2000;
+                //Debug.Log("Force factor: " + forceFactor);
                 collision.attachedRigidbody.AddForce(gravVector);
 
             }
