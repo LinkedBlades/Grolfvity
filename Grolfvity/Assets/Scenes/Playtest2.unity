@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.6
+      value: -21.9
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -194,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7410548598021636548, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.486978
+      value: 79.4
       objectReference: {fileID: 0}
     - target: {fileID: 7410548598021636548, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: m_LocalPosition.y
@@ -360,6 +360,26 @@ PrefabInstance:
     - target: {fileID: 844203537870780448, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
       propertyPath: m_Name
       value: PT2 Yellow Planet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449557367934327884, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449557367934327884, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449557367934327884, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519308535712860686, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519308535712860686, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8056400062655110528, guid: e99f219b988beaf45b8f414580a7817d, type: 3}
       propertyPath: m_LocalScale.x
