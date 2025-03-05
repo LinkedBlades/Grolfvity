@@ -132,3 +132,10 @@ Monday 27/01/2025
 -Changed scale of gravity fields by 1.25x.
 -Previous attempt with 1.5x felt like too much.
 
+04/03/2025
+-Started building playtest 2 build 
+-Refactored PlanetForces.cs so attraction only happens when ball is moving
+-Changed Blue planet scale=1, hitbox=1, field=1.5
+-Changed Yellow planet scale=1, hitbox=2.25, field=3
+-Ball speed cap increased to 45
+-Added Hole tag just for testing with multiple holes per level during playtest2

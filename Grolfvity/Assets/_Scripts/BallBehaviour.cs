@@ -90,6 +90,7 @@ public class BallBehaviour : MonoBehaviour
         cam = Camera.main;
         RenderHotspot(false);
 
+        SwitchState(BallState.Moving);
     }
 
     void FixedUpdate()
@@ -131,11 +132,13 @@ public class BallBehaviour : MonoBehaviour
                 rbody.velocity = Vector2.zero;
                 rbody.angularVelocity = 0;
                 SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.05f);
+                GameController.Instance.ballState = BallState.Stationary;
                 break;
 
             case BallState.Moving:
                 RenderHotspot(false);
                 ballStoppedTimer = 0.5f;
+                GameController.Instance.ballState = BallState.Moving;
                 break;
         }
 
@@ -171,6 +174,7 @@ public class BallBehaviour : MonoBehaviour
 
     private void BallRespawn()
     {
+        Debug.Log(" Inside Ball respawn");
         transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
         SwitchState(BallState.Stationary);
     }
@@ -189,7 +193,7 @@ public class BallBehaviour : MonoBehaviour
         if(col.gameObject.name == "Hitbox")
         {
             bounceCount++;
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 1.0f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {
                 //rbody.velocity = Vector2.zero;
@@ -201,9 +205,10 @@ public class BallBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Temporary for Playtest1
-        if(collision.name == "Hole")
+        if(collision.tag == "Hole")
         {
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.4f);
+            Debug.Log("Ball inside hole");
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
             BallRespawn();
         }
 

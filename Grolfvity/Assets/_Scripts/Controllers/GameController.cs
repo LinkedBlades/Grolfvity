@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
 
     public GameState currentState { get; private set; }
 
+    //For passing ball state to planets
+    public BallBehaviour.BallState ballState { get;  set; }
+
     public enum GameState
     {
         Starting,
@@ -92,6 +95,8 @@ public class GameController : MonoBehaviour
 
     }
 
+    //-----------------------------------State transitions handling//-----------------------------------
+
     private void HandleStarting()
     {
         Debug.Log("Current state: Starting");
@@ -109,6 +114,7 @@ public class GameController : MonoBehaviour
         SoundController.Instance.PlayBGM();
     }
 
+    ////-----------------------------------Extra functions//-----------------------------------
     private void HandlePause()
     {
         Debug.Log("Current state: Pause");
@@ -121,6 +127,11 @@ public class GameController : MonoBehaviour
         //Debug.Log("Hits incremented");
         levelStrokes++;
         totalStrokes++;
+    }
+
+    public BallBehaviour.BallState getBallState()
+    {
+            return ballState;
     }
 
 }

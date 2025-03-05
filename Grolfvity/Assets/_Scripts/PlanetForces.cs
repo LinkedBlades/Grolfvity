@@ -20,8 +20,8 @@ public class PlanetForces : MonoBehaviour
     private float newRangeMin;
     private float newRangeMax;
 
-    //Ball reference for when coming field
-    GameObject ball;
+    //Frame ball enters the gravity field
+    private int detectionFrame;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class PlanetForces : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        int detectionFrame = Time.frameCount;
     }
 
     //Pull ball when on field range
@@ -73,7 +73,18 @@ public class PlanetForces : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            GravityPull(collision.attachedRigidbody, collision.transform);
+            //Only applying force when ball is moving
+            if( GameController.Instance.getBallState() == BallBehaviour.BallState.Moving)
+            {
+                Vector2 gravVector = GravityPull(collision.transform);
+
+                //Variable to increase pull strenght based on time ball spent moving to avoid long orbits
+                // 1% force increased every frame
+                float forceFactor = 1 + (Time.frameCount - detectionFrame) / 1000;
+                Debug.Log("Force factor: " + forceFactor);
+                collision.attachedRigidbody.AddForce(gravVector);
+
+            }
         }
     }
 
@@ -82,7 +93,7 @@ public class PlanetForces : MonoBehaviour
 
     }
 
-    private void GravityPull(Rigidbody2D ballRb, Transform ballTransform)
+    private Vector2 GravityPull(Transform ballTransform)
     {
         //Distance between objects transforms
         Vector2 difference = this.transform.position - ballTransform.position;
@@ -109,10 +120,10 @@ public class PlanetForces : MonoBehaviour
 
         Debug.DrawRay(ballTransform.position, gravVector, Color.yellow);
 
-        ballRb.AddForce(gravVector);
+        return gravVector;
     }
 
-    private void GravityPull2(Rigidbody2D ballRb, Transform ballTransform)
+    private Vector2 GravityPull2(Transform ballTransform)
     {
         //Distance between objects transforms
         Vector2 difference = this.transform.position - ballTransform.position;
@@ -128,7 +139,7 @@ public class PlanetForces : MonoBehaviour
 
         Debug.DrawRay(ballTransform.position, gravVector, Color.yellow);
 
-        ballRb.AddForce(gravVector);
+        return gravVector;
     }
 
 
