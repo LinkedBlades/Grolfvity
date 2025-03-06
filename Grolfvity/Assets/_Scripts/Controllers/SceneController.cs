@@ -36,6 +36,7 @@ public class SceneController : MonoBehaviour
         //Set resolution and neccesary references
         Screen.SetResolution(1920, 1080, true);
 
+        currLevel = 1;
         //StartGame();
     }
 
@@ -57,8 +58,6 @@ public class SceneController : MonoBehaviour
                 SceneManager.UnloadSceneAsync(scene);
             }
         }
-
-        currLevel = 1;
 
     }
 
@@ -92,30 +91,30 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    //public bool UnloadCurrentLevel()
-    //{
-    //    try
-    //    {
-    //        SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
-    //        return true;
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        Debug.Log(e);
-    //        return false;
-    //    }
-    //}
+    public bool UnloadCurrentLevel()
+    {
+        try
+        {
+            SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
+            return true;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+            return false;
+        }
+    }
 
-    //public void RestartLevel()
-    //{
-    //    if (UnloadCurrentLevel())
-    //    {
-    //        LoadLevel(currLevel.ToString());
-    //    }
-    //    else
-    //    {
-    //        RestartLevel();
-    //    }
-    //}
-    
+    public void RestartLevel()
+    {
+        if (UnloadCurrentLevel())
+        {
+            LoadLevel(currLevel.ToString());
+        }
+        else
+        {
+            RestartLevel();
+        }
+    }
+
 }

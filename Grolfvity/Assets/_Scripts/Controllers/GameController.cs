@@ -107,10 +107,10 @@ public class GameController : MonoBehaviour
 
     private void HandlePlaying()
     {
-        UpdateLevel();
+        //UpdateLevel();
 
-        Debug.Log("NEXT LEVEL SUFFIX " + nextLevelSuffix);
-        Debug.Log("CURRENT LEVEL SUFFIX " + currentLevelSuffix);
+        //Debug.Log("NEXT LEVEL SUFFIX " + nextLevelSuffix);
+        //Debug.Log("CURRENT LEVEL SUFFIX " + currentLevelSuffix);
 
         SoundController.Instance.PlayBGM();
         Time.timeScale = 1;
@@ -123,24 +123,27 @@ public class GameController : MonoBehaviour
     private void HandleLoadingNextLevel()
     {
         //Load level complete screen, Load next level, Unload current Level
-        
+
         //UI Controller load menu screen
 
-        //Try to unload current level
-        if (SceneController.Instance.UnloadLevel(currentLevelSuffix))
-        {
-            SceneController.Instance.LoadLevel(nextLevelSuffix);
-            ChangeGameState(GameState.Playing);
-        }
+        //Unload pre level
+        SceneController.Instance.UnloadCurrentLevel();
+        //Set current level
+        SceneController.Instance.currLevel++;
+        //Load next level
+        SceneController.Instance.LoadLevel(SceneController.Instance.currLevel.ToString());
+
+        ChangeGameState(GameState.Playing);
 
     }
     ////-----------------------------------Extra functions----------------------------------- ////
 
-    private void UpdateLevel()
-    {
-        currentLevelSuffix = FindObjectOfType<NextLevel>().currentLevelNumber;
-        nextLevelSuffix = FindObjectOfType<NextLevel>().nextLevelNumber;
-    }
+
+    //private void UpdateLevel()
+    //{
+    //    currentLevelSuffix = FindObjectOfType<NextLevel>().currentLevelNumber;
+    //    nextLevelSuffix = FindObjectOfType<NextLevel>().nextLevelNumber;
+    //}
 
     public void IncrementHits()
     {

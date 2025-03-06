@@ -207,6 +207,10 @@ public class BallBehaviour : MonoBehaviour
         if(collision.tag == "Hole")
         {
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
+            if (collision.name == "HoleInfinite")
+            {
+                BallRespawn();
+            }
             BallRespawn();
         }
 
