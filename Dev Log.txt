@@ -155,4 +155,5 @@ Monday 27/01/2025
 -Blue planet field scale up to 1.75 from 1.5
 -Yellow planet Pull mag up to 3000 from 2500, Dist cap up to 5.5 from 5
 -Ball shoot multiplier up to 3.9 from 3.7
+-Tied load, reload an unload functionality to Game states and ball entering each level exit
 
