@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-    [Header("Next level suffix as string")]
-    [SerializeField] string nextLevelName;
+    [Header("Next level to load number as string")]
+    [SerializeField] public string nextLevelNumber;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    [Header("Current level to load number as string")]
+    [SerializeField] public string currentLevelNumber;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(col.gameObject.tag == "Ball")
+        if (collision.gameObject.tag == "Ball")
         {
-            Debug.Log("Loading next level");
+            GameController.Instance.ChangeGameState(GameController.GameState.Loading);
+
+            //if(SceneController.Instance.UnloadCurrentLevel())
+            //{
+            //    SceneController.Instance.LoadLevel(nextLevelName);
+            //}
+
         }
     }
+
 }

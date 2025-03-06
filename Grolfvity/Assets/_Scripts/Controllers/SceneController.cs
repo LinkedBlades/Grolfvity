@@ -1,15 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-
     public static SceneController Instance;
-
     public string currentLevelName { get; private set; }
+
+    //This is how levels are named in the ./Scenes folder
+    //We just add the level number after this prefix
+    private const string LevelScenePrefix = "Playtest2_Level";
+
+    public int currLevel;
 
     //Instantiate singleton
     private void Awake()
@@ -24,11 +29,6 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    //This is how levels are named in the ./Scenes folder
-    //We just add the level number after this prefix
-    private const string LevelScenePrefix = "Playtest2";
-
-    public int currLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +42,9 @@ public class SceneController : MonoBehaviour
     //Loads initial scenes for game to start
     public void StartGame()
     {
-        if (!SceneManager.GetSceneByName("Playtest2_1").isLoaded)
+        if (!SceneManager.GetSceneByName("Playtest2_Level1").isLoaded)
         {
-            SceneManager.LoadSceneAsync("Playtest2_1", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Playtest2_Level1", LoadSceneMode.Additive);
         }
 
         //Loop through all scenes and unload every level but level 1 and persistent elements
@@ -52,17 +52,19 @@ public class SceneController : MonoBehaviour
         { 
             Scene scene = SceneManager.GetSceneAt(i);
 
-            if (scene.name != "Playtest2_1" && scene.name != "PersistentElements")
+            if (scene.name != "Playtest2_Level1" && scene.name != "PersistentElements")
             {
                 SceneManager.UnloadSceneAsync(scene);
             }
         }
 
+        currLevel = 1;
+
     }
 
-    public void LoadLevel(string nextLevel)
+    public void LoadLevel(string levelSuffix)
     {
-        string nextSceneName = LevelScenePrefix + nextLevel;
+        string nextSceneName = LevelScenePrefix + levelSuffix;
         //Check if there is a level to load and if its not already loaded
         if (nextSceneName != "" && !SceneManager.GetSceneByName(nextSceneName).isLoaded)
         {
@@ -71,11 +73,12 @@ public class SceneController : MonoBehaviour
 
     }
 
-    public bool UnloadCurrentLevel()
+    public bool UnloadLevel(string levelSuffix)
     {
         try
         {
-            SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
+            Debug.Log(LevelScenePrefix + levelSuffix);
+            SceneManager.UnloadSceneAsync(LevelScenePrefix + levelSuffix);
             return true;
         }
         catch (Exception e)
@@ -85,16 +88,30 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
-    {
-        if (UnloadCurrentLevel())
-        {
-            LoadLevel(currLevel.ToString());
-        }
-        else
-        {
-            RestartLevel();
-        }
-    }
+    //public bool UnloadCurrentLevel()
+    //{
+    //    try
+    //    {
+    //        SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
+    //        return true;
+    //    }
+    //    catch (Exception e)
+    //    {
+    //        Debug.Log(e);
+    //        return false;
+    //    }
+    //}
+
+    //public void RestartLevel()
+    //{
+    //    if (UnloadCurrentLevel())
+    //    {
+    //        LoadLevel(currLevel.ToString());
+    //    }
+    //    else
+    //    {
+    //        RestartLevel();
+    //    }
+    //}
     
 }

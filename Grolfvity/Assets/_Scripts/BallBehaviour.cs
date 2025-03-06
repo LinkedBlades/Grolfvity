@@ -206,14 +206,12 @@ public class BallBehaviour : MonoBehaviour
         //Temporary for Playtest1
         if(collision.tag == "Hole")
         {
-            Debug.Log("Ball inside hole");
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
             BallRespawn();
         }
 
         if(collision.tag == "BlackHole")
         {
-            Debug.Log("Ball inside black hole");
             SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 1.0f);
             BallToPreviousPosition();
         }
