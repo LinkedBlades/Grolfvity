@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PersistentElements.unity
     guid: 275edf848bc55ec408d8afd1db7c2f82
   - enabled: 1
-    path: Assets/Scenes/Playtest1.unity
+    path: Assets/Scenes/Playtests/Playtest1/Playtest1.unity
     guid: 9b517a331b009924ca07b0097a243488
   m_configObjects: {}
