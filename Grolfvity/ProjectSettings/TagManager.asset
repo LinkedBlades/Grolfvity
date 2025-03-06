@@ -8,6 +8,8 @@ TagManager:
   - Planet
   - GravField
   - Hole
+  - BlackHole
+  - PlanetField
   layers:
   - Default
   - TransparentFX

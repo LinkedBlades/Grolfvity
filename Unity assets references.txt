@@ -43,3 +43,6 @@ cabled_mess - Retro Sci-Fi Pack : https://assetstore.unity.com/packages/audio/so
 Pedro Hertz SFX - Universal UI SFX : https://assetstore.unity.com/packages/audio/sound-fx/universal-ui-sfx-269513
 
 Matthew Anett - Classic Footsteps SFX : https://assetstore.unity.com/packages/audio/sound-fx/classic-footstep-sfx-173668 
+
+----------------- Not used paid particles ----------------------
+Beetheart Creative Studio: 2D Black Hole Vortex: https://assetstore.unity.com/packages/2d/textures-materials/2d-black-hole-vortex-15027

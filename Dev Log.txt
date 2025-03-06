@@ -133,9 +133,26 @@ Monday 27/01/2025
 -Previous attempt with 1.5x felt like too much.
 
 04/03/2025
--Started building playtest 2 build 
+-Started building playtest 2 build
+-Cleaned up unused code in PlanetForces.cs
+-Deleted BallOutOfBounds.cs since its implemented inside BallBehaviour.cs
 -Refactored PlanetForces.cs so attraction only happens when ball is moving
 -Changed Blue planet scale=1, hitbox=1, field=1.5
 -Changed Yellow planet scale=1, hitbox=2.25, field=3
 -Ball speed cap increased to 45
 -Added Hole tag just for testing with multiple holes per level during playtest2
+
+06/03/2025
+-Added Black hole element that destroys ball on contact and has a big area and big attraction force
+-Black hole force parameters: 
+	Field pull mag = 5000 // Dist cap = 4.5  
+	Event Horizon pull mag = 6000 // Dist cap = 1.2
+-Adapted PlanerForces.cs to work with Black holes
+-Added ball interaction with Black hole to BallBheavior.cs
+-Revmoed Playtest1 introduction text
+-Split old canvas into Background Canvas and Menu Canvas
+-Changed Ball speed cap to 47 from 45
+-Blue planet field scale up to 1.75 from 1.5
+-Yellow planet Pull mag up to 3000 from 2500, Dist cap up to 5.5 from 5
+-Ball shoot multiplier up to 3.9 from 3.7
+

@@ -174,7 +174,6 @@ public class BallBehaviour : MonoBehaviour
 
     private void BallRespawn()
     {
-        Debug.Log(" Inside Ball respawn");
         transform.position = new Vector2(ballSpawn.x, ballSpawn.y);
         SwitchState(BallState.Stationary);
     }
@@ -191,12 +190,12 @@ public class BallBehaviour : MonoBehaviour
     {
         //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
-        {
+        {   
             bounceCount++;
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {
-                //rbody.velocity = Vector2.zero;
+                rbody.velocity = Vector2.zero;
                 bounceCount = 0;
             }
         }
@@ -212,8 +211,18 @@ public class BallBehaviour : MonoBehaviour
             BallRespawn();
         }
 
+        if(collision.tag == "BlackHole")
+        {
+            Debug.Log("Ball inside black hole");
+            SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 1.0f);
+            BallToPreviousPosition();
+        }
+
         //Setting ball drag to X value ewhen entering planet field
-        rbody.drag = drag;
+        if(collision.tag == "PlanetField")
+        {
+            rbody.drag = drag;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

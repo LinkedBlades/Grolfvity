@@ -610,5 +610,5 @@ MonoBehaviour:
   ballStoppedTimer: 0.25
   shotStrenghtMultiplier: 3.7
   maxLineLenght: 15
-  bounceCap: 8
+  bounceCap: 6
   oobTol: 1

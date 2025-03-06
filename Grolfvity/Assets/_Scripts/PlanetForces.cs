@@ -19,6 +19,7 @@ public class PlanetForces : MonoBehaviour
     private float oldRangeMax;
     private float newRangeMin;
     private float newRangeMax;
+    private float eventHorizonRadius;
 
     //Frame ball enters the gravity field
     private int detectionFrame;
@@ -34,14 +35,36 @@ public class PlanetForces : MonoBehaviour
             {
                 planetRadius = allColliders[i].radius;
             }
-            else
+            else if (allColliders[i].gameObject.name == "Field")
             {
                 fieldRadius = allColliders[i].radius;
             }
+            else
+            {
+                eventHorizonRadius = allColliders[i].radius;
+            }
+        }
+        
+        if(this.gameObject.name == "EventHorizon")
+        {
+            Debug.Assert(planetRadius > 0);
+            Debug.Assert(fieldRadius > 0);
+            Debug.Assert(eventHorizonRadius > 0);
+        }
+
+        //Case diferentiation for using same script on BlackHoles
+        if(this.gameObject.name == "Field")
+        {
+            oldRangeMax = Mathf.Pow(fieldRadius, 2);
+
+        }
+
+        if(this.gameObject.name == "EventHorizon")
+        {
+            oldRangeMax = Mathf.Pow(eventHorizonRadius, 2);
         }
 
         oldRangeMin = Mathf.Pow(planetRadius, 2);
-        oldRangeMax = Mathf.Pow(fieldRadius, 2);
         newRangeMin = oldRangeMin;
         newRangeMax = distCap * oldRangeMin;
 
@@ -57,15 +80,12 @@ public class PlanetForces : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ball")
-        {
-            Debug.Log("Collided with planet");
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int detectionFrame = Time.frameCount;
+        //int detectionFrame = Time.frameCount;
     }
 
     //Pull ball when on field range
@@ -80,7 +100,7 @@ public class PlanetForces : MonoBehaviour
 
                 //Variable to increase pull strenght based on time ball spent moving to avoid long orbits
                 // 1% force increased every 20 frames
-                float forceFactor = 1 + (Time.frameCount - detectionFrame) / 2000;
+                //float forceFactor = 1 + (Time.frameCount - detectionFrame) / 2000;
                 //Debug.Log("Force factor: " + forceFactor);
                 collision.attachedRigidbody.AddForce(gravVector);
 
