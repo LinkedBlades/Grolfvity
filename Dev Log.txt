@@ -157,3 +157,6 @@ Monday 27/01/2025
 -Ball shoot multiplier up to 3.9 from 3.7
 -Tied load, reload an unload functionality to Game states and ball entering each level exit
 -Put load next level on hold cause unknown bug causes it to not work properly
+-Arranged level 3 for playtest
+-Added Start, Pause and End of Level Menu to priority list.
+-Decided on Moving obstacles and moving Hole as last mechanics to be added to the game.
