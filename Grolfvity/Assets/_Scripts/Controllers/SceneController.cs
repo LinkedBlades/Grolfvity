@@ -68,7 +68,11 @@ public class SceneController : MonoBehaviour
         //Check if there is a level to load and if its not already loaded
         if (nextSceneName != "" && !SceneManager.GetSceneByName(nextSceneName).isLoaded)
         {
-            SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+            AsyncOperation asyncOp = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+            if(asyncOp.isDone)
+            {
+                Debug.Log("Loading level ready");
+            }
         }
 
     }

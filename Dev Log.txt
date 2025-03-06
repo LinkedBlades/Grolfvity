@@ -156,4 +156,4 @@ Monday 27/01/2025
 -Yellow planet Pull mag up to 3000 from 2500, Dist cap up to 5.5 from 5
 -Ball shoot multiplier up to 3.9 from 3.7
 -Tied load, reload an unload functionality to Game states and ball entering each level exit
-
+-Put load next level on hold cause unknown bug causes it to not work properly

@@ -14,7 +14,9 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            GameController.Instance.ChangeGameState(GameController.GameState.Loading);
+            Debug.Log("Load next level");
+
+            //GameController.Instance.ChangeGameState(GameController.GameState.Loading);
 
             //if(SceneController.Instance.UnloadCurrentLevel())
             //{

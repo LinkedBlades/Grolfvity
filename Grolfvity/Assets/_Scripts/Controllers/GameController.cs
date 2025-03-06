@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public int totalStrokes { get; private set; }
     public float timer { get; private set; }
     public string currentLevelSuffix { get; private set; }
+    public string nextLevelSuffix { get; private set; }
 
     public GameState currentState { get; private set; }
     //For passing ball state to planets
@@ -47,7 +48,6 @@ public class GameController : MonoBehaviour
     {
         currentState = GameState.Pause;
         ChangeGameState(GameState.Starting);
-        currentLevelSuffix = FindAnyObjectByType<NextLevel>().nextLevelNumber;
     }
 
     // Update is called once per frame
@@ -107,22 +107,21 @@ public class GameController : MonoBehaviour
 
     private void HandlePlaying()
     {
-        //Update current level suffix
-        //currentLevelSuffix = FindAnyObjectByType<NextLevel>().currentLevelNumber;
+        UpdateLevel();
+
+        Debug.Log("NEXT LEVEL SUFFIX " + nextLevelSuffix);
         Debug.Log("CURRENT LEVEL SUFFIX " + currentLevelSuffix);
-         
-        Time.timeScale = 1;
+
         SoundController.Instance.PlayBGM();
+        Time.timeScale = 1;
     }
     private void HandlePause()
     {
+        SoundController.Instance.PauseBGM();
         Time.timeScale = 0;
     }
     private void HandleLoadingNextLevel()
     {
-        string nextLevelSuffix = FindAnyObjectByType<NextLevel>().nextLevelNumber;
-
-        Debug.Log("NEXT LEVEL SUFFIX " + nextLevelSuffix);
         //Load level complete screen, Load next level, Unload current Level
         
         //UI Controller load menu screen
@@ -131,12 +130,17 @@ public class GameController : MonoBehaviour
         if (SceneController.Instance.UnloadLevel(currentLevelSuffix))
         {
             SceneController.Instance.LoadLevel(nextLevelSuffix);
-            currentLevelSuffix = nextLevelSuffix;
             ChangeGameState(GameState.Playing);
         }
 
     }
     ////-----------------------------------Extra functions----------------------------------- ////
+
+    private void UpdateLevel()
+    {
+        currentLevelSuffix = FindObjectOfType<NextLevel>().currentLevelNumber;
+        nextLevelSuffix = FindObjectOfType<NextLevel>().nextLevelNumber;
+    }
 
     public void IncrementHits()
     {
