@@ -192,7 +192,7 @@ public class BallBehaviour : MonoBehaviour
         if(col.gameObject.name == "Hitbox")
         {   
             bounceCount++;
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.3f);
             if (bounceCount == bounceCap)
             {
                 rbody.velocity = Vector2.zero;
