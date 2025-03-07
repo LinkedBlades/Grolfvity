@@ -90,6 +90,7 @@ public class BallBehaviour : MonoBehaviour
         cam = Camera.main;
         RenderHotspot(false);
 
+        SwitchState(BallState.Moving);
     }
 
     void FixedUpdate()
@@ -121,21 +122,28 @@ public class BallBehaviour : MonoBehaviour
 
     private void SwitchState (BallState newState)
     {
+        if (newState == currentState)
+        {
+            return;
+        }
         currentState = newState;
 
         //Decided to use switch instead of ifs although it saves only one check
         switch(newState)
         {
             case BallState.Stationary:
+                Debug.Log("Ball stopped");
                 RenderHotspot(true);
                 rbody.velocity = Vector2.zero;
                 rbody.angularVelocity = 0;
-                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.05f);
+                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.1f);
+                GameController.Instance.ballState = BallState.Stationary;
                 break;
 
             case BallState.Moving:
                 RenderHotspot(false);
                 ballStoppedTimer = 0.5f;
+                GameController.Instance.ballState = BallState.Moving;
                 break;
         }
 
@@ -187,12 +195,12 @@ public class BallBehaviour : MonoBehaviour
     {
         //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
-        {
+        {   
             bounceCount++;
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 1.0f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {
-                //rbody.velocity = Vector2.zero;
+                rbody.velocity = Vector2.zero;
                 bounceCount = 0;
             }
         }
@@ -201,14 +209,27 @@ public class BallBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Temporary for Playtest1
-        if(collision.name == "Hole")
+        if(collision.tag == "Hole")
         {
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.4f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
+            if (collision.name == "HoleInfinite")
+            {
+                BallRespawn();
+            }
             BallRespawn();
         }
 
+        if(collision.tag == "BlackHole")
+        {
+            SoundController.Instance.PlaySFX(SoundController.Instance.outOfBounds, 1.0f);
+            BallToPreviousPosition();
+        }
+
         //Setting ball drag to X value ewhen entering planet field
-        rbody.drag = drag;
+        if(collision.tag == "PlanetField")
+        {
+            rbody.drag = drag;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
