@@ -136,7 +136,7 @@ public class BallBehaviour : MonoBehaviour
                 RenderHotspot(true);
                 rbody.velocity = Vector2.zero;
                 rbody.angularVelocity = 0;
-                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.05f);
+                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.1f);
                 GameController.Instance.ballState = BallState.Stationary;
                 break;
 
