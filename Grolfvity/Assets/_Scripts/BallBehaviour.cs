@@ -132,6 +132,7 @@ public class BallBehaviour : MonoBehaviour
         switch(newState)
         {
             case BallState.Stationary:
+                Debug.Log("Ball stopped");
                 RenderHotspot(true);
                 rbody.velocity = Vector2.zero;
                 rbody.angularVelocity = 0;
