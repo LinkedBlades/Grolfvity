@@ -122,6 +122,10 @@ public class BallBehaviour : MonoBehaviour
 
     private void SwitchState (BallState newState)
     {
+        if (newState == currentState)
+        {
+            return;
+        }
         currentState = newState;
 
         //Decided to use switch instead of ifs although it saves only one check
@@ -192,7 +196,7 @@ public class BallBehaviour : MonoBehaviour
         if(col.gameObject.name == "Hitbox")
         {   
             bounceCount++;
-            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.3f);
+            SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {
                 rbody.velocity = Vector2.zero;
