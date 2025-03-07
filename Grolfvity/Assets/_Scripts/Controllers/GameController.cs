@@ -107,11 +107,6 @@ public class GameController : MonoBehaviour
 
     private void HandlePlaying()
     {
-        //UpdateLevel();
-
-        //Debug.Log("NEXT LEVEL SUFFIX " + nextLevelSuffix);
-        //Debug.Log("CURRENT LEVEL SUFFIX " + currentLevelSuffix);
-
         SoundController.Instance.PlayBGM();
         Time.timeScale = 1;
     }
@@ -138,12 +133,15 @@ public class GameController : MonoBehaviour
     }
     ////-----------------------------------Extra functions----------------------------------- ////
 
+    public void PauseGame()
+    {
+        ChangeGameState(GameState.Pause);
+    }
 
-    //private void UpdateLevel()
-    //{
-    //    currentLevelSuffix = FindObjectOfType<NextLevel>().currentLevelNumber;
-    //    nextLevelSuffix = FindObjectOfType<NextLevel>().nextLevelNumber;
-    //}
+    public void UnPause()
+    {
+        ChangeGameState(GameState.Playing);
+    }
 
     public void IncrementHits()
     {

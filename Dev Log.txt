@@ -166,3 +166,4 @@ Monday 27/01/2025
 -Level 2 of PT2 Yellow planet scale 1.2x
 -Yellow planet Dist cap down to 5.0 from 5.5
 -Added a free play tittle to last level for clarity
+-Event horizon pull mag up to 6500 from 6000
