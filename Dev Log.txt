@@ -167,3 +167,11 @@ Monday 27/01/2025
 -Yellow planet Dist cap down to 5.0 from 5.5
 -Added a free play tittle to last level for clarity
 -Event horizon pull mag up to 6500 from 6000
+-Built playtest 2 build 
+-Created feedback form for playtest 2 session
+-Sent playtest 2 build to same people who participated in playtest 1 and also into Pirate Software gaming Discord
+and Preach Gaming discord
+
+08/03/2025 - 09/03/2025 - 10/03/2025
+-Collected feedback from playtest 2 build
+-No explicit development besides level design and ideas due to completing other module Final project and completing this module written exam.
