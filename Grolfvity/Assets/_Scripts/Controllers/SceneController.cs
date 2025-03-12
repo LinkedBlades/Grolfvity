@@ -43,9 +43,9 @@ public class SceneController : MonoBehaviour
     //Loads initial scenes for game to start
     public void StartGame()
     {
-        if (!SceneManager.GetSceneByName("Playtest2_Level1").isLoaded)
+        if (!SceneManager.GetSceneByName("Playtest3_Level1").isLoaded)
         {
-            SceneManager.LoadSceneAsync("Playtest2_Level1", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Playtest3_Level1", LoadSceneMode.Additive);
         }
 
         //Loop through all scenes and unload every level but level 1 and persistent elements
@@ -53,7 +53,7 @@ public class SceneController : MonoBehaviour
         { 
             Scene scene = SceneManager.GetSceneAt(i);
 
-            if (scene.name != "Playtest2_Level1" && scene.name != "PersistentElements")
+            if (scene.name != "Playtest3_Level1" && scene.name != "PersistentElements")
             {
                 SceneManager.UnloadSceneAsync(scene);
             }
