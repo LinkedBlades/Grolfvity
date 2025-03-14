@@ -15,6 +15,8 @@ Texture 1 free : https://assetstore.unity.com/packages/2d/textures-materials/tex
 
 World materials : https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
 
+105 Colorful 2D Planet Icons by ARISAN: https://assetstore.unity.com/packages/2d/gui/icons/105-colorful-2d-planet-icons-71084
+
 
 ------------------- AUDIO ASSETS ------------------------------
 
