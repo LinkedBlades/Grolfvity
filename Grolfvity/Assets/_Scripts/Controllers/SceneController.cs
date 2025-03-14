@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
 
     //This is how levels are named in the ./Scenes folder
     //We just add the level number after this prefix
-    private const string LevelScenePrefix = "Playtest2_Level";
+    private const string LevelScenePrefix = "Playtest3_Level";
 
     public int currLevel;
 
@@ -95,6 +95,7 @@ public class SceneController : MonoBehaviour
     {
         try
         {
+            //Debug.Log("Current level to unload: " + LevelScenePrefix + currLevel);
             SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
             return true;
         }
