@@ -196,7 +196,12 @@ public class BallBehaviour : MonoBehaviour
         //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
         {   
-            bounceCount++;
+            //Only stop ball when bouncing off planet surfaces
+            if(col.gameObject.tag != "Obstacle")
+            {
+                bounceCount++;
+            }
+
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {
