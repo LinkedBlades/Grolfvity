@@ -175,3 +175,13 @@ and Preach Gaming discord
 08/03/2025 - 09/03/2025 - 10/03/2025
 -Collected feedback from playtest 2 build
 -No explicit development besides level design and ideas due to completing other module Final project and completing this module written exam.
+
+13/03/2025
+-Updated prefabs for PT3
+-Planet prefabs rigid bodies changed from Kinematic to Dynamic for better physics simulations
+-Added first iteration of moving obstacles moving only transforms (no rigid body, inaccurate physics simulations)
+-Changed orbiting obstacles to rigid body movement for better physics
+-Added obstacles tag
+-Decided to keep the code to stop ball afer bouncing X amount of times since if ball comes into contact with planet surface
+in a near tangent direction it can cause noisy sound clip overlaps.
+-Added logic to avoid ball stopping on an obstacle

@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
 
     //This is how levels are named in the ./Scenes folder
     //We just add the level number after this prefix
-    private const string LevelScenePrefix = "Playtest2_Level";
+    private const string LevelScenePrefix = "Playtest3_Level";
 
     public int currLevel;
 
@@ -43,9 +43,9 @@ public class SceneController : MonoBehaviour
     //Loads initial scenes for game to start
     public void StartGame()
     {
-        if (!SceneManager.GetSceneByName("Playtest2_Level1").isLoaded)
+        if (!SceneManager.GetSceneByName("Playtest3_Level1").isLoaded)
         {
-            SceneManager.LoadSceneAsync("Playtest2_Level1", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Playtest3_Level1", LoadSceneMode.Additive);
         }
 
         //Loop through all scenes and unload every level but level 1 and persistent elements
@@ -53,7 +53,7 @@ public class SceneController : MonoBehaviour
         { 
             Scene scene = SceneManager.GetSceneAt(i);
 
-            if (scene.name != "Playtest2_Level1" && scene.name != "PersistentElements")
+            if (scene.name != "Playtest3_Level1" && scene.name != "PersistentElements")
             {
                 SceneManager.UnloadSceneAsync(scene);
             }
@@ -95,6 +95,7 @@ public class SceneController : MonoBehaviour
     {
         try
         {
+            //Debug.Log("Current level to unload: " + LevelScenePrefix + currLevel);
             SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
             return true;
         }

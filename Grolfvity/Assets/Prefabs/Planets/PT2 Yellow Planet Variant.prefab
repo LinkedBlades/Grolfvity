@@ -24,6 +24,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1423214378418960892, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_Mass
+      value: 197.75085
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423214378418960892, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423214378418960892, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423214378418960892, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423214378418960892, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2203591019352985622, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.25
@@ -111,6 +131,10 @@ PrefabInstance:
     - target: {fileID: 7892716235291961589, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
       propertyPath: pullMagnitude
       value: 2750
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295284000571698316, guid: 1905fe6af13e8b644a0b696120f2dfe1, type: 3}
+      propertyPath: m_Radius
+      value: 3.5261576
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
