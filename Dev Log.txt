@@ -185,3 +185,8 @@ and Preach Gaming discord
 -Decided to keep the code to stop ball afer bouncing X amount of times since if ball comes into contact with planet surface
 in a near tangent direction it can cause noisy sound clip overlaps.
 -Added logic to avoid ball stopping on an obstacle
+
+15/03/2025
+-Imported assets for buttons and fonts for menus
+-Started building Pause and Load Level menu
+-Created Pause Menu

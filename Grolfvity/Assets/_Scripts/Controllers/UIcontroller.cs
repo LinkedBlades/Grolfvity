@@ -6,6 +6,12 @@ using UnityEngine;
 public class UIcontroller : MonoBehaviour
 {
 
+    [Header("Pause menu")]
+    [SerializeField] public GameObject pauseMenu;
+
+    [Header("Level select menu")]
+    [SerializeField] public GameObject levelSelectMenu;
+
     public static UIcontroller Instance;
 
     //Instantiate singleton
@@ -61,5 +67,18 @@ public class UIcontroller : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void PauseButton()
+    {
+        GameController.Instance.ChangeGameState(GameController.GameState.Pause);
+    }
 
+    public void ActivateUI(GameObject element)
+    {
+        element.SetActive(true);
+    }
+
+    public void DeactivateUI(GameObject element)
+    {
+        element.SetActive(false);
+    }
 }

@@ -112,6 +112,7 @@ public class GameController : MonoBehaviour
     }
     private void HandlePause()
     {
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.pauseMenu);
         SoundController.Instance.PauseBGM();
         Time.timeScale = 0;
     }
