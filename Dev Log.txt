@@ -191,3 +191,5 @@ in a near tangent direction it can cause noisy sound clip overlaps.
 -Started building Pause and Load Level menu
 -Created Pause Menu
 -Linked Pause Menu buttons
+-Added level select screen
+-Updated Start Menu font and sprites
