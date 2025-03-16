@@ -190,3 +190,4 @@ in a near tangent direction it can cause noisy sound clip overlaps.
 -Imported assets for buttons and fonts for menus
 -Started building Pause and Load Level menu
 -Created Pause Menu
+-Linked Pause Menu buttons

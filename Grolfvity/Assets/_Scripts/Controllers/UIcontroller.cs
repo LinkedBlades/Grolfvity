@@ -30,7 +30,8 @@ public class UIcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pauseMenu.SetActive(false);
+        levelSelectMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -74,11 +75,17 @@ public class UIcontroller : MonoBehaviour
 
     public void ActivateUI(GameObject element)
     {
-        element.SetActive(true);
+        if(!element.activeSelf)
+        {
+            element.SetActive(true);
+        }
     }
 
     public void DeactivateUI(GameObject element)
     {
-        element.SetActive(false);
+        if (element.activeSelf)
+        {
+            element.SetActive(false);
+        }
     }
 }
