@@ -17,6 +17,10 @@ World materials : https://assetstore.unity.com/packages/2d/textures-materials/wo
 
 105 Colorful 2D Planet Icons by ARISAN: https://assetstore.unity.com/packages/2d/gui/icons/105-colorful-2d-planet-icons-71084
 
+--------------------UI ASSETS----------------------------------
+Sci-fi GUI skin : https://assetstore.unity.com/packages/2d/gui/sci-fi-gui-skin-15606
+
+Free Pixel Font - Thaleah : https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
 
 ------------------- AUDIO ASSETS ------------------------------
 

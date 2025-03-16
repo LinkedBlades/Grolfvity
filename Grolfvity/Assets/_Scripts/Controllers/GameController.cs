@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
         Playing,
         Pause,
         Loading,
+        Restart,
         Menu
     }
 
@@ -90,6 +91,10 @@ public class GameController : MonoBehaviour
                 HandleLoadingNextLevel();
                 break;
 
+            case GameState.Restart:
+                HandleRestart();
+                break;
+
             case GameState.Menu:
                 break;
         }
@@ -107,11 +112,14 @@ public class GameController : MonoBehaviour
 
     private void HandlePlaying()
     {
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.pauseMenu);
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelSelectMenu);
         SoundController.Instance.PlayBGM();
         Time.timeScale = 1;
     }
     private void HandlePause()
     {
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.pauseMenu);
         SoundController.Instance.PauseBGM();
         Time.timeScale = 0;
     }
@@ -130,6 +138,13 @@ public class GameController : MonoBehaviour
 
         ChangeGameState(GameState.Playing);
 
+    }
+
+    private void HandleRestart()
+    {
+        SceneController.Instance.RestartLevel();
+
+        ChangeGameState(GameState.Playing);
     }
     ////-----------------------------------Extra functions----------------------------------- ////
 

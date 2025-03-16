@@ -10,6 +10,7 @@ TagManager:
   - Hole
   - BlackHole
   - PlanetField
+  - Obstacle
   layers:
   - Default
   - TransparentFX

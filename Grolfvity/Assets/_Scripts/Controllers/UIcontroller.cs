@@ -6,6 +6,12 @@ using UnityEngine;
 public class UIcontroller : MonoBehaviour
 {
 
+    [Header("Pause menu")]
+    [SerializeField] public GameObject pauseMenu;
+
+    [Header("Level select menu")]
+    [SerializeField] public GameObject levelSelectMenu;
+
     public static UIcontroller Instance;
 
     //Instantiate singleton
@@ -24,7 +30,8 @@ public class UIcontroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pauseMenu.SetActive(false);
+        levelSelectMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,5 +68,24 @@ public class UIcontroller : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void PauseButton()
+    {
+        GameController.Instance.ChangeGameState(GameController.GameState.Pause);
+    }
 
+    public void ActivateUI(GameObject element)
+    {
+        if(!element.activeSelf)
+        {
+            element.SetActive(true);
+        }
+    }
+
+    public void DeactivateUI(GameObject element)
+    {
+        if (element.activeSelf)
+        {
+            element.SetActive(false);
+        }
+    }
 }
