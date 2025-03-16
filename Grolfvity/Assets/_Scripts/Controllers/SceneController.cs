@@ -41,8 +41,10 @@ public class SceneController : MonoBehaviour
     //Loads initial scenes for game to start
     public void StartGame()
     {
+        //Unload levels loaded in the editor
         UnloadLevels();
 
+        //Load game first level
         if (!SceneManager.GetSceneByName("Playtest3_Level1").isLoaded)
         {
             SceneManager.LoadSceneAsync("Playtest3_Level1", LoadSceneMode.Additive);
@@ -52,7 +54,7 @@ public class SceneController : MonoBehaviour
 
     public void UnloadLevels()
     {
-        //Loop through all scenes and unload every level but level 1 and persistent elements
+        //Loop through all scenes and unload every level scene
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
