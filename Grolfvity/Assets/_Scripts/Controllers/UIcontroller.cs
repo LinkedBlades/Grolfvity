@@ -12,6 +12,9 @@ public class UIcontroller : MonoBehaviour
     [Header("Level select menu")]
     [SerializeField] public GameObject levelSelectMenu;
 
+    [Header("Level select error message")]
+    [SerializeField] public GameObject levelSelectError;
+
     public static UIcontroller Instance;
 
     //Instantiate singleton
@@ -32,6 +35,7 @@ public class UIcontroller : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
+        levelSelectError.SetActive(false);
     }
 
     // Update is called once per frame

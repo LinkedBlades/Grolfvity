@@ -58,6 +58,15 @@ public class SoundController : MonoBehaviour
     {
         BGMSource.Pause();
     }
+    public void BGMVolume(float vol)
+    {
+        BGMSource.volume = vol;
+    }
+
+    public bool BGMPlaying()
+    {
+        return BGMSource.isPlaying;
+    }
 
     public void StopBGM()
     {

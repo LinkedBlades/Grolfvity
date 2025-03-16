@@ -604,11 +604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473effbd9c8f774e921ac0910e50d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeedCap: 40
+  ballSpeedCap: 50
   drag: 0.1
   minSpeedCheck: 0.1
   ballStoppedTimer: 0.25
-  shotStrenghtMultiplier: 3.7
+  shotStrenghtMultiplier: 3.9
   maxLineLenght: 15
   bounceCap: 6
   oobTol: 1

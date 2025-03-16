@@ -193,3 +193,4 @@ in a near tangent direction it can cause noisy sound clip overlaps.
 -Linked Pause Menu buttons
 -Added level select screen
 -Updated Start Menu font and sprites
+-Started working on level select functionality
