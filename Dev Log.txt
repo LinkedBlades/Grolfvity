@@ -194,3 +194,7 @@ in a near tangent direction it can cause noisy sound clip overlaps.
 -Added level select screen
 -Updated Start Menu font and sprites
 -Started working on level select functionality
+-Linked Level select buttons to Scene and UI controllers. 
+Selecting unbeaten level raises message, while selecting current level restarts
+
+16/03/2025
