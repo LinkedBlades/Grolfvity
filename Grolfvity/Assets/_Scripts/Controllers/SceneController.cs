@@ -61,7 +61,10 @@ public class SceneController : MonoBehaviour
 
             if (scene.name != "PersistentElements")
             {
-                SceneManager.UnloadSceneAsync(scene);
+                if(scene.isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync(scene);
+                }
             }
         }
     }
@@ -70,22 +73,21 @@ public class SceneController : MonoBehaviour
     {
         int levelNum = int.Parse(levelSuffix);
         string nextSceneName = LevelScenePrefix + levelSuffix;
-        //Check if there is a level to load and if its not already loaded
-        if (nextSceneName != "" && !SceneManager.GetSceneByName(nextSceneName).isLoaded)
+        //Check if there is a level to load. If level already loaded it will just reload
+        if (nextSceneName != "")
         {
-            if (levelNum == currLevel)
+            if (levelNum <= GameController.Instance.levelReached)
             {
-                SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
-            }
-            else if (levelNum < GameController.Instance.levelReached)
-            {
+                //Unload level
+                UnloadCurrentLevel();
+                
                 //Unload all other levels
-                UnloadLevels();
+                //UnloadLevels();
+
+                //Update current level if loading a lower level
+                currLevel = levelNum;
                 //Load new level
                 AsyncOperation asyncOp = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
-                //Update current level
-                currLevel = levelNum;
-                Debug.Log("Current level: " + currLevel);
 
                 //UnPause game if called from level select button
                 GameController.Instance.ChangeGameState(GameController.GameState.Playing);
