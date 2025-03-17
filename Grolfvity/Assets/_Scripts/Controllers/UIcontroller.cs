@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
 {
+    [Header("Menu Canvas")]
+    [SerializeField] public GameObject menuCanvas;
 
     [Header("Pause menu")]
     [SerializeField] public GameObject pauseMenu;

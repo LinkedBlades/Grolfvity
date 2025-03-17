@@ -52,7 +52,7 @@ public class SceneController : MonoBehaviour
 
     }
 
-    public void UnloadLevels()
+    private void UnloadLevels()
     {
         //Loop through all scenes and unload every level scene
         for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -75,9 +75,9 @@ public class SceneController : MonoBehaviour
         {
             if (levelNum == currLevel)
             {
-                RestartLevel();
+                SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
             }
-            else if (levelNum < GameController.Instance.beatenLevel)
+            else if (levelNum < GameController.Instance.levelReached)
             {
                 //Unload all other levels
                 UnloadLevels();
@@ -92,6 +92,7 @@ public class SceneController : MonoBehaviour
             }
             else
             {
+                SoundController.Instance.PlaySFX(SoundController.Instance.levelSelectError);
                 UIcontroller.Instance.ActivateUI(UIcontroller.Instance.levelSelectError);
             }
 

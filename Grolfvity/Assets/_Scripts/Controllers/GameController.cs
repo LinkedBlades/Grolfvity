@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public int totalStrokes { get; private set; }
     public float timer { get; private set; }
 
-    public int beatenLevel;
+    public int levelReached;
     public string currentLevelSuffix { get; private set; }
     public string nextLevelSuffix { get; private set; }
 
@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
     {
         SceneController.Instance.StartGame();
         Time.timeScale = 0;
-        beatenLevel = 1;
+        levelReached = 1;
         ChangeGameState(GameState.Pause);
     }
 
@@ -136,7 +136,7 @@ public class GameController : MonoBehaviour
         //Unload pre level
         SceneController.Instance.UnloadCurrentLevel();
         //Update beaten levels
-        beatenLevel++;
+        levelReached++;
         //Set current level
         SceneController.Instance.currLevel++;
         //Load next level

@@ -14,6 +14,8 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
+            SoundController.Instance.PlaySFX(SoundController.Instance.levelCompleted);
+
             //Debug.Log("Load next level");
             if(nextLevelNumber == 0)
             {

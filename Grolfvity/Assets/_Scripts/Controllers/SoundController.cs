@@ -29,6 +29,7 @@ public class SoundController : MonoBehaviour
 
     [Header("SFX Extra")]
     public AudioClip levelCompleted;
+    public AudioClip levelSelectError;
 
     //Instantiate singleton
     private void Awake()
@@ -73,6 +74,7 @@ public class SoundController : MonoBehaviour
         BGMSource.Stop();
     }
 
+    //Single argument function for adding SFX to menu buttons
     public void PlayMenuSFX(AudioClip sample)
     {
         SFXSource.PlayOneShot(sample, 0.5f);
