@@ -33,45 +33,71 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Set resolution and neccesary references
+        //Set resolution and current level
         Screen.SetResolution(1920, 1080, true);
-
         currLevel = 1;
-        //StartGame();
     }
 
     //Loads initial scenes for game to start
     public void StartGame()
     {
+        //Unload levels loaded in the editor
+        UnloadLevels();
+
+        //Load game first level
         if (!SceneManager.GetSceneByName("Playtest3_Level1").isLoaded)
         {
             SceneManager.LoadSceneAsync("Playtest3_Level1", LoadSceneMode.Additive);
         }
 
-        //Loop through all scenes and unload every level but level 1 and persistent elements
+    }
+
+    private void UnloadLevels()
+    {
+        //Loop through all scenes and unload every level scene
         for (int i = 0; i < SceneManager.sceneCount; i++)
-        { 
+        {
             Scene scene = SceneManager.GetSceneAt(i);
 
-            if (scene.name != "Playtest3_Level1" && scene.name != "PersistentElements")
+            if (scene.name != "PersistentElements")
             {
-                SceneManager.UnloadSceneAsync(scene);
+                if(scene.isLoaded)
+                {
+                    SceneManager.UnloadSceneAsync(scene);
+                }
             }
         }
-
     }
 
     public void LoadLevel(string levelSuffix)
     {
+        int levelNum = int.Parse(levelSuffix);
         string nextSceneName = LevelScenePrefix + levelSuffix;
-        //Check if there is a level to load and if its not already loaded
-        if (nextSceneName != "" && !SceneManager.GetSceneByName(nextSceneName).isLoaded)
+        //Check if there is a level to load. If level already loaded it will just reload
+        if (nextSceneName != "")
         {
-            AsyncOperation asyncOp = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
-            if(asyncOp.isDone)
+            if (levelNum <= GameController.Instance.levelReached)
             {
-                Debug.Log("Loading level ready");
+                //Unload level
+                UnloadCurrentLevel();
+                
+                //Unload all other levels
+                //UnloadLevels();
+
+                //Update current level if loading a lower level
+                currLevel = levelNum;
+                //Load new level
+                AsyncOperation asyncOp = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+
+                //UnPause game if called from level select button
+                GameController.Instance.ChangeGameState(GameController.GameState.Playing);
             }
+            else
+            {
+                SoundController.Instance.PlaySFX(SoundController.Instance.levelSelectError);
+                UIcontroller.Instance.ActivateUI(UIcontroller.Instance.levelSelectError);
+            }
+
         }
 
     }

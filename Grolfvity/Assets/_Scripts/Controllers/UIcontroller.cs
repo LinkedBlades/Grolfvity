@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
 {
+    [Header("Menu Canvas")]
+    [SerializeField] public GameObject menuCanvas;
 
     [Header("Pause menu")]
     [SerializeField] public GameObject pauseMenu;
 
     [Header("Level select menu")]
     [SerializeField] public GameObject levelSelectMenu;
+
+    [Header("Level select error message")]
+    [SerializeField] public GameObject levelSelectError;
 
     public static UIcontroller Instance;
 
@@ -32,6 +37,7 @@ public class UIcontroller : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
+        levelSelectError.SetActive(false);
     }
 
     // Update is called once per frame

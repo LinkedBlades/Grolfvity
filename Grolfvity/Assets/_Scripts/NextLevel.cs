@@ -14,7 +14,6 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            //Debug.Log("Load next level");
             if(nextLevelNumber == 0)
             {
                 SceneController.Instance.RestartLevel();
