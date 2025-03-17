@@ -198,5 +198,6 @@ in a near tangent direction it can cause noisy sound clip overlaps.
 Selecting unbeaten level raises message, while selecting current level restarts
 -Added SFX to menu buttons
 -Fixed restart level stack overflow error
+-Made Load Level more readable in SceneController.cs
 
 16/03/2025
