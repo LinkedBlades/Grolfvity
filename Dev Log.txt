@@ -209,4 +209,6 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Changed Blue planet pull magnitude from 1250 to 1300
 -Particle system radius does not scale with prefab scale so have to set the emitter radius manually
 -Added trail effect to ball moving
--Added indicator for ball ready to shoot
+-Added indicator for ball ready to shoot using particles
+-Removed old ball hotspot indicator
+-Added logic for new indicator and removed old unused variables and logic from BallBehavior.cs
