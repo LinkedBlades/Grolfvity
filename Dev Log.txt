@@ -212,3 +212,10 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Added indicator for ball ready to shoot using particles
 -Removed old ball hotspot indicator
 -Added logic for new indicator and removed old unused variables and logic from BallBehavior.cs
+
+21/03/2025
+-Timer UI
+-Initial game timer implementation done. 
+-Does not reset on level restart. Might implement full game restart for that.
+-Shots taken UI implementation
+-Shows amount of shots taken during the whole playthrough and updates every shot
