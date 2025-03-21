@@ -78,11 +78,8 @@ public class SceneController : MonoBehaviour
         {
             if (levelNum <= GameController.Instance.levelReached)
             {
-                //Unload level
+                //Unload level - Only added to supportlevel select menu functionality
                 UnloadCurrentLevel();
-                
-                //Unload all other levels
-                //UnloadLevels();
 
                 //Update current level if loading a lower level
                 currLevel = levelNum;

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+
 //using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +18,12 @@ public class UIcontroller : MonoBehaviour
 
     [Header("Level select error message")]
     [SerializeField] public GameObject levelSelectError;
+
+    [Header("Level timer")]
+    [SerializeField] public GameObject levelTimer;
+
+    [Header("Shots counter")]
+    [SerializeField] public GameObject shotsCounter;
 
     public static UIcontroller Instance;
 
@@ -38,12 +46,17 @@ public class UIcontroller : MonoBehaviour
         pauseMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
         levelSelectError.SetActive(false);
+        levelTimer.SetActive(false);
+        shotsCounter.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameController.Instance.GetCurrentState() == GameController.GameState.Playing)
+        {
+            UpdateTimer();
+        }
     }
 
     public void LoadLevelName()
@@ -54,18 +67,24 @@ public class UIcontroller : MonoBehaviour
          */
     }
 
-    public void LoadLevelTimer()
+    public void UpdateTimer()
     {
-        float timer = GameController.Instance.timer;
-        /*
-         * Should load the timer component in UI
-         */ 
+        float timer = GameController.Instance.gameTimer;
+        
+        float minutes = Mathf.FloorToInt(timer / 60);
+        float seconds = Mathf.FloorToInt(timer % 60);
+
+        TMP_Text timerText = levelTimer.GetComponent<TMP_Text>();
+        timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }
 
-    public void LoadShotsTaken()
+    public void UpdateShotsTaken()
     {
         int levelStrokes = GameController.Instance.levelStrokes;
         int totalStrokes = GameController.Instance.totalStrokes;
+
+        TMP_Text shotsText = shotsCounter.GetComponent<TMP_Text>();
+        shotsText.text = string.Format("Shots: {0}", totalStrokes);
     }
 
     public void DestroyElement(GameObject gameObject)

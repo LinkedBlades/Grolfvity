@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     public int levelStrokes {  get; private set; }
     public int totalStrokes { get; private set; }
-    public float timer { get; private set; }
+    public float gameTimer { get; private set; }
 
     public int levelReached;
     public string currentLevelSuffix { get; private set; }
@@ -56,7 +56,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer = Time.realtimeSinceStartup;
+        if (currentState == GameState.Playing)
+        {
+            gameTimer += Time.deltaTime;
+        }
     }
 
 
@@ -110,6 +113,9 @@ public class GameController : MonoBehaviour
         SceneController.Instance.StartGame();
         Time.timeScale = 0;
         levelReached = 1;
+        gameTimer = 0;
+        totalStrokes = 0;
+        levelStrokes = 0;
         ChangeGameState(GameState.Pause);
     }
 
@@ -117,6 +123,10 @@ public class GameController : MonoBehaviour
     {
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.pauseMenu);
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelSelectMenu);
+
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.levelTimer);
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.shotsCounter);
+
         if(SoundController.Instance.BGMPlaying()) SoundController.Instance.PlayBGM();
         SoundController.Instance.BGMVolume(0.08f);
         Time.timeScale = 1;
@@ -124,14 +134,16 @@ public class GameController : MonoBehaviour
     private void HandlePause()
     {
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.pauseMenu);
+
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.shotsCounter);
+
         SoundController.Instance.BGMVolume(0.02f);
         Time.timeScale = 0;
     }
     private void HandleLoadingNextLevel()
     {
-        //Load level complete screen, Load next level, Unload current Level
-
-        //UI Controller load menu screen
+        levelStrokes = 0;
 
         //Unload pre level
         SceneController.Instance.UnloadCurrentLevel();
@@ -164,11 +176,15 @@ public class GameController : MonoBehaviour
         ChangeGameState(GameState.Playing);
     }
 
+    //Called from ball every time a a shot is made
     public void IncrementHits()
     {
-        //Debug.Log("Hits incremented");
         levelStrokes++;
         totalStrokes++;
+        UIcontroller.Instance.UpdateShotsTaken();
+
+        Debug.Log("Shots taken:" + levelStrokes);
+
     }
 
     public BallBehaviour.BallState getBallState()
