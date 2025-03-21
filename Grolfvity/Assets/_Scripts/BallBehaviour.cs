@@ -62,6 +62,9 @@ public class BallBehaviour : MonoBehaviour
     GameObject hotspotRange;
     SpriteRenderer spriteRenderer;
 
+    //Particle system for hotspot
+    ParticleSystem hotspotIndicator;
+
     //Ball states
     public enum BallState
     {
@@ -86,6 +89,8 @@ public class BallBehaviour : MonoBehaviour
 
         hotspotRange = GameObject.Find("Range");
         spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
+
+        hotspotIndicator = GetComponentInChildren<ParticleSystem>();
 
         cam = Camera.main;
         RenderHotspot(false);
@@ -184,6 +189,15 @@ public class BallBehaviour : MonoBehaviour
 
     private void RenderHotspot(bool state)
     {
+        if (state)
+        {
+            hotspotIndicator.Play();
+        }
+        else
+        {
+            hotspotIndicator.Clear();
+            hotspotIndicator.Stop();
+        }
         spriteRenderer.enabled = state;
         mask.enabled = state;
     }

@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 8093324290990505215}
   - component: {fileID: 2878773191683559288}
   m_Layer: 3
-  m_Name: Particle System
+  m_Name: HotspotIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
