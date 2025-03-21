@@ -57,11 +57,6 @@ public class BallBehaviour : MonoBehaviour
     Vector2 prevPosition;
     Vector2 ballSpawn;
 
-    //References needed to enable/disable hotspot sprite
-    SpriteMask mask;
-    GameObject hotspotRange;
-    SpriteRenderer spriteRenderer;
-
     //Particle system for hotspot
     ParticleSystem hotspotIndicator;
 
@@ -77,18 +72,13 @@ public class BallBehaviour : MonoBehaviour
     {
         rbody = this.GetComponent<Rigidbody2D>();
         aimLine = this.GetComponentInChildren<aimLine>();
-        mask = this.GetComponentInChildren<SpriteMask>();
         bounceCount = 0;
-
     }
     
     void Start()
     {
         ballSpawn = GameObject.Find("SpawnPoint").transform.position;
         this.transform.position = ballSpawn;
-
-        hotspotRange = GameObject.Find("Range");
-        spriteRenderer = hotspotRange.GetComponent<SpriteRenderer>();
 
         hotspotIndicator = GetComponentInChildren<ParticleSystem>();
 
@@ -198,8 +188,6 @@ public class BallBehaviour : MonoBehaviour
             hotspotIndicator.Clear();
             hotspotIndicator.Stop();
         }
-        spriteRenderer.enabled = state;
-        mask.enabled = state;
     }
 
     //--------------------------------------------------Events--------------------------------------------------//
