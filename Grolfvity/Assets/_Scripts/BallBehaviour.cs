@@ -282,7 +282,7 @@ public class BallBehaviour : MonoBehaviour
             //Checking for mouse distance before drawing aimline
             if (Vector2.Distance(aimLineIni, mousePosEnd) > 1.0f)
             {
-                aimLine.UpdateLineRenderer(aimLineIni, aimLineEnd);
+                aimLine.UpdateLineRenderer(aimLineIni, aimLineEnd, maxLineLenght);
             }
 
             if (Vector2.Distance(aimLineIni, mousePosEnd) <= 1.0f)

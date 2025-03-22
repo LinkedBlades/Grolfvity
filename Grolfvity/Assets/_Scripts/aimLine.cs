@@ -26,16 +26,32 @@ public class aimLine : MonoBehaviour
         DrawAimLine();
     }
 
-    public void OnMouseUp()
-    {
-        Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
 
-    public void UpdateLineRenderer(Vector2 start, Vector2 end)
+    public void UpdateLineRenderer(Vector2 start, Vector2 end, float maxLenght)
     {
         positions[0] = start;
         positions[1] = end;
 
+        float dist = Vector2.Distance(start, end);
+
+        //Coloring line rederer based on line lenght
+        if (dist < maxLenght / 2)
+        {
+            lineRenderer.startColor = Color.green;
+            lineRenderer.endColor = Color.yellow;
+        }
+        else if (dist <  0.75 * maxLenght )
+        {
+            lineRenderer.startColor = Color.yellow;
+            lineRenderer.endColor = Color.red;
+        }
+        else
+        {
+            lineRenderer.startColor= Color.red;
+            lineRenderer.endColor = Color.red;
+        }
+
+        //Removing z component for 2D lines
         for (int i = 0; i < positions.Length; i++)
         {
             positions[i].z = 0f;
@@ -56,5 +72,5 @@ public class aimLine : MonoBehaviour
     {
         lineRenderer.positionCount = 0;
     }
-
+    
 }
