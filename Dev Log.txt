@@ -219,3 +219,6 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Does not reset on level restart. Might implement full game restart for that.
 -Shots taken UI implementation
 -Shows amount of shots taken during the whole playthrough and updates every shot
+
+22/03/2025
+-Added feature: aim line changes color based on lengths
