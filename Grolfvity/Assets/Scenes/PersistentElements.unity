@@ -2517,6 +2517,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1262852507}
     - target: {fileID: 6566197967741503959, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
+      propertyPath: shotsCounter
+      value: 
+      objectReference: {fileID: 2080471229}
+    - target: {fileID: 6566197967741503959, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
       propertyPath: levelSelectMenu
       value: 
       objectReference: {fileID: 799902003}
