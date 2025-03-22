@@ -214,15 +214,15 @@ public class BallBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Temporary for Playtest1
+        
         if(collision.tag == "Hole")
         {
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
+            //Respawn ball in free play level
             if (collision.name == "HoleInfinite")
             {
                 BallRespawn();
             }
-            //BallRespawn();
         }
 
         if(collision.tag == "BlackHole")
