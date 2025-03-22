@@ -28,6 +28,9 @@ public class UIcontroller : MonoBehaviour
     [Header("Shots counter")]
     [SerializeField] public GameObject shotsCounter;
 
+    [Header("End game score")]
+    [SerializeField] public GameObject endGameScore;
+
     public static UIcontroller Instance;
 
     //Instantiate singleton
@@ -89,6 +92,18 @@ public class UIcontroller : MonoBehaviour
 
         TMP_Text shotsText = shotsCounter.GetComponent<TMP_Text>();
         shotsText.text = string.Format("Shots: {0}", totalStrokes);
+    }
+
+    public void UpdateEndScore()
+    {
+        float timer = GameController.Instance.gameTimer;
+        float minutes = Mathf.FloorToInt(timer / 60);
+        float seconds = Mathf.FloorToInt(timer % 60);
+
+        int totalStrokes = GameController.Instance.totalStrokes;
+
+        TMP_Text endScoreText = endGameScore.GetComponent<TMP_Text>();
+        endScoreText.text = string.Format("Shots: {0} - Time: {0:00):{1:00} ", totalStrokes, minutes, seconds);
     }
 
     public void DestroyElement(GameObject gameObject)

@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         Pause,
         Loading,
         Restart,
-        Menu
+        End
     }
 
 
@@ -100,6 +100,10 @@ public class GameController : MonoBehaviour
                 HandleRestart();
                 break;
 
+            case GameState.End:
+                HandleEnd();
+                break;
+
         }
 
     }
@@ -161,6 +165,14 @@ public class GameController : MonoBehaviour
         SceneController.Instance.RestartLevel();
 
         ChangeGameState(GameState.Playing);
+    }
+
+    private void HandleEnd()
+    {
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.endScreen);
+        UIcontroller.Instance.UpdateEndScore();
+
+        Time.timeScale = 0;
     }
     ////-----------------------------------Extra functions----------------------------------- ////
 
