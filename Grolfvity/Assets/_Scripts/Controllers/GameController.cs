@@ -100,8 +100,6 @@ public class GameController : MonoBehaviour
                 HandleRestart();
                 break;
 
-            case GameState.Menu:
-                break;
         }
 
     }
@@ -190,6 +188,11 @@ public class GameController : MonoBehaviour
     public BallBehaviour.BallState getBallState()
     {
             return ballState;
+    }
+
+    public void RestartGame()
+    {
+        ChangeGameState(GameState.Starting);
     }
 
 }

@@ -19,6 +19,9 @@ public class UIcontroller : MonoBehaviour
     [Header("Level select error message")]
     [SerializeField] public GameObject levelSelectError;
 
+    [Header("End screen")]
+    [SerializeField] public GameObject endScreen;
+
     [Header("Level timer")]
     [SerializeField] public GameObject levelTimer;
 
@@ -48,6 +51,7 @@ public class UIcontroller : MonoBehaviour
         levelSelectError.SetActive(false);
         levelTimer.SetActive(false);
         shotsCounter.SetActive(false);
+        endScreen.SetActive(false);
     }
 
     // Update is called once per frame
