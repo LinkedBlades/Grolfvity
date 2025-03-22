@@ -10,6 +10,9 @@ public class UIcontroller : MonoBehaviour
     [Header("Menu Canvas")]
     [SerializeField] public GameObject menuCanvas;
 
+    [Header("Start menu")]
+    [SerializeField] public GameObject startMenu;
+
     [Header("Pause menu")]
     [SerializeField] public GameObject pauseMenu;
 
@@ -77,7 +80,6 @@ public class UIcontroller : MonoBehaviour
     public void UpdateTimer()
     {
         float timer = GameController.Instance.gameTimer;
-        
         float minutes = Mathf.FloorToInt(timer / 60);
         float seconds = Mathf.FloorToInt(timer % 60);
 
@@ -87,7 +89,6 @@ public class UIcontroller : MonoBehaviour
 
     public void UpdateShotsTaken()
     {
-        int levelStrokes = GameController.Instance.levelStrokes;
         int totalStrokes = GameController.Instance.totalStrokes;
 
         TMP_Text shotsText = shotsCounter.GetComponent<TMP_Text>();
@@ -103,7 +104,7 @@ public class UIcontroller : MonoBehaviour
         int totalStrokes = GameController.Instance.totalStrokes;
 
         TMP_Text endScoreText = endGameScore.GetComponent<TMP_Text>();
-        endScoreText.text = string.Format("Shots: {0} - Time: {0:00):{1:00} ", totalStrokes, minutes, seconds);
+        endScoreText.text = string.Format("Shots: {0} - Time: {1:00}:{2:00} ", totalStrokes, minutes, seconds);
     }
 
     public void DestroyElement(GameObject gameObject)

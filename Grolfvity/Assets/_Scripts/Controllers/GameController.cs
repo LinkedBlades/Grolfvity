@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour
         gameTimer = 0;
         totalStrokes = 0;
         levelStrokes = 0;
-        ChangeGameState(GameState.Pause);
+        UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
     }
 
     private void HandlePlaying()
@@ -207,6 +207,8 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.endScreen);
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.startMenu);
         ChangeGameState(GameState.Starting);
     }
 
