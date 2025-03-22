@@ -222,7 +222,7 @@ public class BallBehaviour : MonoBehaviour
             {
                 BallRespawn();
             }
-            BallRespawn();
+            //BallRespawn();
         }
 
         if(collision.tag == "BlackHole")
