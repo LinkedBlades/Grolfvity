@@ -169,6 +169,9 @@ public class GameController : MonoBehaviour
 
     private void HandleEnd()
     {
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.shotsCounter);
+
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.endScreen);
         UIcontroller.Instance.UpdateEndScore();
 
