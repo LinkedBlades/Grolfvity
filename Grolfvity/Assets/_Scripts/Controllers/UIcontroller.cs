@@ -10,6 +10,9 @@ public class UIcontroller : MonoBehaviour
     [Header("Menu Canvas")]
     [SerializeField] public GameObject menuCanvas;
 
+    [Header("Start menu")]
+    [SerializeField] public GameObject startMenu;
+
     [Header("Pause menu")]
     [SerializeField] public GameObject pauseMenu;
 
@@ -19,11 +22,17 @@ public class UIcontroller : MonoBehaviour
     [Header("Level select error message")]
     [SerializeField] public GameObject levelSelectError;
 
+    [Header("End screen")]
+    [SerializeField] public GameObject endScreen;
+
     [Header("Level timer")]
     [SerializeField] public GameObject levelTimer;
 
     [Header("Shots counter")]
     [SerializeField] public GameObject shotsCounter;
+
+    [Header("End game score")]
+    [SerializeField] public GameObject endGameScore;
 
     public static UIcontroller Instance;
 
@@ -48,6 +57,7 @@ public class UIcontroller : MonoBehaviour
         levelSelectError.SetActive(false);
         levelTimer.SetActive(false);
         shotsCounter.SetActive(false);
+        endScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,7 +80,6 @@ public class UIcontroller : MonoBehaviour
     public void UpdateTimer()
     {
         float timer = GameController.Instance.gameTimer;
-        
         float minutes = Mathf.FloorToInt(timer / 60);
         float seconds = Mathf.FloorToInt(timer % 60);
 
@@ -80,11 +89,22 @@ public class UIcontroller : MonoBehaviour
 
     public void UpdateShotsTaken()
     {
-        int levelStrokes = GameController.Instance.levelStrokes;
         int totalStrokes = GameController.Instance.totalStrokes;
 
         TMP_Text shotsText = shotsCounter.GetComponent<TMP_Text>();
         shotsText.text = string.Format("Shots: {0}", totalStrokes);
+    }
+
+    public void UpdateEndScore()
+    {
+        float timer = GameController.Instance.gameTimer;
+        float minutes = Mathf.FloorToInt(timer / 60);
+        float seconds = Mathf.FloorToInt(timer % 60);
+
+        int totalStrokes = GameController.Instance.totalStrokes;
+
+        TMP_Text endScoreText = endGameScore.GetComponent<TMP_Text>();
+        endScoreText.text = string.Format("Shots: {0} - Time: {1:00}:{2:00} ", totalStrokes, minutes, seconds);
     }
 
     public void DestroyElement(GameObject gameObject)

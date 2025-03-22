@@ -1093,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6539022512501696910, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
+      propertyPath: m_TagString
+      value: PlanetField
+      objectReference: {fileID: 0}
     - target: {fileID: 8518283293747426201, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_Name
       value: Field

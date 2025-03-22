@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         Pause,
         Loading,
         Restart,
-        Menu
+        End
     }
 
 
@@ -100,8 +100,10 @@ public class GameController : MonoBehaviour
                 HandleRestart();
                 break;
 
-            case GameState.Menu:
+            case GameState.End:
+                HandleEnd();
                 break;
+
         }
 
     }
@@ -116,7 +118,7 @@ public class GameController : MonoBehaviour
         gameTimer = 0;
         totalStrokes = 0;
         levelStrokes = 0;
-        ChangeGameState(GameState.Pause);
+        UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
     }
 
     private void HandlePlaying()
@@ -164,6 +166,17 @@ public class GameController : MonoBehaviour
 
         ChangeGameState(GameState.Playing);
     }
+
+    private void HandleEnd()
+    {
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.shotsCounter);
+
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.endScreen);
+        UIcontroller.Instance.UpdateEndScore();
+
+        Time.timeScale = 0;
+    }
     ////-----------------------------------Extra functions----------------------------------- ////
 
     public void PauseGame()
@@ -190,6 +203,13 @@ public class GameController : MonoBehaviour
     public BallBehaviour.BallState getBallState()
     {
             return ballState;
+    }
+
+    public void RestartGame()
+    {
+        UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.endScreen);
+        UIcontroller.Instance.ActivateUI(UIcontroller.Instance.startMenu);
+        ChangeGameState(GameState.Starting);
     }
 
 }

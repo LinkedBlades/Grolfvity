@@ -16,7 +16,8 @@ public class NextLevel : MonoBehaviour
         {
             if(nextLevelNumber == 0)
             {
-                SceneController.Instance.RestartLevel();
+                //SceneController.Instance.RestartLevel();
+                GameController.Instance.ChangeGameState(GameController.GameState.End);
             }
             else
             {

@@ -222,3 +222,6 @@ Selecting unbeaten level raises message, while selecting current level restarts
 
 22/03/2025
 -Added feature: aim line changes color based on lengths
+-Changed Black Hole Event horizon tag to "PlanetField" to add small drag and avoid ball orbiting indefinitely
+-Created end game menu under Canvas Menu
+-Also linked button functionalities
