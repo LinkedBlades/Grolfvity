@@ -108,11 +108,6 @@ public class PlanetForces : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
-    }
-
     private Vector2 GravityPull(Transform ballTransform)
     {
         //Distance between objects transforms
@@ -143,6 +138,7 @@ public class PlanetForces : MonoBehaviour
         return gravVector;
     }
 
+    //Not used
     private Vector2 GravityPull2(Transform ballTransform)
     {
         //Distance between objects transforms

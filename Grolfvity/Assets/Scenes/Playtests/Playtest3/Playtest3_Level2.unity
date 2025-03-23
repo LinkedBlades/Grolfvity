@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -11.2
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet
+      value: PT3 B1
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 844203537870780448, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Name
-      value: PT3 Yellow Planet Variant (1)
+      value: PT3 Y1
       objectReference: {fileID: 0}
     - target: {fileID: 4432641283974964196, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Mass
@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet (1)
+      value: PT3 Bl2
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912066861371578129, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: m_Name
-      value: Orbiting (1)
+      value: Orbiting B1
       objectReference: {fileID: 0}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: speed
@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912066861371578129, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: m_Name
-      value: Orbiting
+      value: Orbiting Y
       objectReference: {fileID: 0}
     - target: {fileID: 8748321294951019825, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: m_Sprite
@@ -896,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6912066861371578129, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: m_Name
-      value: Orbiting (2)
+      value: Orbiting B2
       objectReference: {fileID: 0}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: speed
