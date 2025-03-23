@@ -110,6 +110,7 @@ public class GameController : MonoBehaviour
 
     //-----------------------------------State transitions handling-----------------------------------//
 
+    //Initiates game start sequence
     private void HandleStarting()
     {
         SceneController.Instance.StartGame();
@@ -121,6 +122,7 @@ public class GameController : MonoBehaviour
         UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
     }
 
+    //Sets up game for playing state
     private void HandlePlaying()
     {
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.pauseMenu);
@@ -133,6 +135,8 @@ public class GameController : MonoBehaviour
         SoundController.Instance.BGMVolume(0.08f);
         Time.timeScale = 1;
     }
+
+    //Handles pause and menus
     private void HandlePause()
     {
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.pauseMenu);
@@ -143,6 +147,8 @@ public class GameController : MonoBehaviour
         SoundController.Instance.BGMVolume(0.02f);
         Time.timeScale = 0;
     }
+
+    //Loads next level - Called when finishing a not final level
     private void HandleLoadingNextLevel()
     {
         levelStrokes = 0;
@@ -160,6 +166,7 @@ public class GameController : MonoBehaviour
 
     }
 
+     //Unused
     private void HandleRestart()
     {
         SceneController.Instance.RestartLevel();
@@ -167,6 +174,7 @@ public class GameController : MonoBehaviour
         ChangeGameState(GameState.Playing);
     }
 
+    //Starts end sequence - Called when beating last level
     private void HandleEnd()
     {
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
