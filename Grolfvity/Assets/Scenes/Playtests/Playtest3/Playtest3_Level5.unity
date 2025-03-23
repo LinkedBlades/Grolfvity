@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4982273915058819172, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: ballSpeedCap
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4982273915058819172, guid: b85ec48d5412c0c4e802688a30e01649, type: 3}
       propertyPath: shotStrenghtMultiplier

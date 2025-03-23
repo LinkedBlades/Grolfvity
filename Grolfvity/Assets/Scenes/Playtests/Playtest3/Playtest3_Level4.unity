@@ -283,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet
+      value: PT3 B1
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 844203537870780448, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Name
-      value: PT3 Yellow Planet Variant (1)
+      value: PT3 Y2
       objectReference: {fileID: 0}
     - target: {fileID: 4432641283974964196, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Mass
@@ -430,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet (1)
+      value: PT3 B2
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -661,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 844203537870780448, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Name
-      value: PT3 Yellow Planet Variant
+      value: PT3 Y1
       objectReference: {fileID: 0}
     - target: {fileID: 4432641283974964196, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Mass

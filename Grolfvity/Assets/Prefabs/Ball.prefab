@@ -5457,7 +5457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeedCap: 70
-  drag: 0.11
+  drag: 0.12
   minSpeedCheck: 0.1
   ballStoppedTimer: 0.25
   shotStrenghtMultiplier: 3.9
