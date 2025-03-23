@@ -127,21 +127,31 @@ public class BallBehaviour : MonoBehaviour
         switch(newState)
         {
             case BallState.Stationary:
-                RenderHotspot(true);
-                rbody.velocity = Vector2.zero;
-                rbody.angularVelocity = 0;
-                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.1f);
-                GameController.Instance.ballState = BallState.Stationary;
+                HandleStationary();
                 break;
 
             case BallState.Moving:
-                RenderHotspot(false);
-                ballStoppedTimer = 0.5f;
-                GameController.Instance.ballState = BallState.Moving;
+                HandleMoving();
                 break;
         }
 
     }
+
+    private void HandleStationary()
+    {
+        RenderHotspot(true);
+        rbody.velocity = Vector2.zero;
+        rbody.angularVelocity = 0;
+        SoundController.Instance.PlaySFX(SoundController.Instance.ballReady, 0.1f);
+        GameController.Instance.ballState = BallState.Stationary;
+    }
+    private void HandleMoving()
+    {
+        RenderHotspot(false);
+        ballStoppedTimer = 0.5f;
+        GameController.Instance.ballState = BallState.Moving;
+    }
+
     public BallState GetCurrentState()
     {
         return currentState;

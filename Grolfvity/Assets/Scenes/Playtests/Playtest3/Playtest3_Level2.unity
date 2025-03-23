@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056400062655110528, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8056400062655110528, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -614,7 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: nextLevelNumber
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: currentLevelName
@@ -622,23 +622,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: currentLevelNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3891832994780595667, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_Name
-      value: Hole (1)
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.7
+      value: 32.6
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -764,6 +764,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 1501934727}
     m_Modifications:
     - target: {fileID: 420648651469955049, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 420648651469955049, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 420648651469955049, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 420648651469955049, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
       objectReference: {fileID: 0}
@@ -813,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6ba9476efc666b443a3c966aa085ce68, type: 3}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: speed
-      value: 1.2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: planet
@@ -888,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: speed
-      value: 0.8
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9010332872952481645, guid: 49fd0a910d736c444b057fb83e35d8ff, type: 3}
       propertyPath: planet
