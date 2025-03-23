@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1147696808725445249}
   - component: {fileID: 1958591421077141484}
   - component: {fileID: 6766232701541395460}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FieldRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 5945120417079236137}
   - component: {fileID: 4274047913250864792}
   - component: {fileID: 9148131016288087577}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5123,7 +5123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5527559270395683264}
   - component: {fileID: 4293542003697286041}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5242,7 +5242,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 109.55442
+  m_Mass: 171.1788
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

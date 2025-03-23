@@ -196,8 +196,6 @@ public class GameController : MonoBehaviour
         totalStrokes++;
         UIcontroller.Instance.UpdateShotsTaken();
 
-        Debug.Log("Shots taken:" + levelStrokes);
-
     }
 
     public BallBehaviour.BallState getBallState()

@@ -228,3 +228,9 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Added end game state to GameController.cs
 -End sates instantiates End game screen and pauses game.
 -Decided to finish further development of the project and start building last playtest for final feedback and looking for bugs
+
+-Playtest 3 build:
+-Took advantage of the level pivot to scale earlier levels to make them easier and mimic camera zoom
+-Changed Ball speed cap from 50 -> 70
+-Changed Aim line max length 15 -> 20
+-Added small animation to hole sprite
