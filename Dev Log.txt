@@ -225,3 +225,6 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Changed Black Hole Event horizon tag to "PlanetField" to add small drag and avoid ball orbiting indefinitely
 -Created end game menu under Canvas Menu
 -Also linked button functionalities
+-Added end game state to GameController.cs
+-End sates instantiates End game screen and pauses game.
+-Decided to finish further development of the project and start building last playtest for final feedback and looking for bugs
