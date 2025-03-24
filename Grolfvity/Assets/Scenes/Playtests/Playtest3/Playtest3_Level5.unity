@@ -459,6 +459,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
   m_PrefabInstance: {fileID: 676389957}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &714546935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714546936}
+  - component: {fileID: 714546937}
+  m_Layer: 0
+  m_Name: HoleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &714546936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714546935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1058715742}
+  - {fileID: 57028194}
+  - {fileID: 1726163208}
+  m_Father: {fileID: 1940989075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &714546937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714546935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e743ce7317a9dc4ab02929bfdd7dd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holesInLevel: 0
 --- !u!1001 &912446511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1068,7 +1116,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1940989075}
+    m_TransformParent: {fileID: 714546936}
     m_Modifications:
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: nextLevelName
@@ -1240,7 +1288,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1940989075}
+    m_TransformParent: {fileID: 714546936}
     m_Modifications:
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: nextLevelName
@@ -1260,7 +1308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891832994780595667, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_Name
-      value: HoleInfinite (1)
+      value: HoleInfinite
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1325,7 +1373,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1940989075}
+    m_TransformParent: {fileID: 714546936}
     m_Modifications:
     - target: {fileID: 1303820124314979942, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: nextLevelName
@@ -1345,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891832994780595667, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_Name
-      value: HoleInfinite (2)
+      value: HoleInfinite
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1436,9 +1484,7 @@ Transform:
   - {fileID: 1961619191}
   - {fileID: 1304441894}
   - {fileID: 1397382791}
-  - {fileID: 1058715742}
-  - {fileID: 57028194}
-  - {fileID: 1726163208}
+  - {fileID: 714546936}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1961619191 stripped

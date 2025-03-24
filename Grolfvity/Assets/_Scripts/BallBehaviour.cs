@@ -145,15 +145,12 @@ public class BallBehaviour : MonoBehaviour
         rbody.angularVelocity = 0;
         SoundController.Instance.PlaySFX(SoundController.Instance.ballReady, 0.1f);
         GameController.Instance.ballState = BallState.Stationary;
-        Debug.Log("Ball state: Stationary");
     }
     private void HandleMoving()
     {
         RenderHotspot(false);
         ballStoppedTimer = 0.5f;
         GameController.Instance.ballState = BallState.Moving;
-        Debug.Log("Ball state: Moving");
-
     }
 
     public BallState GetCurrentState()
@@ -232,7 +229,7 @@ public class BallBehaviour : MonoBehaviour
         if(collision.tag == "Hole")
         {
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
-            //Respawn ball in free play level
+            //Respawn ball in final level
             if (collision.name == "HoleInfinite")
             {
                 BallRespawn();

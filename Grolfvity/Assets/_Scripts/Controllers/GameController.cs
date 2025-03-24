@@ -8,14 +8,14 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    public int levelStrokes {  get; private set; }
+    public int levelStrokes {  get; private set; } //Unused
     public int totalStrokes { get; private set; }
     public float gameTimer { get; private set; }
 
     public int levelReached;
     public string currentLevelSuffix { get; private set; }
     public string nextLevelSuffix { get; private set; }
-
+    public int levelHolesLeft {  get; private set; }
     public GameState currentState { get; private set; }
     //For passing ball state to planets
     public BallBehaviour.BallState ballState { get;  set; }
@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour
         End
     }
 
-
     //Instantiate singleton
     private void Awake()
     {
@@ -44,7 +43,6 @@ public class GameController : MonoBehaviour
         }
 
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -120,6 +118,7 @@ public class GameController : MonoBehaviour
         totalStrokes = 0;
         levelStrokes = 0;
         UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
+        GetHolesInLevel();
     }
 
     //Sets up game for playing state
@@ -153,7 +152,6 @@ public class GameController : MonoBehaviour
     private void HandleLoadingNextLevel()
     {
         levelStrokes = 0;
-
         //Unload pre level
         SceneController.Instance.UnloadCurrentLevel();
         //Update beaten levels
@@ -164,7 +162,6 @@ public class GameController : MonoBehaviour
         SceneController.Instance.LoadLevel(SceneController.Instance.currLevel.ToString());
 
         ChangeGameState(GameState.Playing);
-
     }
 
      //Unused
@@ -217,6 +214,14 @@ public class GameController : MonoBehaviour
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.endScreen);
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.startMenu);
         ChangeGameState(GameState.Starting);
+    }
+    public void GetHolesInLevel()
+    {
+        levelHolesLeft = GameObject.FindGameObjectsWithTag("Hole").Length;
+    }
+    public void DecreaseHolesRemaining()
+    {
+        levelHolesLeft--;
     }
 
 }
