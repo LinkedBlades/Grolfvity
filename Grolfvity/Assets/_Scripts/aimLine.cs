@@ -40,7 +40,7 @@ public class aimLine : MonoBehaviour
             lineRenderer.startColor = Color.green;
             lineRenderer.endColor = Color.yellow;
         }
-        else if (dist <  0.75 * maxLenght )
+        else if (dist <  0.9 * maxLenght )
         {
             lineRenderer.startColor = Color.yellow;
             lineRenderer.endColor = Color.red;
