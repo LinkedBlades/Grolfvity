@@ -151,14 +151,11 @@ public class GameController : MonoBehaviour
     private void HandleLoadingNextLevel()
     {
         levelStrokes = 0;
-        //Unload pre level
-        SceneController.Instance.UnloadCurrentLevel();
         //Update beaten levels
         levelReached++;
         //Set current level
-        SceneController.Instance.currLevel++;
-        //Load next level
-        SceneController.Instance.LoadLevel(SceneController.Instance.currLevel.ToString());
+        //Load next level and unload current level
+        SceneController.Instance.LoadLevel(levelReached.ToString());
 
         ChangeGameState(GameState.Playing);
     }
