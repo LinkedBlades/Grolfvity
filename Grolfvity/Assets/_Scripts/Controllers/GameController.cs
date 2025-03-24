@@ -153,7 +153,6 @@ public class GameController : MonoBehaviour
         levelStrokes = 0;
         //Update beaten levels
         levelReached++;
-        //Set current level
         //Load next level and unload current level
         SceneController.Instance.LoadLevel(levelReached.ToString());
 
