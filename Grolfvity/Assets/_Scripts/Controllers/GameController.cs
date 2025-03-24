@@ -145,7 +145,6 @@ public class GameController : MonoBehaviour
 
         SoundController.Instance.BGMVolume(0.02f);
         Time.timeScale = 0;
-        Debug.Log("Game state paused");
     }
 
     //Loads next level - Called when finishing a not final level
