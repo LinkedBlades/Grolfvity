@@ -237,8 +237,11 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Added PT3 level 1,2,3
 -Updated ball friction 0.1 -> 0.11
 -Updated black hole dist cap  4.5 -> 3
+23/03/2025
 -Updated Yellow planet dist cap 5 -> 4
 -Updated Yellow planet pull mag 2750 -> 3000
 -Updated ball friction 0.11 -> 0.12
 -Updated black hole dist cap  3 -> 2.8
 -Updated black hole pull mag  5000 -> 6360
+-Fixed ball stuck on Moving state bug
+-Also repositioned Spawn points so ball spawns closer to planet surfaces

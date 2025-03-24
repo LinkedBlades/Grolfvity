@@ -83,21 +83,22 @@ public class BallBehaviour : MonoBehaviour
         hotspotIndicator = GetComponentInChildren<ParticleSystem>();
 
         cam = Camera.main;
-        RenderHotspot(false);
 
-        SwitchState(BallState.Moving);
+        //Set ball initial state - Spawn the ball moving so 
+        currentState = BallState.Moving;
+        SwitchState(BallState.Stationary);
     }
 
     void FixedUpdate()
     {
 
-        //Check if ball has topped for enough time
+        //Countdowns when ball stops moving
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
             ballStoppedTimer -= Time.deltaTime;
         }
 
-        //Render hotspot sprite only when able to shoot ball
+        //Check if ball has come to a stop
         if (ballStoppedTimer <= 0)
         {
             SwitchState(BallState.Stationary);
@@ -144,12 +145,15 @@ public class BallBehaviour : MonoBehaviour
         rbody.angularVelocity = 0;
         SoundController.Instance.PlaySFX(SoundController.Instance.ballReady, 0.1f);
         GameController.Instance.ballState = BallState.Stationary;
+        Debug.Log("Ball state: Stationary");
     }
     private void HandleMoving()
     {
         RenderHotspot(false);
         ballStoppedTimer = 0.5f;
         GameController.Instance.ballState = BallState.Moving;
+        Debug.Log("Ball state: Moving");
+
     }
 
     public BallState GetCurrentState()
