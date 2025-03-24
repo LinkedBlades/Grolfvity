@@ -251,3 +251,4 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Added PT3 levels 4,5
 -Updated Start screen
 -Line goes red at 90% instead 75% 
+-Updated camera size 67.5 -> 75
