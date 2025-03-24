@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: f6d57a9793c80d149bd4b34bb4fd3e23, type: 3}
     - target: {fileID: 1001038991513715887, guid: bc74f43afc4538a43a526325651c73d0, type: 3}
       propertyPath: m_text
-      value: Keep plaing
+      value: Keep playing
       objectReference: {fileID: 0}
     - target: {fileID: 1118421187504786853, guid: bc74f43afc4538a43a526325651c73d0, type: 3}
       propertyPath: m_AnchorMax.x
