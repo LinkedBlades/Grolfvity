@@ -101,14 +101,9 @@ public class UIcontroller : MonoBehaviour
 
     public void DestroyElement(GameObject gameObject)
     {
-        Debug.Log("Destroying element");
         Destroy(gameObject);
     }
 
-    public void PauseButton()
-    {
-        GameController.Instance.ChangeGameState(GameController.GameState.Pause);
-    }
 
     public void ActivateUI(GameObject element)
     {
