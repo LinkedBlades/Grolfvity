@@ -45,9 +45,9 @@ public class SceneController : MonoBehaviour
         UnloadLevels();
 
         //Load game first level
-        if (!SceneManager.GetSceneByName("Playtest3_Level5").isLoaded)
+        if (!SceneManager.GetSceneByName("Playtest3_Level4").isLoaded)
         {
-            SceneManager.LoadSceneAsync("Playtest3_Level5", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("Playtest3_Level4", LoadSceneMode.Additive);
         }
 
     }
