@@ -2593,11 +2593,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1789722724264664216, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.298564
+      value: -119.7
       objectReference: {fileID: 0}
     - target: {fileID: 1789722724264664216, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7913074
+      value: 67.4
       objectReference: {fileID: 0}
     - target: {fileID: 1789722724264664216, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2679,6 +2679,14 @@ PrefabInstance:
       propertyPath: levelSelectError
       value: 
       objectReference: {fileID: 71147763}
+    - target: {fileID: 7544864609890835221, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544864609890835221, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7755545678667477144, guid: 98342bc0c769af044bd044dfa31885c0, type: 3}
       propertyPath: BGMSource
       value: 

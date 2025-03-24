@@ -30,6 +30,7 @@ public class Orbitingobstacles : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         //Angle to move in orbit path
         angle += speed * Time.deltaTime;
 

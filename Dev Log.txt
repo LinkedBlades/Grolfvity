@@ -247,3 +247,5 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Also repositioned Spawn points so ball spawns closer to planet surfaces
 -Multiple holes per level support in GameController.cs
 -Ball drag increases if orbiting a planet for too long to prevent permanent/long orbiting
+-Updated Blue planet pull mag 1300 -> 1430
+-Added PT3 levels 4,5

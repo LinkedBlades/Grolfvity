@@ -5076,7 +5076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4d863eaf1e3414285e0cb71ccf60e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullMagnitude: 1300
+  pullMagnitude: 1430
   distCap: 1.5
 --- !u!58 &6571679805245847074
 CircleCollider2D:
@@ -5242,7 +5242,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 171.1788
+  m_Mass: 76.07947
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
