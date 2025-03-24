@@ -246,3 +246,4 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Fixed ball stuck on Moving state bug
 -Also repositioned Spawn points so ball spawns closer to planet surfaces
 -Multiple holes per level support in GameController.cs
+-Ball drag increases if orbiting a planet for too long to prevent permanent/long orbiting

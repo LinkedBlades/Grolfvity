@@ -69,14 +69,6 @@ public class UIcontroller : MonoBehaviour
         }
     }
 
-    public void LoadLevelName()
-    {
-        string levelName = SceneController.Instance.currentLevelName;
-        /*
-         * Should load the Level component in UI
-         */
-    }
-
     public void UpdateTimer()
     {
         float timer = GameController.Instance.gameTimer;

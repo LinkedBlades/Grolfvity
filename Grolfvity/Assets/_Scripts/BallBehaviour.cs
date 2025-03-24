@@ -34,6 +34,8 @@ public class BallBehaviour : MonoBehaviour
 
     [Header("Experimenting with stopping ball after X time")]
     [SerializeField] float ballStoppedTimer = 1.0f;
+    //Used to increase drag in ball if flying for too long due to orbiting a planet
+    private float ballFlyingTimer;
 
     [Header("Main control of shot strength")]
     [SerializeField] float shotStrenghtMultiplier = 1.0f;
@@ -141,8 +143,11 @@ public class BallBehaviour : MonoBehaviour
     private void HandleStationary()
     {
         RenderHotspot(true);
+        //Stop ball and set drag back to normal value in case of increased due to long orbiting
         rbody.velocity = Vector2.zero;
         rbody.angularVelocity = 0;
+        rbody.drag = drag;
+        ballFlyingTimer = 0;
         SoundController.Instance.PlaySFX(SoundController.Instance.ballReady, 0.1f);
         GameController.Instance.ballState = BallState.Stationary;
     }
@@ -230,7 +235,7 @@ public class BallBehaviour : MonoBehaviour
         {
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
             //Respawn ball in final level
-            if (collision.name == "HoleInfinite")
+            if (GameController.Instance.levelHolesLeft > 1)
             {
                 BallRespawn();
             }
@@ -246,6 +251,19 @@ public class BallBehaviour : MonoBehaviour
         if(collision.tag == "PlanetField")
         {
             rbody.drag = drag;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentState == BallState.Moving)
+        {
+            ballFlyingTimer += Time.deltaTime;
+        }
+        //Increase drag 10% every frame when ball gest stuck orbiting 
+        if (ballFlyingTimer > 5.0f)
+        {
+            drag += 0.01f;
         }
     }
 
