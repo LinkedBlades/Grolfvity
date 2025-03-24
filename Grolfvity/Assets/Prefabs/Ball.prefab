@@ -5292,7 +5292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5456,11 +5456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473effbd9c8f774e921ac0910e50d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeedCap: 50
-  drag: 0.1
+  ballSpeedCap: 70
+  drag: 0.12
   minSpeedCheck: 0.1
   ballStoppedTimer: 0.25
   shotStrenghtMultiplier: 3.9
-  maxLineLenght: 15
+  maxLineLenght: 20
   bounceCap: 6
   oobTol: 1

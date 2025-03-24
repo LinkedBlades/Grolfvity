@@ -7,23 +7,32 @@ public class NextLevel : MonoBehaviour
     [Header("Next level to load number as string")]
     [SerializeField] public int nextLevelNumber;
 
-    [Header("Current level to load number as string")]
-    [SerializeField] public int currentLevelNumber;
+    [Header("Unused - Current level to load number as string")]
+    [SerializeField] public int currentLevelNumber; //Unused
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
-            if(nextLevelNumber == 0)
+            GameController.Instance.GetHolesInLevel();
+            //Updates holes manager and check if there are holes remaining;
+            if (GameController.Instance.levelHolesLeft > 1)
             {
-                //SceneController.Instance.RestartLevel();
-                GameController.Instance.ChangeGameState(GameController.GameState.End);
+                Destroy(gameObject);
             }
             else
             {
-                GameController.Instance.ChangeGameState(GameController.GameState.Loading);
+                //Final level holes have 0 as their next level
+                if (nextLevelNumber == 0)
+                {
+                    GameController.Instance.ChangeGameState(GameController.GameState.End);
+                }
+                else
+                {
+                    GameController.Instance.ChangeGameState(GameController.GameState.Loading);
+                }
             }
-
+            
         }
     }
 

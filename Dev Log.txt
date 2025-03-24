@@ -228,3 +228,29 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Added end game state to GameController.cs
 -End sates instantiates End game screen and pauses game.
 -Decided to finish further development of the project and start building last playtest for final feedback and looking for bugs
+
+-Playtest 3 build:
+-Took advantage of the level pivot to scale earlier levels to make them easier and mimic camera zoom
+-Updated Ball speed cap from 50 -> 70
+-Updated Aim line max length 15 -> 20
+-Added small animation to hole sprite
+-Added PT3 level 1,2,3
+-Updated ball friction 0.1 -> 0.11
+-Updated black hole dist cap  4.5 -> 3
+23/03/2025
+-Updated Yellow planet dist cap 5 -> 4
+-Updated Yellow planet pull mag 2750 -> 3000
+-Updated ball friction 0.11 -> 0.12
+-Updated black hole dist cap  3 -> 2.8
+-Updated black hole pull mag  5000 -> 5250
+-Fixed ball stuck on Moving state bug
+-Also repositioned Spawn points so ball spawns closer to planet surfaces
+-Multiple holes per level support in GameController.cs
+-Ball drag increases if orbiting a planet for too long to prevent permanent/long orbiting
+-Updated Blue planet pull mag 1300 -> 1430
+-Added PT3 levels 4,5
+-Updated Start screen
+-Line goes red at 90% instead 75% 
+-Updated camera size 67.5 -> 75
+-Fixed error trying to unload level multiple times
+-Finished PT3 build: https://play.unity.com/en/games/c22fef05-d79b-43e2-9186-e033af07a914/grolfvity-playtest-3

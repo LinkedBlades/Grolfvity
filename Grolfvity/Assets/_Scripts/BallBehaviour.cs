@@ -34,6 +34,8 @@ public class BallBehaviour : MonoBehaviour
 
     [Header("Experimenting with stopping ball after X time")]
     [SerializeField] float ballStoppedTimer = 1.0f;
+    //Used to increase drag in ball if flying for too long due to orbiting a planet
+    private float ballFlyingTimer;
 
     [Header("Main control of shot strength")]
     [SerializeField] float shotStrenghtMultiplier = 1.0f;
@@ -83,21 +85,22 @@ public class BallBehaviour : MonoBehaviour
         hotspotIndicator = GetComponentInChildren<ParticleSystem>();
 
         cam = Camera.main;
-        RenderHotspot(false);
 
-        SwitchState(BallState.Moving);
+        //Set ball initial state - Spawn the ball moving so 
+        currentState = BallState.Moving;
+        SwitchState(BallState.Stationary);
     }
 
     void FixedUpdate()
     {
 
-        //Check if ball has topped for enough time
+        //Countdowns when ball stops moving
         if (rbody.velocity.magnitude <= minSpeedCheck && ballStoppedTimer > 0)
         {
             ballStoppedTimer -= Time.deltaTime;
         }
 
-        //Render hotspot sprite only when able to shoot ball
+        //Check if ball has come to a stop
         if (ballStoppedTimer <= 0)
         {
             SwitchState(BallState.Stationary);
@@ -127,21 +130,34 @@ public class BallBehaviour : MonoBehaviour
         switch(newState)
         {
             case BallState.Stationary:
-                RenderHotspot(true);
-                rbody.velocity = Vector2.zero;
-                rbody.angularVelocity = 0;
-                SoundController.Instance.PlaySFX(SoundController.Instance.ballReady , 0.1f);
-                GameController.Instance.ballState = BallState.Stationary;
+                HandleStationary();
                 break;
 
             case BallState.Moving:
-                RenderHotspot(false);
-                ballStoppedTimer = 0.5f;
-                GameController.Instance.ballState = BallState.Moving;
+                HandleMoving();
                 break;
         }
 
     }
+
+    private void HandleStationary()
+    {
+        RenderHotspot(true);
+        //Stop ball and set drag back to normal value in case of increased due to long orbiting
+        rbody.velocity = Vector2.zero;
+        rbody.angularVelocity = 0;
+        rbody.drag = drag;
+        ballFlyingTimer = 0;
+        SoundController.Instance.PlaySFX(SoundController.Instance.ballReady, 0.1f);
+        GameController.Instance.ballState = BallState.Stationary;
+    }
+    private void HandleMoving()
+    {
+        RenderHotspot(false);
+        ballStoppedTimer = 0.5f;
+        GameController.Instance.ballState = BallState.Moving;
+    }
+
     public BallState GetCurrentState()
     {
         return currentState;
@@ -218,8 +234,8 @@ public class BallBehaviour : MonoBehaviour
         if(collision.tag == "Hole")
         {
             SoundController.Instance.PlaySFX(SoundController.Instance.ballInHole, 0.3f);
-            //Respawn ball in free play level
-            if (collision.name == "HoleInfinite")
+            //Respawn ball in final level
+            if (GameController.Instance.levelHolesLeft > 1)
             {
                 BallRespawn();
             }
@@ -235,6 +251,19 @@ public class BallBehaviour : MonoBehaviour
         if(collision.tag == "PlanetField")
         {
             rbody.drag = drag;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentState == BallState.Moving)
+        {
+            ballFlyingTimer += Time.deltaTime;
+        }
+        //Increase drag 10% every frame when ball gest stuck orbiting 
+        if (ballFlyingTimer > 5.0f)
+        {
+            rbody.drag += 0.001f;
         }
     }
 

@@ -21,8 +21,6 @@ public class PlanetForces : MonoBehaviour
     private float newRangeMax;
     private float eventHorizonRadius;
 
-    //Frame ball enters the gravity field
-    private int detectionFrame;
 
     // Start is called before the first frame update
     void Start()
@@ -70,24 +68,7 @@ public class PlanetForces : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Event functions
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //int detectionFrame = Time.frameCount;
-    }
-
     //Pull ball when on field range
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -97,20 +78,10 @@ public class PlanetForces : MonoBehaviour
             if( GameController.Instance.getBallState() == BallBehaviour.BallState.Moving)
             {
                 Vector2 gravVector = GravityPull(collision.transform);
-
-                //Variable to increase pull strenght based on time ball spent moving to avoid long orbits
-                // 1% force increased every 20 frames
-                //float forceFactor = 1 + (Time.frameCount - detectionFrame) / 2000;
-                //Debug.Log("Force factor: " + forceFactor);
                 collision.attachedRigidbody.AddForce(gravVector);
 
             }
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
     }
 
     private Vector2 GravityPull(Transform ballTransform)
@@ -143,6 +114,7 @@ public class PlanetForces : MonoBehaviour
         return gravVector;
     }
 
+    //Not used
     private Vector2 GravityPull2(Transform ballTransform)
     {
         //Distance between objects transforms

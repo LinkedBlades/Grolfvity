@@ -78,14 +78,12 @@ public class SceneController : MonoBehaviour
         {
             if (levelNum <= GameController.Instance.levelReached)
             {
-                //Unload level - Only added to supportlevel select menu functionality
+                //Unload current level
                 UnloadCurrentLevel();
-
-                //Update current level if loading a lower level
+                //Update current level to new level number
                 currLevel = levelNum;
                 //Load new level
-                AsyncOperation asyncOp = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
-
+                SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
                 //UnPause game if called from level select button
                 GameController.Instance.ChangeGameState(GameController.GameState.Playing);
             }
@@ -103,7 +101,6 @@ public class SceneController : MonoBehaviour
     {
         try
         {
-            Debug.Log(LevelScenePrefix + levelSuffix);
             SceneManager.UnloadSceneAsync(LevelScenePrefix + levelSuffix);
             return true;
         }
@@ -118,7 +115,6 @@ public class SceneController : MonoBehaviour
     {
         try
         {
-            //Debug.Log("Current level to unload: " + LevelScenePrefix + currLevel);
             SceneManager.UnloadSceneAsync(LevelScenePrefix + currLevel);
             return true;
         }

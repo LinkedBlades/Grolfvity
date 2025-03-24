@@ -5478,8 +5478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4d863eaf1e3414285e0cb71ccf60e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullMagnitude: 5000
-  distCap: 4.5
+  pullMagnitude: 5250
+  distCap: 2.8
 --- !u!58 &4777352150248182361
 CircleCollider2D:
   m_ObjectHideFlags: 0

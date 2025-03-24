@@ -69,14 +69,6 @@ public class UIcontroller : MonoBehaviour
         }
     }
 
-    public void LoadLevelName()
-    {
-        string levelName = SceneController.Instance.currentLevelName;
-        /*
-         * Should load the Level component in UI
-         */
-    }
-
     public void UpdateTimer()
     {
         float timer = GameController.Instance.gameTimer;
@@ -109,14 +101,9 @@ public class UIcontroller : MonoBehaviour
 
     public void DestroyElement(GameObject gameObject)
     {
-        Debug.Log("Destroying element");
         Destroy(gameObject);
     }
 
-    public void PauseButton()
-    {
-        GameController.Instance.ChangeGameState(GameController.GameState.Pause);
-    }
 
     public void ActivateUI(GameObject element)
     {

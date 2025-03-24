@@ -8,14 +8,14 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    public int levelStrokes {  get; private set; }
+    public int levelStrokes {  get; private set; } //Unused
     public int totalStrokes { get; private set; }
     public float gameTimer { get; private set; }
 
     public int levelReached;
     public string currentLevelSuffix { get; private set; }
     public string nextLevelSuffix { get; private set; }
-
+    public int levelHolesLeft {  get; private set; }
     public GameState currentState { get; private set; }
     //For passing ball state to planets
     public BallBehaviour.BallState ballState { get;  set; }
@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour
         End
     }
 
-
     //Instantiate singleton
     private void Awake()
     {
@@ -44,7 +43,6 @@ public class GameController : MonoBehaviour
         }
 
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -110,6 +108,7 @@ public class GameController : MonoBehaviour
 
     //-----------------------------------State transitions handling-----------------------------------//
 
+    //Initiates game start sequence
     private void HandleStarting()
     {
         SceneController.Instance.StartGame();
@@ -119,8 +118,10 @@ public class GameController : MonoBehaviour
         totalStrokes = 0;
         levelStrokes = 0;
         UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
+        GetHolesInLevel();
     }
 
+    //Sets up game for playing state
     private void HandlePlaying()
     {
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.pauseMenu);
@@ -133,6 +134,8 @@ public class GameController : MonoBehaviour
         SoundController.Instance.BGMVolume(0.08f);
         Time.timeScale = 1;
     }
+
+    //Handles pause and menus
     private void HandlePause()
     {
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.pauseMenu);
@@ -143,23 +146,20 @@ public class GameController : MonoBehaviour
         SoundController.Instance.BGMVolume(0.02f);
         Time.timeScale = 0;
     }
+
+    //Loads next level - Called when finishing a not final level
     private void HandleLoadingNextLevel()
     {
         levelStrokes = 0;
-
-        //Unload pre level
-        SceneController.Instance.UnloadCurrentLevel();
         //Update beaten levels
         levelReached++;
-        //Set current level
-        SceneController.Instance.currLevel++;
-        //Load next level
-        SceneController.Instance.LoadLevel(SceneController.Instance.currLevel.ToString());
+        //Load next level and unload current level
+        SceneController.Instance.LoadLevel(levelReached.ToString());
 
         ChangeGameState(GameState.Playing);
-
     }
 
+     //Unused
     private void HandleRestart()
     {
         SceneController.Instance.RestartLevel();
@@ -167,6 +167,7 @@ public class GameController : MonoBehaviour
         ChangeGameState(GameState.Playing);
     }
 
+    //Starts end sequence - Called when beating last level
     private void HandleEnd()
     {
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
@@ -196,8 +197,6 @@ public class GameController : MonoBehaviour
         totalStrokes++;
         UIcontroller.Instance.UpdateShotsTaken();
 
-        Debug.Log("Shots taken:" + levelStrokes);
-
     }
 
     public BallBehaviour.BallState getBallState()
@@ -210,6 +209,14 @@ public class GameController : MonoBehaviour
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.endScreen);
         UIcontroller.Instance.ActivateUI(UIcontroller.Instance.startMenu);
         ChangeGameState(GameState.Starting);
+    }
+    public void GetHolesInLevel()
+    {
+        levelHolesLeft = GameObject.FindGameObjectsWithTag("Hole").Length;
+    }
+    public void DecreaseHolesRemaining()
+    {
+        levelHolesLeft--;
     }
 
 }
