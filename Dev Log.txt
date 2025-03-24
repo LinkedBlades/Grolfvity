@@ -245,3 +245,4 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Updated black hole pull mag  5000 -> 6360
 -Fixed ball stuck on Moving state bug
 -Also repositioned Spawn points so ball spawns closer to planet surfaces
+-Multiple holes per level support in GameController.cs
