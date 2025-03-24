@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 6939656724339498937, guid: ba47738ff61813442b27adcf6fe9affd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -199,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet (1)
+      value: PT3 B2
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.9
+      value: 12.2
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.y
@@ -338,7 +338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet
+      value: PT3 B1
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -346,11 +346,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.7
+      value: -74.7
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -50.8
+      value: -32.2
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.z
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734974193812021816, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_Name
-      value: PT3 Blue Planet (2)
+      value: PT3 B3
       objectReference: {fileID: 0}
     - target: {fileID: 4274047913250864792, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -411,11 +411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -95.1
+      value: 38.6
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.5
+      value: -47
       objectReference: {fileID: 0}
     - target: {fileID: 4723632798736500632, guid: bbef5481e106b6d46ae04d9586973176, type: 3}
       propertyPath: m_LocalPosition.z
@@ -473,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 844203537870780448, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Name
-      value: PT3 Yellow Planet Variant (1)
+      value: PT3 Y2
       objectReference: {fileID: 0}
     - target: {fileID: 4432641283974964196, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Mass
@@ -819,11 +819,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: distCap
-      value: 4.5
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: pullMagnitude
-      value: 5000
+      value: 5250
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalScale.x
@@ -839,11 +839,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.32561
+      value: -73.4
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6252224
+      value: 22.7
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalPosition.z
@@ -891,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537909479506269086, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_Name
-      value: BlackHole (1)
+      value: BlackHole 1
       objectReference: {fileID: 0}
     - target: {fileID: 6188625363118570963, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalScale.x
@@ -1104,11 +1104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 106
+      value: 108.3
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -54.5
+      value: -46.6
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1171,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 844203537870780448, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Name
-      value: PT3 Yellow Planet Variant
+      value: PT3 Y1
       objectReference: {fileID: 0}
     - target: {fileID: 4432641283974964196, guid: 6eb051ca0d1f8ee4d96369607ff7d02f, type: 3}
       propertyPath: m_Mass
@@ -1345,7 +1345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891832994780595667, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_Name
-      value: HoleInfinite
+      value: Hole
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1361,11 +1361,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.7
+      value: -92.2
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -35.5
+      value: 24.8
       objectReference: {fileID: 0}
     - target: {fileID: 5472554438844524655, guid: 4427d2948c4053947ab9c33be9197ed6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1724,11 +1724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: distCap
-      value: 4.5
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: pullMagnitude
-      value: 5000
+      value: 5250
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalScale.x
@@ -1796,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5537909479506269086, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_Name
-      value: BlackHole
+      value: BlackHole 2
       objectReference: {fileID: 0}
     - target: {fileID: 6188625363118570963, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalScale.x

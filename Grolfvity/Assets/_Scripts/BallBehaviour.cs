@@ -263,7 +263,7 @@ public class BallBehaviour : MonoBehaviour
         //Increase drag 10% every frame when ball gest stuck orbiting 
         if (ballFlyingTimer > 5.0f)
         {
-            drag += 0.01f;
+            rbody.drag += 0.001f;
         }
     }
 

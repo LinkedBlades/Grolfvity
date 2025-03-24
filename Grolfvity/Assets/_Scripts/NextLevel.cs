@@ -7,14 +7,8 @@ public class NextLevel : MonoBehaviour
     [Header("Next level to load number as string")]
     [SerializeField] public int nextLevelNumber;
 
-    [Header("Current level to load number as string")]
-    [SerializeField] public int currentLevelNumber;
-
-
-    private void Start()
-    {
-
-    }
+    [Header("Unused - Current level to load number as string")]
+    [SerializeField] public int currentLevelNumber; //Unused
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

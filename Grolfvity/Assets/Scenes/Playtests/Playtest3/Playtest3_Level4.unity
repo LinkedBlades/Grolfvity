@@ -1613,11 +1613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: distCap
-      value: 3
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 3270256673087639120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: pullMagnitude
-      value: 5000
+      value: 5250
       objectReference: {fileID: 0}
     - target: {fileID: 3455843126660220120, guid: 73f278ed3f2d2714a885c73c7a6e1803, type: 3}
       propertyPath: m_LocalScale.x
