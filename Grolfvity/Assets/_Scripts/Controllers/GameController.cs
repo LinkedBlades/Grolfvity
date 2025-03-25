@@ -175,7 +175,6 @@ public class GameController : MonoBehaviour
     //Starts end sequence - Called when beating last level
     private void HandleEnd()
     {
-        SceneController.Instance.UnloadCurrentLevel();
 
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.shotsCounter);
