@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -223,6 +224,11 @@ public class GameController : MonoBehaviour
     public void DecreaseHolesRemaining()
     {
         levelHolesLeft--;
+    }
+
+    public void SetCurrentLevel(int levelNum)
+    {
+        currentLevel = levelNum;
     }
 
 }

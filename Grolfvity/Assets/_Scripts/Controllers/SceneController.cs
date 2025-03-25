@@ -78,10 +78,10 @@ public class SceneController : MonoBehaviour
         {
             if (levelNum <= GameController.Instance.levelReached)
             {
-                //Unload current level
                 UnloadCurrentLevel();
                 //Update current level to new level number
                 currLevel = levelNum;
+                GameController.Instance.SetCurrentLevel(currLevel);
                 //Load new level
                 SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
                 //UnPause game if called from level select button
@@ -89,6 +89,7 @@ public class SceneController : MonoBehaviour
             }
             else
             {
+                //In case user selects level that has not been reached pop up error menu
                 SoundController.Instance.PlaySFX(SoundController.Instance.levelSelectError);
                 UIcontroller.Instance.ActivateUI(UIcontroller.Instance.levelSelectError);
             }
