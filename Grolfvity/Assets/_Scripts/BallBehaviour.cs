@@ -213,12 +213,18 @@ public class BallBehaviour : MonoBehaviour
         //Stop ball after X bounces
         if(col.gameObject.name == "Hitbox")
         {   
+            //Simple fix for ball getting stucked in flying moon due to increasing drag
+            if(col.gameObject.tag == "Obstacle")
+            {
+                ballFlyingTimer = 0;
+                rbody.drag = drag;
+            }
+
             //Only stop ball when bouncing off planet surfaces
             if(col.gameObject.tag != "Obstacle")
             {
                 bounceCount++;
             }
-
             SoundController.Instance.PlaySFX(SoundController.Instance.ballBounce, 0.8f);
             if (bounceCount == bounceCap)
             {

@@ -254,3 +254,4 @@ Selecting unbeaten level raises message, while selecting current level restarts
 -Updated camera size 67.5 -> 75
 -Fixed error trying to unload level multiple times
 -Finished PT3 build: https://play.unity.com/en/games/c22fef05-d79b-43e2-9186-e033af07a914/grolfvity-playtest-3
+- Bugfix - Ball stuck on moon due to increased drag
