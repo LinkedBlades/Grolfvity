@@ -13,8 +13,7 @@ public class GameController : MonoBehaviour
     public float gameTimer { get; private set; }
 
     public int levelReached;
-    public string currentLevelSuffix { get; private set; }
-    public string nextLevelSuffix { get; private set; }
+    public int currentLevel { get; private set; }
     public int levelHolesLeft {  get; private set; }
     public GameState currentState { get; private set; }
     //For passing ball state to planets
@@ -117,6 +116,7 @@ public class GameController : MonoBehaviour
         gameTimer = 0;
         totalStrokes = 0;
         levelStrokes = 0;
+        currentLevel = 1;
         UIcontroller.Instance.UpdateShotsTaken(); //Update shots back to zero after reseting game
         GetHolesInLevel();
     }
@@ -152,9 +152,13 @@ public class GameController : MonoBehaviour
     {
         levelStrokes = 0;
         //Update beaten levels
-        levelReached++;
+        if(levelReached <5)
+        {
+            levelReached++;
+        }
+        currentLevel++;
         //Load next level and unload current level
-        SceneController.Instance.LoadLevel(levelReached.ToString());
+        SceneController.Instance.LoadLevel(currentLevel.ToString());
 
         ChangeGameState(GameState.Playing);
     }
@@ -170,6 +174,8 @@ public class GameController : MonoBehaviour
     //Starts end sequence - Called when beating last level
     private void HandleEnd()
     {
+        SceneController.Instance.UnloadCurrentLevel();
+
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.levelTimer);
         UIcontroller.Instance.DeactivateUI(UIcontroller.Instance.shotsCounter);
 
