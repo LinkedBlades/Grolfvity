@@ -32,7 +32,7 @@ public class BallBehaviour : MonoBehaviour
     [Header("Min speed threshold to stop ball")]
     [SerializeField] float minSpeedCheck = 0.1f;
 
-    [Header("Experimenting with stopping ball after X time")]
+    [Header("Check ball has stopped for X time")]
     [SerializeField] float ballStoppedTimer = 1.0f;
     //Used to increase drag in ball if flying for too long due to orbiting a planet
     private float ballFlyingTimer;

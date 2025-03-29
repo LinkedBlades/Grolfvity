@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-
-//using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
@@ -69,6 +67,7 @@ public class UIcontroller : MonoBehaviour
         }
     }
 
+    //Funcions for updating UI text elements
     public void UpdateTimer()
     {
         float timer = GameController.Instance.gameTimer;

@@ -7,7 +7,7 @@ public class PlanetForces : MonoBehaviour
 {
     //Variables for controlling gravity field
     [Header("Replaces G*m1*m2")]
-    [SerializeField] float pullMagnitude;
+    [SerializeField] float pullMagnitude = 1;
     [Header("Factor 1/distCap for reduction in pull strenght in field edge")]
     [SerializeField] float distCap;
 
@@ -91,17 +91,9 @@ public class PlanetForces : MonoBehaviour
 
         float distFactor; // How much to scale down the pull foce based on distance
         
-        if(distCap == 0)
-        {
-            //F = G * (m1*m2) / r^2
-            distFactor =  Mathf.Pow(distToBall, 2);
-        }
-        else
-        {
-            //Remapping force scaling based on distance
-            float temporary = Mathf.InverseLerp(oldRangeMax, oldRangeMin, Mathf.Pow(distToBall, 2));
-            distFactor = Mathf.Lerp(newRangeMax, newRangeMin, temporary);
-        }
+        //Remapping force scaling based on distance
+        float temporary = Mathf.InverseLerp(oldRangeMax, oldRangeMin, Mathf.Pow(distToBall, 2));
+        distFactor = Mathf.Lerp(newRangeMax, newRangeMin, temporary);
 
         float forceMagnitude = pullMagnitude / distFactor;
 

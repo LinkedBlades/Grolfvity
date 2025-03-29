@@ -73,7 +73,6 @@ public class SceneController : MonoBehaviour
     {
         int levelNum = int.Parse(levelSuffix);
         string nextSceneName = LevelScenePrefix + levelSuffix;
-        //Check if there is a level to load. If level already loaded it will just reload
         if (nextSceneName != "")
         {
             if (levelNum <= GameController.Instance.levelReached)

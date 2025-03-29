@@ -1,26 +1,26 @@
 ------------------- VISUAL ASSETS ------------------------------
 
 Unity assets references
-Background package 1  : https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
+++ Background package 1  : https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
 
 Background package 2 :https://assetstore.unity.com/packages/2d/textures-materials/sky/free-skyboxes-space-178953#publisher
 
 Background nebula : https://assetstore.unity.com/packages/2d/textures-materials/sky/nebula-skyboxes-219924
 
-Dynamic space background : https://assetstore.unity.com/packages/2d/textures-materials/dynamic-space-background-lite-104606
+++ Dynamic space background : https://assetstore.unity.com/packages/2d/textures-materials/dynamic-space-background-lite-104606
 
-Planets 2D : https://assetstore.unity.com/packages/2d/textures-materials/planets-with-space-background-in-flat-style-95983
+++ Planets 2D : https://assetstore.unity.com/packages/2d/textures-materials/planets-with-space-background-in-flat-style-95983
 
 Texture 1 free : https://assetstore.unity.com/packages/2d/textures-materials/textures-free-122421
 
 World materials : https://assetstore.unity.com/packages/2d/textures-materials/world-materials-free-150182
 
-105 Colorful 2D Planet Icons by ARISAN: https://assetstore.unity.com/packages/2d/gui/icons/105-colorful-2d-planet-icons-71084
+++105 Colorful 2D Planet Icons by ARISAN: https://assetstore.unity.com/packages/2d/gui/icons/105-colorful-2d-planet-icons-71084
 
 --------------------UI ASSETS----------------------------------
-Sci-fi GUI skin : https://assetstore.unity.com/packages/2d/gui/sci-fi-gui-skin-15606
+++Sci-fi GUI skin : https://assetstore.unity.com/packages/2d/gui/sci-fi-gui-skin-15606
 
-Free Pixel Font - Thaleah : https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
+++Free Pixel Font - Thaleah : https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
 
 ------------------- AUDIO ASSETS ------------------------------
 
@@ -32,7 +32,7 @@ Vertex- Absolutely free music : https://assetstore.unity.com/packages/audio/musi
 
 Olan -The night sky: https://assetstore.unity.com/packages/audio/music/orchestral/the-night-sky-35720#description
 
-Breitbarth - Deep in space : https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071
+++ Breitbarth - Deep in space : https://assetstore.unity.com/packages/audio/music/electronic/deep-in-space-88071 
 
 ---SFX---
 
@@ -40,15 +40,12 @@ GWritter Studio  Space SF : https://assetstore.unity.com/packages/audio/sound-fx
 
 Oliver Girardot Free sound effects pack: https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776
 
-Dustyroom - Free Casual Game SFX Pack : https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116
+++ Dustyroom - Free Casual Game SFX Pack : https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116
 
 HoveAudio - SCI-FI UI SOUND EFFECTS HOVE AUDIO : https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-ui-sound-effects-hove-audio-263876#description
 
 cabled_mess - Retro Sci-Fi Pack : https://assetstore.unity.com/packages/audio/sound-fx/retro-sci-fi-pack-61781#content
 
-Pedro Hertz SFX - Universal UI SFX : https://assetstore.unity.com/packages/audio/sound-fx/universal-ui-sfx-269513
+++ Pedro Hertz SFX - Universal UI SFX : https://assetstore.unity.com/packages/audio/sound-fx/universal-ui-sfx-269513
 
-Matthew Anett - Classic Footsteps SFX : https://assetstore.unity.com/packages/audio/sound-fx/classic-footstep-sfx-173668 
-
------------------ Not used paid particles ----------------------
-Beetheart Creative Studio: 2D Black Hole Vortex: https://assetstore.unity.com/packages/2d/textures-materials/2d-black-hole-vortex-15027
+++ Matthew Anett - Classic Footsteps SFX : https://assetstore.unity.com/packages/audio/sound-fx/classic-footstep-sfx-173668 

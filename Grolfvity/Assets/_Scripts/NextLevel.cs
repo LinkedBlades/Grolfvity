@@ -15,7 +15,7 @@ public class NextLevel : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             GameController.Instance.GetHolesInLevel();
-            //Updates holes manager and check if there are holes remaining;
+            //Updates game manager and check if there are holes remaining;
             if (GameController.Instance.levelHolesLeft > 1)
             {
                 Destroy(gameObject);
