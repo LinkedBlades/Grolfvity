@@ -61,6 +61,7 @@ public class PlanetForces : MonoBehaviour
             oldRangeMax = Mathf.Pow(eventHorizonRadius, 2);
         }
 
+        //Calculating new gravitational force magnitude boundaries
         oldRangeMin = Mathf.Pow(planetRadius, 2);
         newRangeMin = oldRangeMin;
         newRangeMax = distCap * oldRangeMin;

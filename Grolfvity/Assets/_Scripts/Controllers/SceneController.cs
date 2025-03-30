@@ -35,7 +35,6 @@ public class SceneController : MonoBehaviour
     {
         //Set resolution and current level
         Screen.SetResolution(1920, 1080, true);
-        currLevel = 1;
     }
 
     //Loads initial scenes for game to start
@@ -43,7 +42,7 @@ public class SceneController : MonoBehaviour
     {
         //Unload levels loaded in the editor
         UnloadLevels();
-
+        currLevel = 1;
         //Load game first level
         if (!SceneManager.GetSceneByName("Playtest3_Level1").isLoaded)
         {
